@@ -1,0 +1,17 @@
+sets.exported={
+    main={ name="Lathi", augments={'MP+80','INT+20','"Mag.Atk.Bns."+20',}},
+    sub="Zuuxowu Grip",
+    ammo="Pemphredo Tathlum",
+    head="Befouled Crown",
+    body={ name="Amalric Doublet", augments={'MP+60','INT+10','Enmity-5',}},
+    hands={ name="Amalric Gages", augments={'INT+10','Mag. Acc.+15','"Mag.Atk.Bns."+15',}},
+    legs="Assid. Pants +1",
+    feet="Herald's Gaiters",
+    neck="Sanctity Necklace",
+    waist="Fucho-no-Obi",
+    left_ear={ name="Moonshade Earring", augments={'Mag. Acc.+4','Latent effect: "Refresh"+1',}},
+    right_ear="Friomisi Earring",
+    left_ring="Shiva Ring +1",
+    right_ring="Fenrir Ring +1",
+    back={ name="Bane Cape", augments={'Elem. magic skill +4','Dark magic skill +10','"Mag.Atk.Bns."+4',}},
+}
