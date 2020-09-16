@@ -1,0 +1,17 @@
+sets.exported={
+    main="Bolelabunga",
+    sub={ name="Beatific Shield +1", augments={'Phys. dmg. taken -4%','HP+21','Magic dmg. taken -2%',}},
+    ammo="Impatiens",
+    head={ name="Viti. Chapeau +2", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+    body="Atrophy Tabard +1",
+    hands={ name="Helios Gloves", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','"Fast Cast"+5','INT+7 MND+7',}},
+    legs={ name="Carmine Cuisses", augments={'Accuracy+15','Attack+10','"Dual Wield"+5',}},
+    feet="Atrophy Boots +1",
+    neck="Wiglen Gorget",
+    waist="Fucho-no-Obi",
+    left_ear={ name="Moonshade Earring", augments={'Mag. Acc.+4','Latent effect: "Refresh"+1',}},
+    right_ear="Loquac. Earring",
+    left_ring="Stikini Ring",
+    right_ring="Stikini Ring",
+    back={ name="Mecisto. Mantle", augments={'Cap. Point+47%','DEF+2',}},
+}

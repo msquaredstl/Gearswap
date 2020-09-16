@@ -113,10 +113,10 @@ function init_gear_sets()
     RELIC.Feet		=	"Archmage's Sabots +1"
 
     --Lethargy
-    EMPY.Head		=	""
-    EMPY.Body		=	""
-    EMPY.Hands		=	""
-    EMPY.Legs		=	""
+    EMPY.Head		=	"Wicce Petasos +1"
+    EMPY.Body		=	"Wicce Coat +1"
+    EMPY.Hands		=	"Wicce Gloves +1"
+    EMPY.Legs		=	"Wicce Tonban +1"
     EMPY.Feet		=	"Wicce Sabots +1"
 
     -- Capes:
@@ -340,7 +340,7 @@ function init_gear_sets()
     -- Normal refresh idle set
     sets.idle = {main="Lathi", sub="Zuuxowu Grip",
         head="Befouled Crown",neck="Sanctity Necklace",ear1="Moonshade Earring",ear2="Friomisi Earring",
-        body="Amalric Doublet",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
+        body="Jhakri Robe +2",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
         back="Taranus's Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
     -- Idle mode that keeps PDT gear on, but doesn't prevent normal gear swaps for precast/etc.

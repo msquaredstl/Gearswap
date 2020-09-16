@@ -182,7 +182,6 @@ function get_sets()
     
     sets.TP.DT = sets.DT
     
-    send_command('input /macro book 6;wait .1;input /macro set 2')
 end
 
 function precast(spell)

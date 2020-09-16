@@ -36,6 +36,40 @@ function init_gear_sets()
     -- Start defining the sets
     --------------------------------------
 
+    -- JSE
+    AF = {}         -- leave this empty
+    RELIC = {}      -- leave this empty
+    EMPY = {}       -- leave this empty
+
+
+	-- Fill this with your own JSE. 
+    --
+    AF.Head		=	""
+    AF.Body		=	"Theophany Briault"
+    AF.Hands	=	""
+    AF.Legs		=	"Theophany Pantaloons +1"
+    AF.Feet		=	"Theophany Duckbills +1"
+
+    --Vitiation
+    RELIC.Head		=	"Piety Cap +1"
+    RELIC.Body		=	"Piety Briault +1"
+    RELIC.Hands 	=	"Piety Mitts"
+    RELIC.Legs		=	"Piety Pantaloons +1"
+    RELIC.Feet		=	"Piety Duckbills +1"
+
+    --Lethargy
+    EMPY.Head		=	"Ebers Cap +1"
+    EMPY.Body		=	"Ebers Bliaud +1"
+    EMPY.Hands		=	"Ebers Mitts"
+    EMPY.Legs		=	"Ebers Pantaloons +1"
+    EMPY.Feet		=	"Ebers Duckbills"
+
+    -- Capes:
+    -- Sucellos's And such, add your own.
+    BLMCape = {}
+    BLMCape.FreeNuke	=	{ name="Taranus's Cape" }
+
+
     -- Precast Sets
 
     -- Fast cast sets for spells
@@ -117,7 +151,7 @@ function init_gear_sets()
 
     sets.midcast.Cursna = {main="Ababinili +1",sub="Achaq Grip",
         head="Ebers Cap +1",neck="Malison Medallion",
-        body="Ebers Briault +1",hands="Fanatic Gloves",ring1="Ephedra Ring",ring2="Sirona's Ring",
+        body="Ebers Briault +1",hands="Fanatic Gloves",ring1="Ephedra Ring",ring2="Menelaus's Ring",
         back="Mending Cape",waist="Goading Belt",legs="Theophany Pantaloons +1",feet="Gendewitha Galoshes"}
 
     sets.midcast.StatusRemoval = { head="Ebers Cap +1",legs="Ebers Pantaloons +1"}
@@ -183,7 +217,7 @@ function init_gear_sets()
 
     sets.idle.PDT = {main="Bolelabunga", sub="Genbu's Shield",ammo="Homiliary",
         head="Befouled Crown",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut +1",hands="Gendewitha Gages +1",ring1="Defending Ring",ring2=gear.DarkRing.physical,
+        body="Gendewitha Bliaut +1",hands="Gendewitha Gages +1",ring1="Defending Ring",ring2="Meridian Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Querkening Brais",feet="Battlecast Gaiters"}
 
     sets.idle.Town = {main="Queller Rod", sub="Sors Shield",ammo="Homiliary",
