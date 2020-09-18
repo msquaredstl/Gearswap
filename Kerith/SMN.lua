@@ -213,12 +213,12 @@ function init_gear_sets()
 		
     sets.midcast.Stoneskin = {waist="Siegel Sash"}
 
-    sets.midcast['Elemental Magic'] = {main="Lehbrailg +2",sub="Wizzan Grip",
+    sets.midcast['Elemental Magic'] = {main="Grioavolr",sub="Wizzan Grip",
         head="Hagondes Hat +1",neck="Stoicheion Medal",ear1="Friomisi Earring",ear2="Novio Earring",
         body="Hagondes Coat +1",hands="Yaoyotl Gloves",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
         back="Toro Cape",waist=gear.ElementalBelt,legs="Hagondes Pants +1",feet="Hagondes Sabots +1"}
 
-    sets.midcast['Dark Magic'] = {main="Lehbrailg +2",sub="Wizzan Grip",
+    sets.midcast['Dark Magic'] = {main="Grioavolr",sub="Wizzan Grip",
         head="Nahtirah Hat",neck="Aesir Torque",ear1="Gwati Earring",ear2="Enchanter Earring +1",
         body="Helios Jacket",hands="Yaoyotl Gloves",ring1="Excelsis Ring",ring2="Sangoma Ring",
         waist="Fuchi-no-Obi",legs="Bokwus Slops",feet="Bokwus Boots"}

@@ -228,7 +228,7 @@ function init_gear_sets()
     -- Elemental Magic sets
     
     -- Elemental Magic sets are default for handling low-tier nukes.
-    sets.midcast['Elemental Magic'] = {main="Venabulum",sub="Zuuxowu Grip",ammo="Pemphredo Tathlum",
+    sets.midcast['Elemental Magic'] = {main="Grioavolr",sub="Zuuxowu Grip",ammo="Pemphredo Tathlum",
         head="Merlinic Hood",neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
         body="Merlinic Jubbah",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
         back="Toro Cape",waist="Refoccilation Stone",legs="Amalric Slops",feet=MAB_feet}
@@ -304,7 +304,7 @@ function init_gear_sets()
         body="Gendewitha Bliaut +1",hands="Helios Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Engulfer Cape",waist="Flume Belt",legs="Osmium Cuisses",feet="Battlecast Gaiters"}
 
-	sets.idle.Staff = {main="Venabulum",sub="Mephtis Grip",ammo="Impatiens",
+	sets.idle.Staff = {main="Grioavolr",sub="Mephtis Grip",ammo="Impatiens",
 		head=RELIC.Head,neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
 		body=AF.Body,hands=AF.Hands,ring1="Defending Ring",ring2="Shadow Ring",
 		back="Engulfer Cape",waist="Flume Belt",legs="Carmine Cuisses",feet=AF.Feet}

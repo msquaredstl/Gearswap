@@ -25,7 +25,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal')
     state.CastingMode:options('Normal', 'Resistant','DeathMB')
-    state.IdleMode:options('Normal', 'PDT','HighMP')
+    state.IdleMode:options('Normal', 'PDT','HighMP','RR')
 	state.VorsealMode = M('Normal', 'Vorseal')
 	state.ManawallMode = M('Swaps', 'No_Swaps')
 	state.Enfeebling = M('None', 'Effect')
@@ -253,14 +253,14 @@ function init_gear_sets()
         back=BLMCape.FreeNuke,waist="Goading Belt",legs="Psycloth Lappas",feet=EMPY.Feet}
 
 	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
-	head="Pixie Hairpin +1", 
-	neck="Incanter's Torque", 
-	hands="Helios Gloves", 
-	ring1="Archon Ring", 
-	back=BLMCape.FreeNuke, 
-	waist="Fucho-no-obi", 
-	legs="Amalric Slops",
-	feet=Mab_feet
+		head="Pixie Hairpin +1", 
+		neck="Incanter's Torque", 
+		hands="Helios Gloves", 
+		ring1="Archon Ring", 
+		back=BLMCape.FreeNuke, 
+		waist="Fucho-no-obi", 
+		legs="Amalric Slops",
+		feet=Mab_feet
 	})
     
     sets.midcast.Aspir = sets.midcast.Drain
@@ -363,6 +363,9 @@ function init_gear_sets()
         back="Taranus's Cape",waist="Refoccilation Stone",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
         
 	sets.idle.HighMP = set_combine(sets.precast.FC.DeathMB,{sub="Niobid Strap",ammo="Psilomene", head="Merlinic Hood"})
+	
+	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
+	
     -- Defense sets
 
     sets.defense.PDT = { head="Nahtirah Hat",neck="Twilight Torque",

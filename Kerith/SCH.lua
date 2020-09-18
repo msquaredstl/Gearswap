@@ -165,7 +165,7 @@ function init_gear_sets()
 
 
     -- Custom spell classes
-    sets.midcast['Enfeebling Magic'] = {main="Lehbrailg +2",sub="Mephitis Grip",ammo="Pemphredo Tathlum",
+    sets.midcast['Enfeebling Magic'] = {main="Grioavolr",sub="Mephitis Grip",ammo="Pemphredo Tathlum",
         head="Befouled Crown",neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Gwati Earring",
         body="Shango Robe",hands="Helios Gloves",ring1="Archon Ring",ring2="Sangoma Ring",
         back="Refraction Cape",waist="Eschan Stone",legs="Chironic Hose",feet="Medium's sabots"}
@@ -176,12 +176,12 @@ function init_gear_sets()
 
 	sets.midcast.MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {ring1="Globidonta Ring"})
 	
-	sets.midcast['Dark Magic'] = {main="Rubicundity",sub="Culminus",ammo="Hydrocera",
+	sets.midcast['Dark Magic'] = {main="Grioavolr",sub="Culminus",ammo="Hydrocera",
 		head="Befouled Crown",neck="Incanter's Torque",ear1="Barkarole Earring",ear2="Gwati Earring",
 		body="Shango Robe",hands="Amalric Cages",ring1="Adoulin Ring +1",ring2="Sangoma Ring",
 		back="Bookworm's Cape",waist="Witful Belt",legs="Pedagogy Pants +1",feet="Medium's Sabots"}
 
-    sets.midcast.Drain = {main="Lehbrailg +2",sub="Mephitis Grip",ammo="Incantor Stone",
+    sets.midcast.Drain = {main="Grioavolr",sub="Mephitis Grip",ammo="Incantor Stone",
         head="Nahtirah Hat",neck="Incanter's Torque",ear1="Barkarole Earring",ear2="Friomisi Earring",
         body="Helios Jacket",hands="Gendewitha Gages",ring1="Excelsis Ring",ring2="Sangoma Ring",
         back="Refraction Cape",waist="Fucho-no-obi",legs="Pedagogy Pants +1",feet="Academic's Loafers"}
@@ -197,7 +197,7 @@ function init_gear_sets()
 
 
     -- Elemental Magic sets are default for handling low-tier nukes.
-    sets.midcast['Elemental Magic'] = {main="Venabulum",sub="Zuuxowu Grip",ammo="Pemphredo Tathlum",
+    sets.midcast['Elemental Magic'] = {main="Grioavolr",sub="Zuuxowu Grip",ammo="Pemphredo Tathlum",
         head="Merlinic Hood",neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
         body="Merlinic Jubbah",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
         back="Bookworm's Cape",waist="Refoccilation Stone",legs="Amalric Slops",feet=MAB_feet}
@@ -205,7 +205,7 @@ function init_gear_sets()
 	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {sub="Niobid Strap", neck="Imbodla Necklace",ear2="Gwati Earring",back="Refraction Cape",waist="Refoccilation Stone",legs="Psycloth Lappas"})
 
     -- Custom refinements for certain nuke tiers
-    sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {main="Lehbrailg +2",sub="Alber Strap",ring2="Shiva Ring +1",back="Toro Cape"})
+    sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {main="Grioavolr",sub="Alber Strap",ring2="Shiva Ring +1",back="Toro Cape"})
 
     sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {sub="Niobid Strap",ring2="Adoulin Ring +1"})
 
@@ -213,7 +213,7 @@ function init_gear_sets()
 	sets.midcast.Noctohelix = set_combine(sets.midcast.Helix, {head="Pixie Hairpin +1"})
 	sets.midcast.Luminohelix = set_combine(sets.midcast.Helix, {ring1="Weatherspoon Ring"})
 	
-    sets.midcast.Impact = {main="Lehbrailg +2",sub="Mephitis Grip",ammo="Pemphredo Tathlum",
+    sets.midcast.Impact = {main="Grioavolr",sub="Mephitis Grip",ammo="Pemphredo Tathlum",
         head=empty,neck="Eddy Necklace",ear1="Barkarole Earring",ear2="Gwati Earring",
         body="Twilight Cloak",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Sangoma Ring",
         back="Refraction Cape",waist="Refoccilation Stone",legs="Chironic Hose",feet="Medium's Sabots"}
@@ -228,7 +228,7 @@ function init_gear_sets()
         ring1="Star Ring",waist="Hierarch Belt",legs="Assiduity Pants +1"}
 
     -- Normal refresh idle set
-    sets.idle = {main="Lehbrailg +2", sub="Niobid Strap",ammo="Homiliary",
+    sets.idle = {main="Grioavolr", sub="Niobid Strap",ammo="Homiliary",
         head="Befouled Crown",neck="Sanctity Necklace",ear1="Moonshade Earring",ear2="Friomisi Earring",
         body="Kaykaus Bliaut",hands="Amalric Gages",ring1="Adoulin Ring +1",ring2="Fenrir Ring +1",
         back="Bookworm's Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
@@ -244,7 +244,7 @@ function init_gear_sets()
     sets.idle.Weak = set_combine(sets.idle.PDT, {feet="Herald's Gaiters"})
     
     -- Town gear.
-    sets.idle.Town = {main="Lehbrailg +2",sub="Niobid Strap",ammo="Pemphredo Tathlum",
+    sets.idle.Town = {main="Grioavolr",sub="Niobid Strap",ammo="Pemphredo Tathlum",
         head="Academic's Mortarboard +1",neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
         body="Pedagogy Gown +1",hands="Arbatel Bracers +1",ring1="Adoulin Ring +1",ring2="Fenrir Ring +1",
         back="Bane Cape",waist="Refoccilation Stone",legs="Arbatel Pants +1",feet="Herald's Gaiters"}
