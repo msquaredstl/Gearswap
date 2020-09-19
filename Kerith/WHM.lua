@@ -25,7 +25,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal')
     state.CastingMode:options('Normal', 'Resistant', 'Combat')
-    state.IdleMode:options('Normal', 'PDT')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'RR')
 
     select_default_macro_book()
 end
@@ -75,7 +75,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {main="Marin Staff +1",sub="Niobid Strap",ammo="Incantor Stone",
         head="Nahtirah Hat",neck="Orunmila's Torque",ear1="Enchanter Earring +1",ear2="Loquacious Earring",
-        body="Helios Jacket",hands="Gendewitha Gages +1",ring1="Prolix Ring",
+        body="Shango Robe",hands="Gendewitha Gages +1",ring1="Prolix Ring",
         back="Swith Cape",waist="Witful Belt",legs="Kaykaus Tights",feet="Regal Pumps +1"}
         
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
@@ -97,7 +97,7 @@ function init_gear_sets()
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
         head="Nahtirah Hat",ear1="Roundel Earring",
-        body="Helios Jacket",hands="Yaoyotl Gloves",
+        body="Shango Robe",hands="Yaoyotl Gloves",
         back="Refraction Cape",legs="Querkening Brais",feet="Gendewitha Galoshes +1"}
     
 	sets.precast.Trust = sets.precast.FC   
@@ -109,12 +109,12 @@ function init_gear_sets()
     gear.default.weaponskill_waist = ""
     sets.precast.WS = {
         head="Nahtirah Hat",neck=gear.ElementalGorget,ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Helios Jacket",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
+        body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
         back="Refraction Cape",waist=gear.ElementalBelt,legs="Querkening Brais",feet="Regal Pumps +1"}
     
     sets.precast.WS['Flash Nova'] = {
-        head="Nahtirah Hat",neck="Stoicheion Medal",ear1="Friomisi Earring",ear2="Novio Earring",
-        body="Helios Jacket",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Strendu Ring",
+        head="Nahtirah Hat",ear1="Friomisi Earring",ear2="Novio Earring",
+        body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Strendu Ring",
         back="Toro Cape",waist="Thunder Belt",legs="Querkening Brais",feet="Regal Pumps +1"}
     
 
@@ -122,7 +122,7 @@ function init_gear_sets()
     
     sets.midcast.FastRecast = {
         head="Nahtirah Hat",ear2="Loquacious Earring",
-        body="Helios Jacket",hands="Telchine Gloves",ring1="Prolix Ring",
+        body="Shango Robe",hands="Telchine Gloves",ring1="Prolix Ring",
         back="Swith Cape",waist="Goading Belt",legs="Kaykaus Tights",feet="Regal Pumps +1"}
     
     -- Cure sets
@@ -131,7 +131,7 @@ function init_gear_sets()
 
     sets.midcast.CureSolace = {main="Queller Rod",sub="Sors Shield",ammo="Incantor Stone",
         head="Kaykaus Mitra",neck="Incanter's Torque",ear1="Glorious Earring",ear2="Nourishing Earring +1",
-        body="Ebers Briault +1",hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
+        body="Ebers Bliaud +1",hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
         back="Pahtli Cape",waist=gear.ElementalObi,legs="Ebers Pantaloons +1",feet="Piety Duckbills +1"}
 
     sets.midcast.Cure = {main="Queller Rod",sub="Sors Shield",ammo="Incantor Stone",
@@ -151,26 +151,30 @@ function init_gear_sets()
 
     sets.midcast.Cursna = {main="Ababinili +1",sub="Achaq Grip",
         head="Ebers Cap +1",neck="Malison Medallion",
-        body="Ebers Briault +1",hands="Fanatic Gloves",ring1="Ephedra Ring",ring2="Menelaus's Ring",
+        body="Ebers Bliaud +1",hands="Fanatic Gloves",ring1="Ephedra Ring",ring2="Menelaus's Ring",
         back="Mending Cape",waist="Goading Belt",legs="Theophany Pantaloons +1",feet="Gendewitha Galoshes"}
 
     sets.midcast.StatusRemoval = { head="Ebers Cap +1",legs="Ebers Pantaloons +1"}
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts/
     sets.midcast['Enhancing Magic'] = {main="Ababinili +1",sub="Achaq Grip",
-        head="Umuthi Hat",neck="Incanter's Torque",
+        head="Befouled Crown",neck="Incanter's Torque",
         body="Manasa Chasuble",hands="Dynasty Mitts",
         back="Mending Cape",waist="Olympus Sash",legs="Piety Pantaloons +1",feet="Theophany Duckbills +1"}
 
     sets.midcast.Stoneskin = {main="Ababinili +1",sub="Achaq Grip",
         head="Nahtirah Hat",neck="Orunmila's Torque",ear2="Loquacious Earring",
-        body="Helios Jacket",hands="Dynasty Mitts",
+        hands="Dynasty Mitts",
         back="Swith Cape",waist="Siegel Sash",legs="Piety Pantaloons +1",feet="Theophany Duckbills +1"}
+
+    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
+
+	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {feet="Inspirited Boots"})
 
     sets.midcast.Auspice = {hands="Dynasty Mitts",feet="Ebers Duckbills"}
 
     sets.midcast.BarElement = {main="Ababinili +1",sub="Achaq Grip",
-        head="Ebers Cap +1",neck="Incanter's Torque", body="Ebers Briault +1",hands="Orison Mitts +2",
+        head="Ebers Cap +1",neck="Incanter's Torque", body="Ebers Bliaud +1",hands="Orison Mitts +2",
         back="Mending Cape",waist="Olympus Sash",legs="Piety Pantaloons +1",feet="Ebers Duckbills"}
 
     sets.midcast.Regen = {main="Bolelabunga",sub="Genbu's Shield",
@@ -184,12 +188,12 @@ function init_gear_sets()
 
     sets.midcast['Divine Magic'] = {main="Bolelabunga",sub="Sors Shield",
         head="Nahtirah Hat",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Nourishing Earring +1",
-        body="Helios Jacket",hands="Yaoyotl Gloves",ring2="Sangoma Ring",
+        body="Vanya Robe",hands="Yaoyotl Gloves",ring2="Sangoma Ring",
         back="Refraction Cape",waist=gear.ElementalObi,legs="Theophany Pantaloons +1",feet="Gendewitha Galoshes"}
 
     sets.midcast['Dark Magic'] = {main="Bolelabunga", sub="Sors Shield",
         head="Nahtirah Hat",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Nourishing Earring +1",
-        body="Helios Jacket",hands="Yaoyotl Gloves",ring1="Fenrir Ring +1",ring2="Sangoma Ring",
+        body="Shango Robe",hands="Yaoyotl Gloves",ring1="Fenrir Ring +1",ring2="Sangoma Ring",
         back="Refraction Cape",waist="Aswang Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
 
     -- Custom spell classes
@@ -230,7 +234,9 @@ function init_gear_sets()
         body="Gendewitha Bliaut +1",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Meridian Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Gendewitha Galoshes +1"}
     
-    -- Defense sets
+ 	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
+
+   -- Defense sets
 
     sets.defense.PDT = {main=gear.Staff.PDT,sub="Sors Shield",
         head="Kaykaus Mitra",neck="Twilight Torque",
@@ -239,7 +245,7 @@ function init_gear_sets()
 
     sets.defense.MDT = {main=gear.Staff.PDT,sub="Sors Shield",
         head="Nahtirah Hat",neck="Twilight Torque",
-        body="Helios Jacket",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Shadow Ring",
+        body="Kaykaus Bliaut",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Pahtli Cape",legs="Bokwus Slops",feet="Battlecast Gaiters"}
 
     sets.Kiting = {feet="Herald's Gaiters"}
@@ -256,7 +262,7 @@ function init_gear_sets()
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
         head="Nahtirah Hat",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Helios Jacket",hands="Dynasty Mitts",ring1="Rajas Ring",ring2="K'ayres Ring",
+        body="Kaykaus Bliaut",hands="Dynasty Mitts",ring1="Rajas Ring",ring2="K'ayres Ring",
         back="Umbra Cape",waist="Cetl Belt",legs="Querkening Brais",feet="Gendewitha Galoshes +1"}
 
 

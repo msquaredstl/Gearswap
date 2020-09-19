@@ -193,7 +193,7 @@ function init_gear_sets()
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
-    sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {neck="Stoicheion Medal", feet="Tutyr Sabots"})
+    sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {feet="Tutyr Sabots"})
 
     sets.precast.FC.Impact = set_combine(sets.precast.FC['Elemental Magic'], {head=empty,body="Twilight Cloak"})
 
@@ -218,7 +218,7 @@ function init_gear_sets()
 		-- Increase Max MP
      sets.precast.WS['Myrkr'] = {ammo="Kalboron Stone",
         head="Nahtirah Hat",neck="Orunmila's Torque",ear1=Earrings.FreeNuke,ear2="Loquacioous Earring",
-        body="Helios Jacket",hands="Helios Gloves",ring1="Sangoma Ring",ring2="Mephitas's ring +1",
+        body="Amalric Doublet",hands="Helios Gloves",ring1="Sangoma Ring",ring2="Mephitas's ring +1",
         back="Taranus's Cape",waist="Fucho-no-obi",legs="Psycloth Lappas",feet="Medium's Sabots"}
    
     
@@ -231,17 +231,23 @@ function init_gear_sets()
 
     sets.midcast.Cure = {main="Tamaxchi",sub="Sors Shield",ammo="Kalboron Stone",
         head="Nahtirah Hat",neck="Incanter's Torque",ear2="Loquacious Earring",
-        body="Wretched Coat",hands="Telchine Gloves",ring1="Ephedra Ring",ring2="Sirona's Ring",
+        body="Annointed Kalasiris",hands="Telchine Gloves",ring1="Ephedra Ring",ring2="Sirona's Ring",
         back="Pahtli Cape",waist=gear.ElementalObi,legs="Psycloth Lappas",feet="Medium's Sabots"}
 
     sets.midcast.Curaga = sets.midcast.Cure
 
-    sets.midcast['Enhancing Magic'] = { head="Befouled Crown", neck="Incanter's Torque",body="Vanya Robe",feet="Regal Pumps +1" }
+    sets.midcast['Enhancing Magic'] = { 
+	head="Befouled Crown", 
+	neck="Incanter's Torque",
+	body="Vanya Robe",
+	feet="Regal Pumps +1" }
     
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
+	
+	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {feet="Inspirited Boots"})
 
     sets.midcast['Enfeebling Magic'] = {main=Weapons.FreeNuke,sub="Mephitis Grip",ammo="Pemphredo Tathlum",
-        head="Befouled Crown",neck="Imbodla Necklace",ear1=Earrings.FreeNuke,ear2="Gwati Earring",
+        head="Befouled Crown",neck="Incanter's Torque",ear1=Earrings.FreeNuke,ear2="Gwati Earring",
         body="Vanya Robe",hands="Helios Gloves",ring1="Stikini Ring",ring2="Stikini Ring",
         back=BLMCape.FreeNuke,legs="Psycloth Lappas",feet="Medium's Sabots"}
         
@@ -268,7 +274,7 @@ function init_gear_sets()
 
 	sets.midcast.Stun = {main=Weapons.FreeNuke,sub="mephitis grip",ammo="Impatiens",
 		head="Nahtirah Hat",neck="orunmilia torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-		body="helios jacket",hands="Yaoyotl Gloves",ring1="Stikini Ring",ring2="Stikini Ring",
+		body="Merlinic Jubbah",hands="Yaoyotl Gloves",ring1="Stikini Ring",ring2="Stikini Ring",
 		back=BLMCape.FreeNuke,waist="Witful Belt",legs="Psycloth Lappas",feet="regal pumps +1"}
 
 
@@ -357,10 +363,7 @@ function init_gear_sets()
         back="Umbra Cape",waist="Fucho-no-obi",legs="Nares Trews",feet="Battlecast Gaiters"}
     
     -- Town gear.
-    sets.idle.Town = {main="Lathi",sub="Zuuxowu Grip",ammo="Pemphredo Tathlum",
-        head="Befouled Crown",neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
-        body="Wretched Coat",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
-        back="Taranus's Cape",waist="Refoccilation Stone",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
+    sets.idle.Town = set_combine(sets.idle,{})
         
 	sets.idle.HighMP = set_combine(sets.precast.FC.DeathMB,{sub="Niobid Strap",ammo="Psilomene", head="Merlinic Hood"})
 	
@@ -368,13 +371,13 @@ function init_gear_sets()
 	
     -- Defense sets
 
-    sets.defense.PDT = { head="Nahtirah Hat",neck="Twilight Torque",
+    sets.defense.PDT = { head="Hagondes Hat +1",neck="Twilight Torque",
         body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2=DarkRing,
         back="Umbra Cape",waist="Hierarch Belt",legs="Amalric Slops", feet="Battlecast Gaiters"}
     
     sets.defense.MDT = {ammo="Demonry Stone",
-        head="Nahtirah Hat",neck="Twilight Torque",
-        body="Helios Jacket",hands="Helios Gloves",ring1="Defending Ring",ring2="Shadow Ring",
+        head="Hagondes hat +1",neck="Twilight Torque",
+        body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Tuilha Cape",waist="Hierarch Belt",legs="Psycloth Lappas",feet="Hagondes Sabots"}
 
     sets.Kiting = {feet="Herald's Gaiters"}

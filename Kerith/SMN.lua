@@ -140,7 +140,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal', 'Acc')
     state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'PDT')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'RR')
 
     gear.perp_staff = {name=""}
     
@@ -173,7 +173,7 @@ function init_gear_sets()
     
     sets.precast.FC = {
         head="Nahtirah Hat",ear2="Loquacious Earring",
-        body="Helios Jacket",ring1="Prolix Ring",
+        body="Shango Robe",ring1="Prolix Ring",
         back="Swith Cape",waist="Witful Belt",legs="Artsieq Hose",feet="Regal Pumps +1"}
 
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
@@ -184,7 +184,7 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         head="Nahtirah Hat",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Helios Jacket",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
+        body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
         back="Pahtli Cape",waist="Cascade Belt",legs="Hagondes Pants +1",feet="Hagondes Sabots +1"}
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
@@ -200,7 +200,7 @@ function init_gear_sets()
 
     sets.midcast.FastRecast = {
         head="Nahtirah Hat",ear2="Loquacious Earring",
-        body="Helios Jacket",hands="Bokwus Gloves",ring1="Prolix Ring",
+        body="Shango Robe",hands="Bokwus Gloves",ring1="Prolix Ring",
         back="Swith Cape +1",waist="Witful Belt",legs="Hagondes Pants +1",feet="Regal Pumps +1"}
 
     sets.midcast.Cure = {main="Tamaxchi",sub="Genbu's Shield",
@@ -214,13 +214,13 @@ function init_gear_sets()
     sets.midcast.Stoneskin = {waist="Siegel Sash"}
 
     sets.midcast['Elemental Magic'] = {main="Grioavolr",sub="Wizzan Grip",
-        head="Hagondes Hat +1",neck="Stoicheion Medal",ear1="Friomisi Earring",ear2="Novio Earring",
+        head="Hagondes Hat +1",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Novio Earring",
         body="Hagondes Coat +1",hands="Yaoyotl Gloves",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
         back="Toro Cape",waist=gear.ElementalBelt,legs="Hagondes Pants +1",feet="Hagondes Sabots +1"}
 
     sets.midcast['Dark Magic'] = {main="Grioavolr",sub="Wizzan Grip",
         head="Nahtirah Hat",neck="Aesir Torque",ear1="Gwati Earring",ear2="Enchanter Earring +1",
-        body="Helios Jacket",hands="Yaoyotl Gloves",ring1="Excelsis Ring",ring2="Sangoma Ring",
+        body="Shango Robe",hands="Yaoyotl Gloves",ring1="Excelsis Ring",ring2="Sangoma Ring",
         waist="Fuchi-no-Obi",legs="Bokwus Slops",feet="Bokwus Boots"}
 
 
@@ -324,6 +324,8 @@ function init_gear_sets()
         body="Convoker's Doublet +1",hands="Serpentes Cuffs",ring1="Evoker's Ring",ring2="Sangoma Ring",
         back="Conveyance Cape",waist="Fucho-no-Obi",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
+ 	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
+
     -- Favor uses Caller's Horn instead of Convoker's Horn for refresh
     sets.idle.Avatar.Favor = {head="Caller's Horn +2"}
     sets.idle.Avatar.Melee = {hands="Regimen Mittens",back="Samanisi Cape",waist="Kuku Stone",legs="Convoker's Spats +1"}
@@ -352,7 +354,7 @@ function init_gear_sets()
 
     sets.defense.MDT = {
         head="Hagondes Hat +1",neck="Twilight Torque",ear1="Gifted Earring",ear2="Loquacious Earring",
-        body="Helios Jacket +1",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Shadow Ring",
+        body="Hagondes Coat +1",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Umbra Cape",waist="Fucho-no-Obi",legs="Hagondes Pants +1",feet="Hagondes Sabots +1"}
 
     sets.Kiting = {feet="Herald's Gaiters"}
@@ -367,7 +369,7 @@ function init_gear_sets()
     -- Normal melee group
     sets.engaged = {ammo="Seraphicaller",
         head="Zelus Tiara",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Helios Jacket",hands="Bokwus Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
+        body="Shango Robe",hands="Bokwus Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
         back="Umbra Cape",waist="Goading Belt",legs="Hagondes Pants +1",feet="Hagondes Sabots +1"}
 end
 

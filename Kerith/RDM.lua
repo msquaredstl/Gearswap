@@ -30,7 +30,7 @@ function user_setup()
     state.HybridMode:options('Normal', 'PhysicalDef', 'MagicalDef')
     state.WeaponskillMode:options('Normal', 'Acc', 'Mod')
     state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'PDT', 'MDT', 'Staff')
+    state.IdleMode:options('Normal', 'PDT', 'MDT', 'Staff', 'RR')
 
 
 	lowTierNukes = S{'Stone', 'Water', 'Aero', 'Fire', 'Blizzard', 'Thunder',
@@ -143,7 +143,7 @@ function init_gear_sets()
     -- No other FC sets necessary.
     sets.precast.FC = {main="Marin Staff +1",sub="Niobid Strap",ammo="Impatiens",
         head=AF.Head,neck="Orunmila's Torque",ear1="Enchanter Earring +1",ear2="Loquacious Earring",
-        body="Shango Robe",hands="Leyline Gloves",ring1="Prolix Ring",
+        body=RELIC.Body,hands="Leyline Gloves",ring1="Prolix Ring",
         back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas",feet="Uk'uxkaj Boots"}
 
     sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
@@ -167,7 +167,7 @@ function init_gear_sets()
     sets.midcast.Cure = {
 		main="Tamaxchi",
 		sub="Sors Shield",
-        head="Gendewitha Caubeen +1",
+        head="Kaykaus Mitra",
 		neck="Incanter's Torque",
 		ear1="Roundel Earring",
 		ear2="Loquacious Earring",
@@ -233,10 +233,20 @@ function init_gear_sets()
         body="Merlinic Jubbah",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
         back="Toro Cape",waist="Refoccilation Stone",legs="Amalric Slops",feet=MAB_feet}
 
-	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {sub="Niobid Strap", neck="Imbodla Necklace",ear2="Gwati Earring",back="Refraction Cape",waist="Refoccilation Stone",legs="Psycloth Lappas"})
+	sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
+		sub="Niobid Strap", 
+		neck="Saevus Pendant +1",
+		ear2="Gwati Earring",
+		back="Refraction Cape",
+		waist="Refoccilation Stone",
+		legs="Psycloth Lappas"})
 
     -- Custom refinements for certain nuke tiers
-    sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {main="Lehbrailg +2",sub="Alber Strap",ring2="Shiva Ring +1",back="Toro Cape"})
+    sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {
+		main="Grioavolr",
+		sub="Alber Strap",
+		ring2="Shiva Ring +1",
+		back="Toro Cape"})
 
     sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {sub="Niobid Strap",ring2="Adoulin Ring +1"})
 
@@ -296,12 +306,12 @@ function init_gear_sets()
 
     sets.idle.PDT = {main="Bolelabunga",sub="Genbu's Shield",ammo="Demonry Stone",
         head="Lithelimb Cap",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut +1",hands="Umuthi Gloves",ring1="Defending Ring",ring2=gear.DarkRing.physical,
+        body="Hagondes Coat +1",hands="Umuthi Gloves",ring1="Defending Ring",ring2=gear.DarkRing.physical,
         back="Umbra Cape",waist="Flume Belt",legs="Amalric Slops",feet="Battlecast Gaiters"}
 
     sets.idle.MDT = {main="Bolelabunga",sub="Genbu's Shield",ammo="Demonry Stone",
-        head="Gendewitha Caubeen +1",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut +1",hands="Helios Gloves",ring1="Defending Ring",ring2="Shadow Ring",
+        head="Kaykaus Mitra",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Engulfer Cape",waist="Flume Belt",legs="Osmium Cuisses",feet="Battlecast Gaiters"}
 
 	sets.idle.Staff = {main="Grioavolr",sub="Mephtis Grip",ammo="Impatiens",
@@ -309,6 +319,10 @@ function init_gear_sets()
 		body=AF.Body,hands=AF.Hands,ring1="Defending Ring",ring2="Shadow Ring",
 		back="Engulfer Cape",waist="Flume Belt",legs="Carmine Cuisses",feet=AF.Feet}
     
+	sets.idle.Weak = set_combine(sets.idle.PDT, {feet="Herald's Gaiters"})
+
+	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
+	
 	sets.idle['Dual Wield'] = {main=MainWeapon.Sword, sub=SubWeapon.Dagger}
     
     -- Defense sets
@@ -399,10 +413,18 @@ function init_gear_sets()
     sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, 
         {neck="Soil Gorget",ear1="Brutal Earring",ring1="Aquasoul Ring",ring2="Aquasoul Ring",waist="Soil Belt"})
 
-    sets.precast.WS['Sanguine Blade'] = {ammo="Witchstone",
-        head="Hagondes Hat +1",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Hecate's Earring",
-        body="Hagondes Coat +1",hands="Helios Gloves",ring1="Strendu Ring",ring2="Adoulin Ring +1",
-        back="Toro Cape",legs="Amalric Slops",feet="Umbanii Boots"}
+    sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
+		ammo="Witchstone",
+		neck="Sanctity Necklace",
+		ear1="Friomisi Earring",
+		ear2="Hecate's Earring",
+        body="Hagondes Coat +1",
+		hands="Helios Gloves",
+		ring1="Strendu Ring",
+		ring2="Adoulin Ring +1",
+        back="Toro Cape",
+		legs="Amalric Slops",
+		feet="Umbanii Boots"})
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, { 
 		body="Jhakri Robe +2",
