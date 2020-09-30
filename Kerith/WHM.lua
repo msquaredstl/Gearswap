@@ -66,8 +66,9 @@ function init_gear_sets()
 
     -- Capes:
     -- Sucellos's And such, add your own.
-    BLMCape = {}
-    BLMCape.FreeNuke	=	{ name="Taranus's Cape" }
+    WHMCape = {}
+    WHMCape.MND	=	{ name="Alaunus's Cape" }
+	WHMCape.ENH = 	{ name="Mending Cape" }
 
 
     -- Precast Sets
@@ -149,17 +150,26 @@ function init_gear_sets()
         body="Kaykaus Bliaut",hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
         back="Pahtli Cape",waist=gear.ElementalObi,legs="Ebers Pantaloons +1",feet="Piety Duckbills +1"}
 
-    sets.midcast.Cursna = {main="Ababinili +1",sub="Achaq Grip",
-        head="Ebers Cap +1",neck="Malison Medallion",
-        body="Ebers Bliaud +1",hands="Fanatic Gloves",ring1="Ephedra Ring",ring2="Menelaus's Ring",
-        back="Mending Cape",waist="Goading Belt",legs="Theophany Pantaloons +1",feet="Gendewitha Galoshes"}
+    sets.midcast.Cursna = {
+		main="Ababinili +1",
+		sub="Achaq Grip",
+        head="Ebers Cap +1",
+		neck="Malison Medallion",
+        body="Ebers Bliaud +1",
+		hands="Fanatic Gloves",
+		ring1="Haoma's Ring",
+		ring2="Menelaus's Ring",
+        back=WHMCape.MND,
+		waist="Goading Belt",
+		legs="Theophany Pantaloons +1",
+		feet="Gendewitha Galoshes"}
 
     sets.midcast.StatusRemoval = { head="Ebers Cap +1",legs="Ebers Pantaloons +1"}
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts/
     sets.midcast['Enhancing Magic'] = {main="Ababinili +1",sub="Achaq Grip",
         head="Befouled Crown",neck="Incanter's Torque",
-        body="Manasa Chasuble",hands="Dynasty Mitts",
+        body="Telchine Chasuble",hands="Dynasty Mitts",
         back="Mending Cape",waist="Olympus Sash",legs="Piety Pantaloons +1",feet="Theophany Duckbills +1"}
 
     sets.midcast.Stoneskin = {main="Ababinili +1",sub="Achaq Grip",
@@ -220,7 +230,7 @@ function init_gear_sets()
         back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
     sets.idle.PDT = {main="Bolelabunga", sub="Genbu's Shield",ammo="Homiliary",
-        head="Befouled Crown",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Befouled Crown",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Gendewitha Bliaut +1",hands="Gendewitha Gages +1",ring1="Defending Ring",ring2="Meridian Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Querkening Brais",feet="Battlecast Gaiters"}
 
@@ -230,7 +240,7 @@ function init_gear_sets()
         back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
     
     sets.idle.Weak = {main="Bolelabunga",sub="Genbu's Shield",ammo="Homiliary",
-        head="Befouled Crown",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Befouled Crown",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Gendewitha Bliaut +1",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Meridian Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Gendewitha Galoshes +1"}
     
@@ -238,13 +248,13 @@ function init_gear_sets()
 
    -- Defense sets
 
-    sets.defense.PDT = {main=gear.Staff.PDT,sub="Sors Shield",
-        head="Kaykaus Mitra",neck="Twilight Torque",
-        body="Gendewitha Bliaut +1",hands="Gendewitha Gages +1",ring1="Defending Ring",ring2=gear.DarkRing.physical,
+    sets.defense.PDT = {sub="Sors Shield",
+        head="Kaykaus Mitra",neck="Loricate Torque +1",
+        body="Gendewitha Bliaut +1",hands="Gendewitha Gages +1",ring1="Defending Ring",
         back="Umbra Cape",legs="Querkening Brais",feet="Battlecast Gaiters"}
 
-    sets.defense.MDT = {main=gear.Staff.PDT,sub="Sors Shield",
-        head="Nahtirah Hat",neck="Twilight Torque",
+    sets.defense.MDT = {sub="Sors Shield",
+        head="Nahtirah Hat",neck="Loricate Torque +1",
         body="Kaykaus Bliaut",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Pahtli Cape",legs="Bokwus Slops",feet="Battlecast Gaiters"}
 

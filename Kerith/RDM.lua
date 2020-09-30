@@ -173,7 +173,7 @@ function init_gear_sets()
 		ear2="Loquacious Earring",
         body="Kaykaus Bliaut",
 		hands="Telchine Gloves",
-		ring1="Ephedra Ring",
+		ring1="Haoma's Ring",
 		ring2="Sirona's Ring",
         back="Swith Cape",
 		waist="Witful Belt",
@@ -305,17 +305,17 @@ function init_gear_sets()
         back="Shadow Mantle",waist="Flume Belt",legs="Carmine Cuisses",feet="Battlecast Gaiters"}
 
     sets.idle.PDT = {main="Bolelabunga",sub="Genbu's Shield",ammo="Demonry Stone",
-        head="Lithelimb Cap",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Lithelimb Cap",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands="Umuthi Gloves",ring1="Defending Ring",ring2=gear.DarkRing.physical,
         back="Umbra Cape",waist="Flume Belt",legs="Amalric Slops",feet="Battlecast Gaiters"}
 
     sets.idle.MDT = {main="Bolelabunga",sub="Genbu's Shield",ammo="Demonry Stone",
-        head="Kaykaus Mitra",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Kaykaus Mitra",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Engulfer Cape",waist="Flume Belt",legs="Osmium Cuisses",feet="Battlecast Gaiters"}
 
 	sets.idle.Staff = {main="Grioavolr",sub="Mephtis Grip",ammo="Impatiens",
-		head=RELIC.Head,neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+		head=RELIC.Head,neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
 		body=AF.Body,hands=AF.Hands,ring1="Defending Ring",ring2="Shadow Ring",
 		back="Engulfer Cape",waist="Flume Belt",legs="Carmine Cuisses",feet=AF.Feet}
     
@@ -328,7 +328,7 @@ function init_gear_sets()
     -- Defense sets
     sets.defense.PDT = {
         head=AF.Head,
-		neck="Twilight Torque",
+		neck="Loricate Torque +1",
         body="Hagondes Coat +1",
 		hands="Umuthi Gloves",
 		ring1="Defending Ring",
@@ -338,7 +338,7 @@ function init_gear_sets()
 		feet="Battlecast Gaiters"}
 
     sets.defense.MDT = {ammo="Demonry Stone",
-        head=AF.Head,neck="Twilight Torque",
+        head=AF.Head,neck="Loricate Torque +1",
         body="Hagondes Coat +1",hands="Umuthi Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Engulfer Cape",waist="Flume Belt",feet="Battlecast Gaiters"}
 
@@ -363,12 +363,12 @@ function init_gear_sets()
     sets.engaged = { 
 		ammo="Ginsen",
         head=RELIC.Head,
-		neck="Sanctity Necklace",
+		neck="Lissome Necklace",
 		ear1="Bladeborn Earring",
 		ear2="Steelflash Earring",
         body="Taeon Tabard",
 		hands="Carmine finger gauntlets +1",
-		ring1="Adoulin Ring +1",
+		ring1="Hetairoi Ring",
 		ring2="Rajas Ring",
         back=RDMCape.STR,
 		waist="Windbuffet Belt +1",
@@ -385,7 +385,7 @@ function init_gear_sets()
 		legs="Carmine Cuisses"	})
 
 	sets.engaged['Dual Wield'] = set_combine(sets.engaged, { 
-		ear1="Brutal Earring", 
+		ear1="Eabani Earring", 
 		ear2="Suppanomimi", 
 		waist="Windbuffet Belt +1",
 		legs="Carmine Cuisses" })
@@ -407,7 +407,7 @@ function init_gear_sets()
     sets.precast.WS = {
         head=AF.Head,neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
         body=AF.Body,hands="Helios Gloves",ring1="Rufescent Ring",ring2="Rajas Ring",
-        back="Atheling Mantle",waist="Prosilio Belt +1",legs="Hagondes Pants",feet="Hagondes Sabots"}
+        back=RDMCape.STR,waist="Prosilio Belt +1",legs="Hagondes Pants",feet="Hagondes Sabots"}
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, 

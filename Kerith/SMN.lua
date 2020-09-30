@@ -280,7 +280,7 @@ function init_gear_sets()
         back="Umbra Cape",waist="Fucho-no-Obi",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
     sets.idle.PDT = {main="Ungeri Staff",sub="Vox Grip",ammo="Seraphicaller",
-        head="Convoker's Horn +1",neck="Twilight Torque",ear1="Gifted Earring",ear2="Loquacious Earring",
+        head="Convoker's Horn +1",neck="Loricate Torque +1",ear1="Gifted Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Sangoma Ring",
         back="Umbra Cape",waist="Fucho-no-Obi",legs="Hagondes Pants +1",feet="Herald's Gaiters"}
 
@@ -353,7 +353,7 @@ function init_gear_sets()
         back="Umbra Cape",waist="Fucho-no-Obi",legs="Hagondes Pants +1",feet="Battlecast Gaiters"}
 
     sets.defense.MDT = {
-        head="Hagondes Hat +1",neck="Twilight Torque",ear1="Gifted Earring",ear2="Loquacious Earring",
+        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Gifted Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Umbra Cape",waist="Fucho-no-Obi",legs="Hagondes Pants +1",feet="Hagondes Sabots +1"}
 

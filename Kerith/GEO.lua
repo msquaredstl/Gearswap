@@ -196,18 +196,18 @@ function init_gear_sets()
         back="Umbra Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Geomancy Sandals +1"}
  
     sets.idle.PDT = {main="Bolelabunga",sub="Genbu's Shield",range="Dunna",
-        head="Hagondes Hat +1",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands="Bagua Mitaines +1",ring1="Defending Ring",ring2="Paguroidea Ring",
         back="Umbra Cape",waist="Fucho-no-obi",legs="Amalric Slops",feet="Geomancy Sandals +1"}
  
     -- .Pet sets are for when Luopan is present.
     sets.idle.Pet = {main="Bolelabunga",range="Dunna",
-        head="Azimuth Hood +1",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Azimuth Hood +1",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Amalric Doublet",hands="Bagua Mitaines +1",ring1="Defending Ring",ring2="Paguroidea Ring",
         back="Lifestream Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Bagua Sandals"}
  
     sets.idle.PDT.Pet = {main="Bolelabunga",range="Dunna",
-        head="Hagondes Hat +1",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands="Geomancy Mitains",ring1="Defending Ring",ring2="Paguroidea Ring",
         back="Lifestream Cape",waist="Goading Belt",legs="Assiduity Pants +1",feet="Bagua Sandals"}
  

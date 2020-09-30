@@ -100,7 +100,7 @@ function init_gear_sets()
 	-- Fill this with your own JSE. 
     --
     AF.Head		=	""
-    AF.Body		=	"Spaekona's Coat +1"
+    AF.Body		=	"Spaekona's Coat +2"
     AF.Hands	=	"Spaekona's Gloves"
     AF.Legs		=	""
     AF.Feet		=	""
@@ -237,10 +237,10 @@ function init_gear_sets()
     sets.midcast.Curaga = sets.midcast.Cure
 
     sets.midcast['Enhancing Magic'] = { 
-	head="Befouled Crown", 
-	neck="Incanter's Torque",
-	body="Vanya Robe",
-	feet="Regal Pumps +1" }
+		head="Befouled Crown", 
+		neck="Incanter's Torque",
+		body="Vanya Robe",
+		feet="Regal Pumps +1" }
     
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
 	
@@ -310,26 +310,26 @@ function init_gear_sets()
 	sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {ring2="Adoulin Ring +1"})
 
 	sets.midcast.Death = {
-	Ammo="Ghastly Tathlum +1", 
-	head={name="Pixie Hairpin +1", priority=3}, 
-	neck=Necklace.MB, 
-	ear1="Barkarole Earring", 
-	ear2="Static Earring",
-	body={name="Merlinic Jubbah", priority=2}, 
-	hands="Amalric Gages", 
-	ring2={name="Mephitas's Ring +1", priority=4}, 
-	ring1="Archon Ring",
-	back=BLMCape.FreeNuke, 
-	waist="Hachirin-no-Obi", 
-	legs=RELIC.Legs, 
-	feet={name=MAB_Feet, priority=5}}
+		Ammo="Ghastly Tathlum +1", 
+		head={name="Pixie Hairpin +1", priority=3}, 
+		neck=Necklace.MB, 
+		ear1="Barkarole Earring", 
+		ear2="Static Earring",
+		body={name="Merlinic Jubbah", priority=2}, 
+		hands="Amalric Gages", 
+		ring2={name="Mephitas's Ring +1", priority=4}, 
+		ring1="Archon Ring",
+		back=BLMCape.FreeNuke, 
+		waist="Hachirin-no-Obi", 
+		legs=RELIC.Legs, 
+		feet={name=MAB_Feet, priority=5}}
 	 
 	sets.midcast.Comet = set_combine(sets.midcast.Death,{
 						 Ammo="Pemphredo Tathlum", ring1="Mujin Band", legs="Merlinic Shalwar"})
 
     -- Minimal damage gear for procs.
     sets.midcast['Elemental Magic'].Proc = {main="Earth Staff", sub="Mephitis Grip",ammo="Impatiens",
-        head="Nahtirah Hat",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Nahtirah Hat",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Manasa Chasuble",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Swith Cape",waist="Witful Belt",legs="Nares Trews",feet="Chelona Boots +1"}
 
@@ -347,18 +347,20 @@ function init_gear_sets()
     sets.idle = {main="Lathi", sub="Zuuxowu Grip",
         head="Befouled Crown",neck="Sanctity Necklace",ear1="Moonshade Earring",ear2="Friomisi Earring",
         body="Jhakri Robe +2",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
-        back="Taranus's Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
+        --back="Taranus's Cape",
+		back="Mecistopins Mantle",
+		waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
     -- Idle mode that keeps PDT gear on, but doesn't prevent normal gear swaps for precast/etc.
     sets.idle.PDT = {main="Earth Staff", sub="Zuuxowu Grip",
-        head="Nahtirah Hat",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Nahtirah Hat",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Hagondes Coat",hands="Amalric Gages",ring1="Defending Ring",ring2=DarkRing,
         back="Umbra Cape",waist="Fucho-no-obi",legs="Hagondes Pants",feet="Battlecast Gaiters"}
 
     -- Idle mode scopes:
     -- Idle mode when weak.
     sets.idle.Weak = {main="Bolelabunga",sub="Genbu's Shield",
-        head="Hagondes Hat +1",neck="Twilight Torque",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands="Amalric Gages",ring1="Defending Ring",ring2="Paguroidea Ring",
         back="Umbra Cape",waist="Fucho-no-obi",legs="Nares Trews",feet="Battlecast Gaiters"}
     
@@ -367,16 +369,16 @@ function init_gear_sets()
         
 	sets.idle.HighMP = set_combine(sets.precast.FC.DeathMB,{sub="Niobid Strap",ammo="Psilomene", head="Merlinic Hood"})
 	
-	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
+	sets.idle.RR = set_combine(sets.idle,{body="Annointed Kalasiris"})
 	
     -- Defense sets
 
-    sets.defense.PDT = { head="Hagondes Hat +1",neck="Twilight Torque",
+    sets.defense.PDT = { head="Hagondes Hat +1",neck="Loricate Torque +1",
         body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2=DarkRing,
         back="Umbra Cape",waist="Hierarch Belt",legs="Amalric Slops", feet="Battlecast Gaiters"}
     
     sets.defense.MDT = {ammo="Demonry Stone",
-        head="Hagondes hat +1",neck="Twilight Torque",
+        head="Hagondes hat +1",neck="Loricate Torque +1",
         body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Tuilha Cape",waist="Hierarch Belt",legs="Psycloth Lappas",feet="Hagondes Sabots"}
 
@@ -389,13 +391,13 @@ function init_gear_sets()
     sets.buff['Mana Wall'] = {feet=EMPY.Feet}
 
     sets.magic_burst = {
-	neck=Necklace.MB, 
-	ring2="Locus ring", 
-	ear2="Static Earring", 
-	back="Seshaw Cape", 
-	ring2="mujin band", 
-	legs=RELIC.Legs,
-	feet=Mb_feet
+		neck=Necklace.MB, 
+		ring2="Locus ring", 
+		ear2="Static Earring", 
+		back="Seshaw Cape", 
+		ring2="mujin band", 
+		legs=RELIC.Legs,
+		feet=Mb_feet
 	}
 	
 	sets.Seidr = {body=AF.Body}
