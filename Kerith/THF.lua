@@ -86,7 +86,7 @@ function init_gear_sets()
     AF.Head		=	""
     AF.Body		=	"Pillager's Vest +1"
     AF.Hands	=	""
-    AF.Legs		=	""
+    AF.Legs		=	"Pillager's Coulottes +1"
     AF.Feet		=	"Pillager's Poulaines +1"
 
     --Vitiation
@@ -102,6 +102,20 @@ function init_gear_sets()
     EMPY.Hands		=	""
     EMPY.Legs		=	""
     EMPY.Feet		=	"Skulker's Poulaines +1"
+
+	Salvage = {}
+	Salvage.Head	=	"Meghanada Visor"
+	Salvage.Body	=	"Meghanada Cuirie"
+	Salvage.Hands	=	"Meghanada Gloves"
+	Salvage.Legs 	=	"Meghanada Chausses"
+	Salvage.Feet	=	"Meghanada Jambeaux"
+
+	Limbus = {}
+	Limbus.Head		=	"Mummu Bonnet +2"
+	Limbus.Body		=	"Mummu Jacket +2"
+	Limbus.Hands	=	"Mummu Wrists +1"
+	Limbus.Legs 	=	"Mummu Kecks +2"
+	Limbus.Feet		=	"Mummu Gamashes +1"
 
     -- Capes:
     -- Sucellos's And such, add your own.
@@ -157,11 +171,11 @@ function init_gear_sets()
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
 		ammo="Sonia's Plectrum",
-        head="Mummu Bonnet +2",
-        body="Mummu Jacket +2",
-		hands="Mummu Wrists +1",
+        head=Limbus.Head,
+        body=Limbus.Body,
+		hands=Limbus.Hands,
 		ring1="Sirona's Ring",
-		legs="Mummu Kecks +2",
+		legs=Limbus.Legs,
 		feet=RELIC.Feet
 	}
 
@@ -188,9 +202,9 @@ function init_gear_sets()
 
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {ammo="Hasty Pinion +1",
-        head="Adhemar Bonnet",neck=gear.ElementalGorget,ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body=AF.Body,hands="Pillager's Armlets +1",ring1="Rajas Ring",ring2="Adoulin Ring +1",
-        back="Atheling Mantle",waist="Caudata Belt",legs="Manibozho Brais",feet="Iuitl Gaiters +1"}
+        head="Adhemar Bonnet",neck=gear.ElementalGorget,ear1="Moonshade Earring",ear2="Ishvara Earring",
+        body="Herculean Vest",hands="Pillager's Armlets +1",ring1="Rajas Ring",ring2="Adoulin Ring +1",
+        back="Atheling Mantle",waist="Prosilio Belt +1",legs="Manibozho Brais",feet="Iuitl Gaiters +1"}
     sets.precast.WS.Acc = set_combine(sets.precast.WS, {ammo="Honed Tathlum", back="Letalis Mantle"})
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
@@ -212,8 +226,9 @@ function init_gear_sets()
 		ammo="Qirmiz Tathlum",
         head="Uk'uxkaj Cap",
 		neck="Rancor Collar",
-		ear1="Brutal Earring",
-		ear2="Odr Earring"})
+		ear2="Odr Earring",
+		hands=Limbus.Hands,
+		ring2="Mummu Ring"})
     sets.precast.WS['Evisceration'].Acc = set_combine(sets.precast.WS['Evisceration'], {ammo="Honed Tathlum", back="Letalis Mantle"})
     sets.precast.WS['Evisceration'].Mod = set_combine(sets.precast.WS['Evisceration'], {back="Kayapa Cape",waist=gear.ElementalBelt})
     sets.precast.WS['Evisceration'].SA = set_combine(sets.precast.WS['Evisceration'].Mod, {})
@@ -341,28 +356,27 @@ function init_gear_sets()
     sets.engaged = {ammo="Ginsen",
         head	=	"Adhemar Bonnet",
 		neck	=	"Erudition necklace",
-		ear1	=	"Dudgeon Earring",
-		ear2	=	"Heartseeker Earring",
+		ear1	=	"Telos Earring",
+		ear2	=	"Dedition Earring",
         body	=	"Rawhide Vest",
 		hands	=	"Adhemar Wristbands",
 		ring1	=	"Rajas Ring",
 		ring2	=	"Hetairoi Ring",
         back	=	THFCape.Acc,
-		waist	=	"Patentia Sash",
+		waist	=	"Windbuffet Belt +1",
 		legs	=	"Taeon Tights",
 		feet	=	RELIC.Feet
 	}
 		
     sets.engaged.Acc = set_combine(sets.engaged, {
 		ammo="Honed Tathlum",
-        head="Mummu Bonnet +2",
+        head=Limbus.Head,
 		neck="Ej Necklace",
-		ear1="Brutal Earring",
 		ear2="Odr Earring",
-        body="Mummu Jacket +2",
+        body=Limbus.Body,
 		ring2="Adoulin Ring +1",
-		legs="Mummu Kecks +2",
-		feet="Mummu Gamashes +1"
+		legs=Limbus.Legs,
+		feet=Limbus.Feet
 	})
         
     -- Mod set for trivial mobs (Skadi+1)

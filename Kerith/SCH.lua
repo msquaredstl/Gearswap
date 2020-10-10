@@ -53,7 +53,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal')
     state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'PDT')
+    state.IdleMode:options('Normal', 'CP', 'PDT', 'MDT', 'RR')
 
 
     info.low_nukes = S{"Stone", "Water", "Aero", "Fire", "Blizzard", "Thunder"}
@@ -252,6 +252,7 @@ function init_gear_sets()
     -- Idle mode when weak.
     sets.idle.Weak = set_combine(sets.idle.PDT, {feet="Herald's Gaiters"})
  
+	sets.idle.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
  	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
  
     -- Town gear.

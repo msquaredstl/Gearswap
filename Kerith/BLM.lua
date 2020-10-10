@@ -25,7 +25,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal')
     state.CastingMode:options('Normal', 'Resistant','DeathMB')
-    state.IdleMode:options('Normal', 'PDT','HighMP','RR')
+    state.IdleMode:options('Normal','CP', 'PDT','HighMP','RR')
 	state.VorsealMode = M('Normal', 'Vorseal')
 	state.ManawallMode = M('Swaps', 'No_Swaps')
 	state.Enfeebling = M('None', 'Effect')
@@ -60,10 +60,10 @@ function user_setup()
 	}
    
     -- Additional local binds
-	--send_command('bind f10 gs c cycle IdleMode')
-	--send_command('bind f11 gs c cycle CastingMode')
-	--send_command('bind ^f11 gs c cycle Enfeebling')
-	--send_command('bind f12 gs c cycle ManawallMode')
+	send_command('bind f10 gs c cycle IdleMode')
+	send_command('bind f11 gs c cycle CastingMode')
+	send_command('bind ^f11 gs c cycle Enfeebling')
+	send_command('bind f12 gs c cycle ManawallMode')
     send_command('bind ^` input /ma Stun <t>')
     send_command('bind ^end gs c toggle MagicBurst')
 	send_command('bind ^delete gs c toggle Obi')
@@ -76,10 +76,10 @@ end
 
 -- Called when this job file is unloaded (eg: job change)
 function user_unload()
-	--send_command('unbind f10')
-	--send_command('unbind f11')
-	--send_command('unbind ^`f11')
-	--send_command('unbind f12')
+	send_command('unbind f10')
+	send_command('unbind f11')
+	send_command('unbind ^`f11')
+	send_command('unbind f12')
     send_command('unbind ^`')
     send_command('unbind ^end gs c toggle MagicBurst')
 	send_command('unbind ^delete gs c toggle Obi')
@@ -101,13 +101,13 @@ function init_gear_sets()
     --
     AF.Head		=	""
     AF.Body		=	"Spaekona's Coat +2"
-    AF.Hands	=	"Spaekona's Gloves"
+    AF.Hands	=	"Spaekona's Gloves +1"
     AF.Legs		=	""
     AF.Feet		=	""
 
     --Vitiation
     RELIC.Head		=	"Archmage's Petasos +1"
-    RELIC.Body		=	"Archmage's Coat +1"
+    RELIC.Body		=	"Archmage's Coat +3"
     RELIC.Hands 	=	"Archmage's Gloves +1"
     RELIC.Legs		=	"Archmage's Tonban +2"
     RELIC.Feet		=	"Archmage's Sabots +1"
@@ -119,6 +119,20 @@ function init_gear_sets()
     EMPY.Legs		=	"Wicce Tonban +1"
     EMPY.Feet		=	"Wicce Sabots +1"
 
+	Salvage = {}
+	Salvage.Head	=	"Jhakri Coronal +1"
+	Salvage.Body	=	"Jhakri Robe +2"
+	Salvage.Hands	=	"Jhakri Cuffs +1"
+	Salvage.Legs 	=	"Jhakri Slops +1"
+	Salvage.Feet	=	"Jhakri Pigaches +1"
+
+	Limbus = {}
+	Limbus.Head		=	"Mallquis Chapeau"
+	Limbus.Body		=	"Mallquis Saio"
+	Limbus.Hands	=	"Mallquis Cuffs"
+	Limbus.Legs 	=	"Mallquis Trews"
+	Limbus.Feet		=	"Mallquis Clogs"
+	
     -- Capes:
     -- Sucellos's And such, add your own.
     BLMCape = {}
@@ -146,6 +160,7 @@ function init_gear_sets()
 	Earrings = {}
 		Earrings.FreeNuke = {name="Barkarole Earring"}
 		Earrings.FreeNuke2 = {name="Friomisi Earring"}
+		Earrings.TP = {name="Moonshade Earring"}
 
 	Mb_feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+30','Magic burst mdg.+10%','Mag. Acc.+3',}}
 	Mab_feet={ name="Merlinic Crackows", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Phys. dmg. taken -1%','AGI+6','Mag. Acc.+10','"Mag.Atk.Bns."+12',} }
@@ -169,9 +184,9 @@ function init_gear_sets()
     -- Fast cast sets for spells
 
     sets.precast.FC = {
-		main="Marin Staff +1",
+		main="Grioavolr",
 		sub="Niobid Strap",
-		ammo="Impatiens",
+		ammo="Sapience Orb",
         head={name="Merlinic Hood", priority=2},
 		neck="Orunmila's Torque",
 		ear1="Enchanter Earring +1",
@@ -179,15 +194,23 @@ function init_gear_sets()
         body="Shango Robe",
 		hands="Helios Gloves",
 		ring1="Prolix Ring",
-        back="Swith Cape",
+		ring2="Lebeche Ring",
+        back="Perimede Cape",
 		waist="Witful Belt",
 		legs={name="psycloth lappas", priority=1}, 
 		feet="Regal Pumps +1"
 		}
 
-	sets.precast.FC.DeathMB = set_combine(sets.precast.FC, {ammo="Psilomene", ear1={Earrings.FreeNuke, priority=4},
-		body="Merlinic Jubbah", hands={name="Otomi gloves", priority=7}, ring1="Sangoma ring",ring2={name="Mephitas's ring +1", priority=9}, 
-		back={name=BLMCape.MACC, priority=6},legs="Psycloth Lappas", feet={name="MAB_Feet", priority=8}})
+	sets.precast.FC.DeathMB = set_combine(sets.precast.FC, {
+		ammo="Psilomene", 
+		ear1={Earrings.FreeNuke, priority=4},
+		body="Merlinic Jubbah", 
+		hands={name="Otomi gloves", priority=7}, 
+		ring1="Sangoma ring",
+		ring2={name="Mephitas's ring +1", priority=9}, 
+		back={name=BLMCape.MACC, priority=6},
+		legs="Psycloth Lappas", 
+		feet={name="MAB_Feet", priority=8}})
 		
 	sets.precast.FC.Aspir = sets.precast.FC.Death	
 
@@ -197,7 +220,11 @@ function init_gear_sets()
 
     sets.precast.FC.Impact = set_combine(sets.precast.FC['Elemental Magic'], {head=empty,body="Twilight Cloak"})
 
-    sets.precast.FC.Cure = set_combine(sets.precast.FC, {body="Heka's Kalasiris", back="Pahtli Cape"})
+    sets.precast.FC.Cure = set_combine(sets.precast.FC, {
+		head="Vanya Hood",
+		ear1="Mendicant's earring",
+		back="Pahtli Cape",
+		feet="Vanya Clogs"})
 
     sets.precast.FC.Curaga = sets.precast.FC.Cure
 	
@@ -217,7 +244,7 @@ function init_gear_sets()
         back="Toro Cape",waist="Thunder Belt",legs="Assiduity Pants +1",feet="Battlecast Gaiters"}
 		-- Increase Max MP
      sets.precast.WS['Myrkr'] = {ammo="Kalboron Stone",
-        head="Nahtirah Hat",neck="Orunmila's Torque",ear1=Earrings.FreeNuke,ear2="Loquacioous Earring",
+        head="Nahtirah Hat",neck="Orunmila's Torque",ear1=Earrings.FreeNuke,ear2=Earrings.TP,
         body="Amalric Doublet",hands="Helios Gloves",ring1="Sangoma Ring",ring2="Mephitas's ring +1",
         back="Taranus's Cape",waist="Fucho-no-obi",legs="Psycloth Lappas",feet="Medium's Sabots"}
    
@@ -229,10 +256,22 @@ function init_gear_sets()
         body="Shango Robe",ring1="Prolix Ring",
         back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas"}
 
-    sets.midcast.Cure = {main="Tamaxchi",sub="Sors Shield",ammo="Kalboron Stone",
-        head="Nahtirah Hat",neck="Incanter's Torque",ear2="Loquacious Earring",
-        body="Annointed Kalasiris",hands="Telchine Gloves",ring1="Ephedra Ring",ring2="Sirona's Ring",
-        back="Pahtli Cape",waist=gear.ElementalObi,legs="Psycloth Lappas",feet="Medium's Sabots"}
+    sets.midcast.Cure = {
+		main="Tamaxchi",
+		sub="Sors Shield",
+		ammo="Kalboron Stone",
+        head="Vanya Hood",
+		neck="Incanter's Torque",
+		ear1="Mendicant's earring",
+		ear2="Loquacious Earring",
+        body="Annointed Kalasiris",
+		hands="Telchine Gloves",
+		ring1="Menelaus's Ring",
+		ring2="Sirona's Ring",
+        back="Oretania's Cape",
+		waist=gear.ElementalObi,
+		legs="Psycloth Lappas",
+		feet="Vanya Clogs"}
 
     sets.midcast.Curaga = sets.midcast.Cure
 
@@ -242,7 +281,7 @@ function init_gear_sets()
 		body="Vanya Robe",
 		feet="Regal Pumps +1" }
     
-    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
+    sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {ear1="Earthcry Earring", waist="Siegel Sash"})
 	
 	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {feet="Inspirited Boots"})
 
@@ -263,6 +302,7 @@ function init_gear_sets()
 		neck="Incanter's Torque", 
 		hands="Helios Gloves", 
 		ring1="Archon Ring", 
+		ring2="Excelsis Ring",
 		back=BLMCape.FreeNuke, 
 		waist="Fucho-no-obi", 
 		legs="Amalric Slops",
@@ -272,10 +312,22 @@ function init_gear_sets()
     sets.midcast.Aspir = sets.midcast.Drain
 	sets.midcast['Aspir III'] = sets.midcast.Drain
 
-	sets.midcast.Stun = {main=Weapons.FreeNuke,sub="mephitis grip",ammo="Impatiens",
-		head="Nahtirah Hat",neck="orunmilia torque",ear1="Psystorm Earring",ear2="Lifestorm Earring",
-		body="Merlinic Jubbah",hands="Yaoyotl Gloves",ring1="Stikini Ring",ring2="Stikini Ring",
-		back=BLMCape.FreeNuke,waist="Witful Belt",legs="Psycloth Lappas",feet="regal pumps +1"}
+	sets.midcast.Stun = {
+		main=Weapons.FreeNuke,
+		sub="mephitis grip",
+		ammo="Impatiens",
+		head="Nahtirah Hat",
+		neck="orunmilia torque",
+		ear1="Psystorm Earring",
+		ear2="Lifestorm Earring",
+		body="Merlinic Jubbah",
+		hands="Yaoyotl Gloves",
+		ring1="Stikini Ring",
+		ring2="Stikini Ring",
+		back=BLMCape.FreeNuke,
+		waist="Witful Belt",
+		legs="Psycloth Lappas",
+		feet="regal pumps +1"}
 
 
     -- Elemental Magic sets
@@ -329,7 +381,7 @@ function init_gear_sets()
 
     -- Minimal damage gear for procs.
     sets.midcast['Elemental Magic'].Proc = {main="Earth Staff", sub="Mephitis Grip",ammo="Impatiens",
-        head="Nahtirah Hat",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Nahtirah Hat",neck="Loricate Torque +1",ear1="Enchanter Earring +1",ear2="Loquacious Earring",
         body="Manasa Chasuble",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Swith Cape",waist="Witful Belt",legs="Nares Trews",feet="Chelona Boots +1"}
 
@@ -337,7 +389,7 @@ function init_gear_sets()
     -- Sets to return to when not performing an action.
     
     -- Resting sets
-    sets.resting = {main="Boonwell Staff",neck="Jeweled Collar", ear1="Moonshade Earring", ear2="Relaxing Earring",
+    sets.resting = {main="Boonwell Staff",neck="Jeweled Collar", ear1="Barkarole Earring", ear2="Relaxing Earring",
         ring1="Star Ring",waist="Hierarch Belt",legs="Assiduity Pants +1"}
     
 
@@ -345,22 +397,21 @@ function init_gear_sets()
     
     -- Normal refresh idle set
     sets.idle = {main="Lathi", sub="Zuuxowu Grip",
-        head="Befouled Crown",neck="Sanctity Necklace",ear1="Moonshade Earring",ear2="Friomisi Earring",
-        body="Jhakri Robe +2",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
-        --back="Taranus's Cape",
-		back="Mecistopins Mantle",
+        head="Befouled Crown",neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
+        body=Salvage.Body,hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
+        back="Taranus's Cape",
 		waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
     -- Idle mode that keeps PDT gear on, but doesn't prevent normal gear swaps for precast/etc.
     sets.idle.PDT = {main="Earth Staff", sub="Zuuxowu Grip",
-        head="Nahtirah Hat",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Nahtirah Hat",neck="Loricate Torque +1",ear1="Barkarole Earring",ear2="Loquacious Earring",
         body="Hagondes Coat",hands="Amalric Gages",ring1="Defending Ring",ring2=DarkRing,
         back="Umbra Cape",waist="Fucho-no-obi",legs="Hagondes Pants",feet="Battlecast Gaiters"}
 
     -- Idle mode scopes:
     -- Idle mode when weak.
     sets.idle.Weak = {main="Bolelabunga",sub="Genbu's Shield",
-        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Barkarole Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands="Amalric Gages",ring1="Defending Ring",ring2="Paguroidea Ring",
         back="Umbra Cape",waist="Fucho-no-obi",legs="Nares Trews",feet="Battlecast Gaiters"}
     
@@ -368,7 +419,7 @@ function init_gear_sets()
     sets.idle.Town = set_combine(sets.idle,{})
         
 	sets.idle.HighMP = set_combine(sets.precast.FC.DeathMB,{sub="Niobid Strap",ammo="Psilomene", head="Merlinic Hood"})
-	
+	sets.idle.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
 	sets.idle.RR = set_combine(sets.idle,{body="Annointed Kalasiris"})
 	
     -- Defense sets
@@ -394,7 +445,6 @@ function init_gear_sets()
 		neck=Necklace.MB, 
 		ring2="Locus ring", 
 		ear2="Static Earring", 
-		back="Seshaw Cape", 
 		ring2="mujin band", 
 		legs=RELIC.Legs,
 		feet=Mb_feet

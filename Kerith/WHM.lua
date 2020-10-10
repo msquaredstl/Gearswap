@@ -25,7 +25,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal')
     state.CastingMode:options('Normal', 'Resistant', 'Combat')
-    state.IdleMode:options('Normal', 'PDT', 'MDT', 'RR')
+    state.IdleMode:options('Normal', 'CP', 'PDT', 'MDT', 'RR')
 
     select_default_macro_book()
 end
@@ -45,7 +45,7 @@ function init_gear_sets()
 	-- Fill this with your own JSE. 
     --
     AF.Head		=	""
-    AF.Body		=	"Theophany Briault"
+    AF.Body		=	"Theophany Briault +1"
     AF.Hands	=	""
     AF.Legs		=	"Theophany Pantaloons +1"
     AF.Feet		=	"Theophany Duckbills +1"
@@ -76,7 +76,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     sets.precast.FC = {main="Marin Staff +1",sub="Niobid Strap",ammo="Incantor Stone",
         head="Nahtirah Hat",neck="Orunmila's Torque",ear1="Enchanter Earring +1",ear2="Loquacious Earring",
-        body="Shango Robe",hands="Gendewitha Gages +1",ring1="Prolix Ring",
+        body="Shango Robe",hands="Gendewitha Gages +1",ring1="Prolix Ring",ring2="Lebeche Ring",
         back="Swith Cape",waist="Witful Belt",legs="Kaykaus Tights",feet="Regal Pumps +1"}
         
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
@@ -87,7 +87,11 @@ function init_gear_sets()
 
     sets.precast.FC.StatusRemoval = sets.precast.FC['Healing Magic']
 
-    sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {main="Queller Rod",sub="Sors Shield",ammo="Impatiens", ear2="Nourishing Earring +1"})
+    sets.precast.FC.Cure = set_combine(sets.precast.FC['Healing Magic'], {
+		main="Queller Rod",
+		sub="Sors Shield",
+		ammo="Impatiens", 
+		ear2="Nourishing Earring +1"})
     sets.precast.FC.Curaga = sets.precast.FC.Cure
     sets.precast.FC.CureSolace = sets.precast.FC.Cure
     -- CureMelee spell map should default back to Healing Magic.
@@ -221,30 +225,31 @@ function init_gear_sets()
     -- Sets to return to when not performing an action.
     
     -- Resting sets
-    sets.resting = {main="Boonwell Staff",sub="Achaq Grip",neck="Jeweled Collar", ear1="Moonshade Earring", ear2="Relaxing Earring", ring1="Star Ring",waist="Hierarch Belt",legs="Assiduity Pants +1"}
+    sets.resting = {main="Boonwell Staff",sub="Achaq Grip",neck="Jeweled Collar", ear1="Glorious Earring", ear2="Relaxing Earring", ring1="Star Ring",waist="Hierarch Belt",legs="Assiduity Pants +1"}
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {main="Queller Rod", sub="Sors Shield",ammo="Homiliary",
-        head="Befouled Crown",neck="Wiglen Gorget",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Befouled Crown",neck="Wiglen Gorget",ear1="Glorious Earring",ear2="Loquacious Earring",
         body="Gendewitha Bliaut +1",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
     sets.idle.PDT = {main="Bolelabunga", sub="Genbu's Shield",ammo="Homiliary",
-        head="Befouled Crown",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Loquacious Earring",
         body="Gendewitha Bliaut +1",hands="Gendewitha Gages +1",ring1="Defending Ring",ring2="Meridian Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Querkening Brais",feet="Battlecast Gaiters"}
 
     sets.idle.Town = {main="Queller Rod", sub="Sors Shield",ammo="Homiliary",
-        head="Befouled Crown",neck="Wiglen Gorget",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Befouled Crown",neck="Wiglen Gorget",ear1="Glorious Earring",ear2="Loquacious Earring",
         body="Gendewitha Bliaut +1",hands="Gendewitha Gages",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
     
     sets.idle.Weak = {main="Bolelabunga",sub="Genbu's Shield",ammo="Homiliary",
-        head="Befouled Crown",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
+        head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Loquacious Earring",
         body="Gendewitha Bliaut +1",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Meridian Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Gendewitha Galoshes +1"}
     
- 	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
+ 	sets.idle.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
+	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
 
    -- Defense sets
 
