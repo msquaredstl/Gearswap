@@ -1,0 +1,17 @@
+sets.exported={
+    main={ name="Solstice", augments={'MP+60','INT+15','"Mag.Atk.Bns."+15',}},
+    sub="Culminus",
+    range="Dunna",
+    head="Befouled Crown",
+    body="Azimuth Coat +1",
+    hands={ name="Bagua Mitaines +1", augments={'Enhances "Curative Recantation" effect',}},
+    legs="Assid. Pants +1",
+    feet="Geo. Sandals +1",
+    neck="Sanctity Necklace",
+    waist="Witful Belt",
+    left_ear="Thureous Earring",
+    right_ear="Loquac. Earring",
+    left_ring="Defending Ring",
+    right_ring="Adoulin Ring +1",
+    back={ name="Lifestream Cape", augments={'Geomancy Skill +10','Indi. eff. dur. +19','Pet: Damage taken -5%',}},
+}

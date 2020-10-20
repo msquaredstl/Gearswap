@@ -101,7 +101,7 @@ function init_gear_sets()
     --
     AF.Head		=	""
     AF.Body		=	"Spaekona's Coat +2"
-    AF.Hands	=	"Spaekona's Gloves +1"
+    AF.Hands	=	"Spaekona's Gloves +2"
     AF.Legs		=	""
     AF.Feet		=	""
 
@@ -205,7 +205,6 @@ function init_gear_sets()
 		ammo="Psilomene", 
 		ear1={Earrings.FreeNuke, priority=4},
 		body="Merlinic Jubbah", 
-		hands={name="Otomi gloves", priority=7}, 
 		ring1="Sangoma ring",
 		ring2={name="Mephitas's ring +1", priority=9}, 
 		back={name=BLMCape.MACC, priority=6},
@@ -357,9 +356,11 @@ function init_gear_sets()
 	})
 
     sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {
-	sub="Alber Strap",ring2="Shiva Ring +1"})
+		sub="Alber Strap",
+		ring2="Shiva Ring +1"})
     
-	sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {ring2="Adoulin Ring +1"})
+	sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
+		ring2="Adoulin Ring +1"})
 
 	sets.midcast.Death = {
 		Ammo="Ghastly Tathlum +1", 
@@ -442,15 +443,17 @@ function init_gear_sets()
     sets.buff['Mana Wall'] = {feet=EMPY.Feet}
 
     sets.magic_burst = {
-		neck=Necklace.MB, 
-		ring2="Locus ring", 
+		neck=Necklace.MB,
 		ear2="Static Earring", 
+		hands=AF.Hands,
+		ring1="Locus ring", 
 		ring2="mujin band", 
 		legs=RELIC.Legs,
 		feet=Mb_feet
 	}
 	
-	sets.Seidr = {body=AF.Body}
+	--sets.Seidr = {body=AF.Body}
+	sets.Seidr = {body=AF.Body, hands=AF.Hands}
 	sets.Obi = {back="Twilight Cape", waist="Hachirin-no-Obi"}
 
     -- Engaged sets

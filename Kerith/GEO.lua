@@ -79,7 +79,7 @@ function init_gear_sets()
     RELIC.Body		=	"Bagua Tunic +1"
     RELIC.Hands 	=	"Bagua Mitaines +1"
     RELIC.Legs		=	"Bagua Pants +1"
-    RELIC.Feet		=	"Bagua Sandals +1"
+    RELIC.Feet		=	"Bagua Sandals +3"
 
     --Lethargy
     EMPY.Head		=	"Azimuth Hood +1"
@@ -336,7 +336,8 @@ function init_gear_sets()
 	sets.midcast['Aspir III'] = sets.midcast.Drain
 	 
     sets.midcast.Geomancy = {
-		main=Weapons.GEO, 
+		main=Weapons.GEO,
+		sub="Culminus",		
 		range="Dunna", 
 		ammo=none,
 		head=EMPY.Head,
@@ -431,6 +432,7 @@ function init_gear_sets()
         back=GEOCape.Geo,waist="Goading Belt",legs="Assiduity Pants +1",feet=AF.Feet}
 
 	sets.idle.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
+	sets.idle.Pet.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
  	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
 
     -- Defense sets

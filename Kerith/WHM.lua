@@ -240,7 +240,7 @@ function init_gear_sets()
 
     sets.idle.Town = {main="Queller Rod", sub="Sors Shield",ammo="Homiliary",
         head="Befouled Crown",neck="Wiglen Gorget",ear1="Glorious Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut +1",hands="Gendewitha Gages",ring1="Sheltered Ring",ring2="Paguroidea Ring",
+        body="Gendewitha Bliaut +1",hands="Gendewitha Gages +1",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
     
     sets.idle.Weak = {main="Bolelabunga",sub="Genbu's Shield",ammo="Homiliary",

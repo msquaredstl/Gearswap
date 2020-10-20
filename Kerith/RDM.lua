@@ -104,8 +104,8 @@ function init_gear_sets()
 
 	Limbus = {}
 	Limbus.Head		=	"Ayanmo Zucchetto +1"
-	Limbus.Body		=	"Ayanmo Corazza +1"
-	Limbus.Hands	=	"Ayanmo Manopolas +1"
+	Limbus.Body		=	"Ayanmo Corazza +2"
+	Limbus.Hands	=	"Ayanmo Manopolas +2"
 	Limbus.Legs 	=	"Ayanmo Cosciales +1"
 	Limbus.Feet		=	"Ayanmo Gambieras +1"
 	
@@ -126,7 +126,7 @@ function init_gear_sets()
 		MainWeapon.Excal = {name="Excalibur"}
 		
 	SubWeapon = {}
-		SubWeapon.Dagger = {name="Kaja Knife"}
+		SubWeapon.Dagger = {name="Tauret"}
 		SubWeapon.Shield = {name="Sacro Bulwark"}
 	
 	sets.engaged.DW = {main=MainWeapon.Sword, sub=SubWeapon.Dagger}
@@ -404,12 +404,12 @@ function init_gear_sets()
 		ammo="Ginsen",
         head=RELIC.Head,
 		neck="Lissome Necklace",
-		ear1="Eabani Earring",
-		ear2="Telos Earring",
-        body="Taeon Tabard",
-		hands="Carmine finger gauntlets +1",
-		ring1="Hetairoi Ring",
-		ring2="Rajas Ring",
+		ear1="Sherida Earring",
+		ear2="Dedition Earring",
+        body=Limbus.Body,
+		hands=Limbus.Hands,
+		ring1="Chirich Ring",
+		ring2="Chirich Ring +1",
         back=RDMCape.STR,
 		waist="Windbuffet Belt +1",
 		legs="Taeon Tights",
@@ -419,13 +419,13 @@ function init_gear_sets()
 		head="Carmine Mask",
 		body=Salvage.Body,
 		neck="Combatant's Torque",
-		ear1="Zennaroi Earring",
-		ear2="Suppanomimi", 
+		ear2="Eabani Earring", 
 		hands="Taeon Gloves", 
 		waist="Eschan Stone",
 		legs="Carmine Cuisses"	})
 
 	sets.engaged['Dual Wield'] = set_combine(sets.engaged, { 
+		ear1="Eabani Earring",
 		waist="Windbuffet Belt +1",
 		legs="Carmine Cuisses" })
 
@@ -447,8 +447,8 @@ function init_gear_sets()
     sets.precast.WS = {
         head=AF.Head,
 		neck="Asperity Necklace",
-		ear1="Moonshade Earring",
-		ear2="Ishvara Earring",
+		ear2="Moonshade Earring",
+		ear1="Ishvara Earring",
         body=AF.Body,
 		hands="Helios Gloves",
 		ring1="Rufescent Ring",
@@ -459,11 +459,17 @@ function init_gear_sets()
 		feet="Hagondes Sabots"}
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, 
-        {neck="Soil Gorget",ear1="Brutal Earring",ring1="Aquasoul Ring",ring2="Aquasoul Ring",waist="Soil Belt"})
+    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {
+		head="Carmine Mask", 
+		neck="Fotia Gorget",
+		ear1="Brutal Earring",
+		ring1="Aquasoul Ring",
+		ring2="Aquasoul Ring",
+		waist="Soil Belt"})
 
     sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS, {
 		ammo="Witchstone",
+		head="Pixie Hairpin +1",
 		neck="Sanctity Necklace",
 		ear1="Friomisi Earring",
 		ear2="Hecate's Earring",
@@ -476,13 +482,15 @@ function init_gear_sets()
 		feet="Umbanii Boots"})
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, { 
+		ear1="Sherida Earring",
 		body=Salvage.Body,
 		waist="Prosilio Belt +1",
 		feet="Carmine Greaves +1" })		
 
-    sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, { 
-		head="Carmine Mask" })		
-
+    sets.precast.WS['Chant du Cygne'] = set_combine(sets.precast.WS, { 
+		head=Limbus.Body,
+		neck="Fotia Gorget" })		
+	sets.precast.WS['Evisceration'] = sets.precast.WS['Chant du Cygne']
 end
 
 -------------------------------------------------------------------------------------------------------------------
