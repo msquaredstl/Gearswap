@@ -23,9 +23,9 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal')
-    state.CastingMode:options('Normal', 'Resistant','DeathMB')
-    state.IdleMode:options('Normal','CP', 'PDT','HighMP','RR')
+    state.OffenseMode:options('None', 'Normal') --F9
+    state.CastingMode:options('Normal', 'Resistant','DeathMB') --Ctrl + F11
+    state.IdleMode:options('Normal','CP', 'PDT','HighMP','RR') --Ctrl + F12
 	state.VorsealMode = M('Normal', 'Vorseal')
 	state.ManawallMode = M('Swaps', 'No_Swaps')
 	state.Enfeebling = M('None', 'Effect')
@@ -109,8 +109,8 @@ function init_gear_sets()
     RELIC.Head		=	"Archmage's Petasos +1"
     RELIC.Body		=	"Archmage's Coat +3"
     RELIC.Hands 	=	"Archmage's Gloves +1"
-    RELIC.Legs		=	"Archmage's Tonban +2"
-    RELIC.Feet		=	"Archmage's Sabots +1"
+    RELIC.Legs		=	"Archmage's Tonban +3"
+    RELIC.Feet		=	"Archmage's Sabots +2"
 
     --Lethargy
     EMPY.Head		=	"Wicce Petasos +1"
@@ -234,18 +234,18 @@ function init_gear_sets()
     sets.precast.WS = {
         head="Merlinic Hood",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
         body="Amalric Doublet",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Rajas Ring",
-        back="Refraction Cape",waist="Cognition Belt",legs="Assiduity Pants +1",feet="Battlecast Gaiters"}
+        back=BLMCape.FreeNuke,waist="Cognition Belt",legs="Assiduity Pants +1",feet="Battlecast Gaiters"}
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Vidohunir'] = {ammo="Dosis Tathlum",
         head="Merlinic Hood",neck="Sanctity Necklace",ear1=Earrings.FreeNuke,ear2=Earrings.FreeNuke2,
         body="Amalric Doublet",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Adoulin Ring +1",
-        back="Toro Cape",waist="Thunder Belt",legs="Assiduity Pants +1",feet="Battlecast Gaiters"}
+        back=BLMCape.FreeNuke,waist="Thunder Belt",legs="Assiduity Pants +1",feet="Battlecast Gaiters"}
 		-- Increase Max MP
      sets.precast.WS['Myrkr'] = {ammo="Kalboron Stone",
         head="Nahtirah Hat",neck="Orunmila's Torque",ear1=Earrings.FreeNuke,ear2=Earrings.TP,
         body="Amalric Doublet",hands="Helios Gloves",ring1="Sangoma Ring",ring2="Mephitas's ring +1",
-        back="Taranus's Cape",waist="Fucho-no-obi",legs="Psycloth Lappas",feet="Medium's Sabots"}
+        back=BLMCape.FreeNuke,waist="Fucho-no-obi",legs="Psycloth Lappas",feet="Medium's Sabots"}
    
     
     ---- Midcast Sets ----
@@ -273,16 +273,22 @@ function init_gear_sets()
 		feet="Vanya Clogs"}
 
     sets.midcast.Curaga = sets.midcast.Cure
+    sets.midcast.CureSelf = {
+		ring1="Kunaji Ring",
+		ring2="Asklepian Ring",
+		waist="Gishdubar Sash"}
 
     sets.midcast['Enhancing Magic'] = { 
 		head="Befouled Crown", 
 		neck="Incanter's Torque",
 		body="Vanya Robe",
+		waist="Embla Sash",
 		feet="Regal Pumps +1" }
     
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {ear1="Earthcry Earring", waist="Siegel Sash"})
 	
-	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {feet="Inspirited Boots"})
+	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {})
+	sets.midcast.RefreshSelf = {waist="Gishdubar Sash", feet="Inspirited Boots"}
 
     sets.midcast['Enfeebling Magic'] = {main=Weapons.FreeNuke,sub="Mephitis Grip",ammo="Pemphredo Tathlum",
         head="Befouled Crown",neck="Incanter's Torque",ear1=Earrings.FreeNuke,ear2="Gwati Earring",
@@ -294,7 +300,7 @@ function init_gear_sets()
     sets.midcast['Dark Magic'] = {main=Weapons.FreeNuke,sub="Mephitis Grip",ammo="Pemphredo Tathlum",
         head="Befouled Crown",neck="Sanctity Necklace",ear1=Earrings.FreeNuke,ear2="Gwati Earring",
         body="Shango Robe",hands="Helios Gloves",ring1="Archon Ring",ring2="Sangoma Ring",
-        back=BLMCape.FreeNuke,waist="Goading Belt",legs="Psycloth Lappas",feet=EMPY.Feet}
+        back=BLMCape.FreeNuke,waist="Eschan Stone",legs="Psycloth Lappas",feet=EMPY.Feet}
 
 	sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {
 		head="Pixie Hairpin +1", 
@@ -400,7 +406,7 @@ function init_gear_sets()
     sets.idle = {main="Lathi", sub="Zuuxowu Grip",
         head="Befouled Crown",neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
         body=Salvage.Body,hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
-        back="Taranus's Cape",
+        back=BLMCape.FreeNuke,
 		waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
     -- Idle mode that keeps PDT gear on, but doesn't prevent normal gear swaps for precast/etc.
@@ -478,7 +484,7 @@ end
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 function job_precast(spell, action, spellMap, eventArgs)
     if spellMap == 'Cure' or spellMap == 'Curaga' then
-        gear.default.obi_waist = "Goading Belt"
+        gear.default.obi_waist = "Witful Belt"
     elseif spell.skill == 'Elemental Magic' then
         gear.default.obi_waist = "Sekhmet Corset"
         if state.CastingMode.value == 'Proc' then
@@ -513,6 +519,14 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 
 	if spell.skill == 'Elemental Magic' and state.Seidr.value then equip(sets.Seidr)
 	end
+	
+	if spell.skill == 'Enhancing Magic' then
+		if spellMap == 'Refresh' and spell.target.type == 'SELF' then
+			equip(sets.midcast.RefreshSelf)
+		end
+    elseif spellMap == 'Cure' and spell.target.type == 'SELF' then
+        equip(sets.midcast.CureSelf)
+    end
 end
 
 function job_aftercast(spell, action, spellMap, eventArgs)

@@ -104,11 +104,11 @@ function init_gear_sets()
     EMPY.Feet		=	"Skulker's Poulaines +1"
 
 	Salvage = {}
-	Salvage.Head	=	"Meghanada Visor"
-	Salvage.Body	=	"Meghanada Cuirie"
-	Salvage.Hands	=	"Meghanada Gloves"
-	Salvage.Legs 	=	"Meghanada Chausses"
-	Salvage.Feet	=	"Meghanada Jambeaux"
+	Salvage.Head	=	"Meghanada Visor +1"
+	Salvage.Body	=	"Meghanada Cuirie +2"
+	Salvage.Hands	=	"Meghanada Gloves +2"
+	Salvage.Legs 	=	"Meghanada Chausses +2"
+	Salvage.Feet	=	"Meghanada Jambeaux +1"
 
 	Limbus = {}
 	Limbus.Head		=	"Mummu Bonnet +2"
@@ -220,7 +220,10 @@ function init_gear_sets()
 		back=THFCape.Acc})
 
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
-    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {ammo="Yetshila +1",ring1="Stormsoul Ring",legs="Nahtirah Trousers"})
+    sets.precast.WS['Exenterator'] = set_combine(sets.precast.WS, {
+		ammo="Yetshila +1",
+		ring1="Stormsoul Ring",
+		legs="Nahtirah Trousers"})
     sets.precast.WS['Exenterator'].Acc = set_combine(sets.precast.WS['Exenterator'], {ammo="Honed Tathlum", back=THFCape.Acc})
     sets.precast.WS['Exenterator'].Mod = set_combine(sets.precast.WS['Exenterator'], {head="Felistris Mask",waist=gear.ElementalBelt})
     sets.precast.WS['Exenterator'].SA = set_combine(sets.precast.WS['Exenterator'].Mod, {ammo="Qirmiz Tathlum"})
@@ -303,7 +306,7 @@ function init_gear_sets()
     sets.precast.WS['Aeolian Edge'] = {ammo="Jukukik Feather",
         head="Wayfarer Circlet",neck="Stoicheion Medal",ear1="Friomisi Earring",ear2="Zennaroi Earring",
         body="Wayfarer Robe",hands="Pillager's Armlets +1",ring1="Acumen Ring",ring2="Demon's Ring",
-        back="Toro Cape",waist=gear.ElementalBelt,legs="Shneddick Tights +1",feet="Wayfarer Clogs"}
+        back=THFCape.Wsd,waist=gear.ElementalBelt,legs="Shneddick Tights +1",feet="Wayfarer Clogs"}
 
     sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
 
@@ -397,7 +400,7 @@ function init_gear_sets()
 		ring2	=	"Hetairoi Ring",
         back	=	THFCape.Acc,
 		waist	=	"Windbuffet Belt +1",
-		legs	=	"Taeon Tights",
+		legs	=	Salvage.Legs,
 		feet	=	RELIC.Feet
 	}
 		

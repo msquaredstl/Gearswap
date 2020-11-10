@@ -15,6 +15,12 @@ end
 function job_setup()
     state.Buff['Afflatus Solace'] = buffactive['Afflatus Solace'] or false
     state.Buff['Afflatus Misery'] = buffactive['Afflatus Misery'] or false
+
+    if player.sub_job == 'SCH' then
+		state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
+		update_active_strategems()
+    end	
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -23,9 +29,9 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal')
-    state.CastingMode:options('Normal', 'Resistant', 'Combat')
-    state.IdleMode:options('Normal', 'CP', 'PDT', 'MDT', 'RR')
+    state.OffenseMode:options('None', 'Normal') --F9
+    state.CastingMode:options('Normal', 'Resistant', 'Combat') --Ctrl + F11
+    state.IdleMode:options('Normal', 'CP', 'PDT', 'MDT', 'RR') --Ctrl + F12
 
     select_default_macro_book()
 end
@@ -64,7 +70,21 @@ function init_gear_sets()
     EMPY.Legs		=	"Ebers Pantaloons +1"
     EMPY.Feet		=	"Ebers Duckbills"
 
-    -- Capes:
+    Salvage = {}
+	Salvage.Head	=	""
+	Salvage.Body	=	""
+	Salvage.Hands	=	""
+	Salvage.Legs 	=	""
+	Salvage.Feet	=	""
+
+	Limbus = {}
+	Limbus.Head		=	"Ayanmo Zucchetto +1"
+	Limbus.Body		=	"Ayanmo Corazza +2"
+	Limbus.Hands	=	"Ayanmo Manopolas +2"
+	Limbus.Legs 	=	"Ayanmo Cosciales +1"
+	Limbus.Feet		=	"Ayanmo Gambieras +1"
+	
+	-- Capes:
     -- Sucellos's And such, add your own.
     WHMCape = {}
     WHMCape.MND	=	{ name="Alaunus's Cape" }
@@ -98,12 +118,14 @@ function init_gear_sets()
     
     -- Precast sets to enhance JAs
     sets.precast.JA.Benediction = {body="Piety Briault +1"}
+	
+	sets.precast.JA['Sublimation'] = {}
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
         head="Nahtirah Hat",ear1="Roundel Earring",
         body="Shango Robe",hands="Yaoyotl Gloves",
-        back="Refraction Cape",legs="Querkening Brais",feet="Gendewitha Galoshes +1"}
+        legs="Querkening Brais",feet="Gendewitha Galoshes +1"}
     
 	sets.precast.Trust = sets.precast.FC   
 	
@@ -115,12 +137,12 @@ function init_gear_sets()
     sets.precast.WS = {
         head="Nahtirah Hat",neck=gear.ElementalGorget,ear1="Bladeborn Earring",ear2="Steelflash Earring",
         body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
-        back="Refraction Cape",waist=gear.ElementalBelt,legs="Querkening Brais",feet="Regal Pumps +1"}
+        back=WHMCape.MND,waist=gear.ElementalBelt,legs="Querkening Brais",feet="Regal Pumps +1"}
     
     sets.precast.WS['Flash Nova'] = {
         head="Nahtirah Hat",ear1="Friomisi Earring",ear2="Novio Earring",
         body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Strendu Ring",
-        back="Toro Cape",waist="Thunder Belt",legs="Querkening Brais",feet="Regal Pumps +1"}
+        back=WHMCape.MND,waist="Thunder Belt",legs="Querkening Brais",feet="Regal Pumps +1"}
     
 
     -- Midcast Sets
@@ -128,7 +150,7 @@ function init_gear_sets()
     sets.midcast.FastRecast = {
         head="Nahtirah Hat",ear2="Loquacious Earring",
         body="Shango Robe",hands="Telchine Gloves",ring1="Prolix Ring",
-        back="Swith Cape",waist="Goading Belt",legs="Kaykaus Tights",feet="Regal Pumps +1"}
+        back="Swith Cape",legs="Kaykaus Tights",feet="Regal Pumps +1"}
     
     -- Cure sets
     gear.default.obi_waist = "Ninurta's Sash"
@@ -164,26 +186,27 @@ function init_gear_sets()
 		ring1="Haoma's Ring",
 		ring2="Menelaus's Ring",
         back=WHMCape.MND,
-		waist="Goading Belt",
+		waist="Gishdubar Sash",
 		legs="Theophany Pantaloons +1",
 		feet="Gendewitha Galoshes"}
+
+    sets.midcast.CureSelf = {
+		ring1="Kunaji Ring",
+		ring2="Asklepian Ring",
+		waist="Gishdubar Sash"}
 
     sets.midcast.StatusRemoval = { head="Ebers Cap +1",legs="Ebers Pantaloons +1"}
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts/
-    sets.midcast['Enhancing Magic'] = {main="Ababinili +1",sub="Achaq Grip",
+    sets.midcast['Enhancing Magic'] = {main="Gada",sub="Culminus",
         head="Befouled Crown",neck="Incanter's Torque",
         body="Telchine Chasuble",hands="Dynasty Mitts",
-        back="Mending Cape",waist="Olympus Sash",legs="Piety Pantaloons +1",feet="Theophany Duckbills +1"}
-
-    sets.midcast.Stoneskin = {main="Ababinili +1",sub="Achaq Grip",
-        head="Nahtirah Hat",neck="Orunmila's Torque",ear2="Loquacious Earring",
-        hands="Dynasty Mitts",
-        back="Swith Cape",waist="Siegel Sash",legs="Piety Pantaloons +1",feet="Theophany Duckbills +1"}
+        back="Mending Cape",waist="Embla Sash",legs="Piety Pantaloons +1",feet="Theophany Duckbills +1"}
 
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
 
 	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {feet="Inspirited Boots"})
+	sets.midcast.RefreshSelf = {waist="Gishdubar Sash"}
 
     sets.midcast.Auspice = {hands="Dynasty Mitts",feet="Ebers Duckbills"}
 
@@ -203,23 +226,23 @@ function init_gear_sets()
     sets.midcast['Divine Magic'] = {main="Bolelabunga",sub="Sors Shield",
         head="Nahtirah Hat",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Vanya Robe",hands="Yaoyotl Gloves",ring2="Sangoma Ring",
-        back="Refraction Cape",waist=gear.ElementalObi,legs="Theophany Pantaloons +1",feet="Gendewitha Galoshes"}
+        back=WHMCape.MND,waist=gear.ElementalObi,legs="Theophany Pantaloons +1",feet="Gendewitha Galoshes"}
 
     sets.midcast['Dark Magic'] = {main="Bolelabunga", sub="Sors Shield",
         head="Nahtirah Hat",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Shango Robe",hands="Yaoyotl Gloves",ring1="Fenrir Ring +1",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Aswang Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+        back=WHMCape.MND,waist="Aswang Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
 
     -- Custom spell classes
     sets.midcast.MndEnfeebles = {main="Grioavolr", sub="Mephitis Grip",
         head="Nahtirah Hat",neck="Imbodla Necklace",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Ischemia Chasuble",hands="Yaoyotl Gloves",ring1="Leviathan Ring +1",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Aswang Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+        back=WHMCape.MND,waist="Aswang Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
 
     sets.midcast.IntEnfeebles = {main="Twebuliij", sub="Mephitis Grip",
         head="Nahtirah Hat",neck="Imbodla Necklace",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Ischemia Chasuble",hands="Yaoyotl Gloves",ring1="Shiva Ring +1",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Yamabuki-no-obi",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+        back=WHMCape.MND,waist="Yamabuki-no-obi",legs="Bokwus Slops",feet="Piety Duckbills +1"}
 
     
     -- Sets to return to when not performing an action.
@@ -276,13 +299,26 @@ function init_gear_sets()
     
     -- Basic set for if no TP weapon is defined.
     sets.engaged = {
-        head="Nahtirah Hat",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Kaykaus Bliaut",hands="Dynasty Mitts",ring1="Rajas Ring",ring2="K'ayres Ring",
-        back="Umbra Cape",waist="Cetl Belt",legs="Querkening Brais",feet="Gendewitha Galoshes +1"}
+		ammo="Hasty Pinion +1",
+        head=Limbus.Head,
+		neck="Lissome Necklace",
+		ear1="Brutal Earring",
+		ear2="Telos Earring",
+        body=Limbus.Body,
+		hands=Limbus.Hands,
+		ring1="Hetaroi Ring",
+		ring2="Chirich Ring +1",
+        back="Umbra Cape",
+		waist="Windbuffet Belt +1",
+		legs=Limbus.Legs,
+		feet=Limbus.Feet}
 
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
     sets.buff['Divine Caress'] = {hands="Orison Mitts +2",back="Mending Cape"}
+	
+    sets.buff.Sublimation = {waist="Embla Sash"}
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -300,7 +336,7 @@ function job_precast(spell, action, spellMap, eventArgs)
     if spell.skill == 'Healing Magic' then
         gear.default.obi_back = "Mending Cape"
     else
-        gear.default.obi_back = "Toro Cape"
+        gear.default.obi_back = WHMCape.MND
     end
 end
 
@@ -309,6 +345,14 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     -- Apply Divine Caress boosting items as highest priority over other gear, if applicable.
     if spellMap == 'StatusRemoval' and buffactive['Divine Caress'] then
         equip(sets.buff['Divine Caress'])
+    end
+	
+	if spell.skill == 'Enhancing Magic' then
+		if spellMap == 'Refresh' and spell.target.type == 'SELF' then
+			equip(sets.midcast.RefreshSelf)
+		end
+    elseif spellMap == 'Cure' and spell.target.type == 'SELF' then
+        equip(sets.midcast.CureSelf)
     end
 end
 
@@ -327,6 +371,11 @@ function job_state_change(stateField, newValue, oldValue)
     end
 end
 
+function job_buff_change(buff, gain)
+    if buff == "Sublimation: Activated" then
+        handle_equipping_gear(player.status)
+    end
+end
 
 -------------------------------------------------------------------------------------------------------------------
 -- User code that supplements standard library decisions.
@@ -370,7 +419,11 @@ end
 
 
 function customize_idle_set(idleSet)
-    if player.mpp < 51 then
+    if state.Buff['Sublimation: Activated'] then
+		idleSet = set_combine(idleSet, sets.buff.Sublimation)
+    end
+
+	if player.mpp < 51 then
         idleSet = set_combine(idleSet, sets.latent_refresh)
     end
     return idleSet
@@ -413,3 +466,6 @@ function select_default_macro_book()
     set_macro_page(4, 3)
 end
 
+function update_sublimation()
+    state.Buff['Sublimation: Activated'] = buffactive['Sublimation: Activated'] or false
+end

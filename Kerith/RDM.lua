@@ -26,11 +26,11 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal', 'NormalACC', 'Dual Wield', 'DW Acc')
+    state.OffenseMode:options('None', 'Normal', 'NormalACC', 'Dual Wield', 'DW Acc') --F9
     state.HybridMode:options('Normal', 'PhysicalDef', 'MagicalDef')
     state.WeaponskillMode:options('Normal', 'Acc', 'Mod')
-    state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'CP', 'PDT', 'MDT', 'Staff', 'RR')
+    state.CastingMode:options('Normal', 'Resistant') --Ctrl + F11
+    state.IdleMode:options('Normal', 'CP', 'PDT', 'MDT', 'Staff', 'RR') --Ctrl + F12
 
 
 	lowTierNukes = S{'Stone', 'Water', 'Aero', 'Fire', 'Blizzard', 'Thunder',
@@ -76,17 +76,18 @@ function init_gear_sets()
 	-- Fill this with your own JSE. 
     --
     AF.Head		=	"Atrophy Chapeau +1"
-    AF.Body		=	"Atrophy Tabard +1"
-    AF.Hands	=	"Atrophy Gloves +1"
-    AF.Legs		=	"Atrophy Tights +1"
+    AF.Body		=	"Atrophy Tabard +2"
+    AF.Hands	=	"Atrophy Gloves +2"
+    AF.Legs		=	"Atrophy Tights +2"
     AF.Feet		=	"Atrophy Boots +1"
 
     --Vitiation
     RELIC.Head		=	"Viti. Chapeau +2"
-    RELIC.Body		=	"Viti. Tabard +1"
+    RELIC.Body		=	"Viti. Tabard +3"
     RELIC.Hands 	=	""
     RELIC.Legs		=	""
     RELIC.Feet		=	"Vitiation Boots +1"
+	RELIC.Neck		=	"Duelist's Torque +1"
 
     --Lethargy
     EMPY.Head		=	"Leth. Chappel +1"
@@ -98,8 +99,8 @@ function init_gear_sets()
 	Salvage = {}
 	Salvage.Head	=	"Jhakri Coronal +1"
 	Salvage.Body	=	"Jhakri Robe +2"
-	Salvage.Hands	=	"Jhakri Cuffs +1"
-	Salvage.Legs 	=	"Jhakri Slops +1"
+	Salvage.Hands	=	"Jhakri Cuffs +2"
+	Salvage.Legs 	=	"Jhakri Slops +2"
 	Salvage.Feet	=	"Jhakri Pigaches +1"
 
 	Limbus = {}
@@ -116,7 +117,7 @@ function init_gear_sets()
  }
     RDMCape.STR		=	{ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Attack+3','"Dual Wield"+10',}
  }
-	
+	RDMCape.INT		=   RDMCape.MND
  --------------------------------------
     -- Start defining the sets
     --------------------------------------
@@ -149,7 +150,6 @@ function init_gear_sets()
         head=AF.Head,
         body=AF.Body,
 		hands="Helios Gloves",
-        back="Refraction Cape",
 		legs="Hagondes Pants",
 		feet="Hagondes Sabots"}
         
@@ -162,7 +162,7 @@ function init_gear_sets()
     -- No other FC sets necessary.
     sets.precast.FC = {main=Staff.FC,sub="Niobid Strap",ammo="Impatiens",
         head=AF.Head,neck="Orunmila's Torque",ear1="Enchanter Earring +1",ear2="Loquacious Earring",
-        body=RELIC.Body,hands="Leyline Gloves",ring1="Prolix Ring",
+        body=RELIC.Body,hands="Leyline Gloves",ring1="Prolix Ring",ring2="Kishar Ring",
         back="Swith Cape",waist="Witful Belt",legs="Psycloth Lappas",feet="Uk'uxkaj Boots"}
 
     sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
@@ -202,22 +202,26 @@ function init_gear_sets()
     sets.midcast.Curaga = sets.midcast.Cure
     sets.midcast.CureSelf = {
 		ring1="Kunaji Ring",
-		ring2="Asklepian Ring"}
+		ring2="Asklepian Ring",
+		waist="Gishdubar Sash"}
 
     sets.midcast['Enhancing Magic'] = {
         head=AF.Head,
-		neck="Incanter's Torque",
+		neck=RELIC.Neck,
         body=RELIC.Body,
 		hands=AF.Hands,
 		ring1="Prolix Ring",
+		ring2="Kishar Ring",
         back=RDMCape.MND,
 		waist="Olympus Sash",
 		legs=AF.Legs,
 		feet="Lethargy Houseaux +1"}
 
-    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'],{legs="Lethargy Fuseau +1"})
+    sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'],{body=AF.Body,legs="Lethargy Fuseau +1"})
 	-- sets.midcast['Refresh II'] = sets.midcast['Refresh']
 	-- sets.midcast['Refresh III'] = sets.midcast['Refresh']
+	sets.midcast.RefreshSelf = {
+		waist="Gishdubar Sash"}
 
     sets.midcast.Stoneskin = {ear2="Earthcry Earring", waist="Siegel Sash"}
     
@@ -226,23 +230,25 @@ function init_gear_sets()
 		sub="Mephitis Grip",
 		ammo="Kalboron Stone",
         head=RELIC.Head,
-		neck="Incanter's Torque",
+		neck=RELIC.Neck,
 		ear1="Gwati Earring",
 		ear2="Snotra Earring",
         body="Vanya Robe",
 		hands="Helios Gloves",
 		ring1="Stikini Ring",
-		ring2="Stikini Ring",
+		ring2="Kishar Ring",
         back=RDMCape.MND,
 		waist="Demonry Sash",
 		legs="Psycloth Lappas",
 		feet="Medium's Sabots"}
 
-    sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'], {head=RELIC.Head})
+    sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'], {head=RELIC.Head,ring2="Stikini Ring"})
 
-    sets.midcast['Slow II'] = set_combine(sets.midcast['Enfeebling Magic'], {head=RELIC.Head})
+    sets.midcast['Slow II'] = set_combine(sets.midcast['Enfeebling Magic'], {head=RELIC.Head,ring2="Stikini Ring"})
 
-    sets.midcast['Paralyze II'] = set_combine(sets.midcast['Enfeebling Magic'], {head=RELIC.Head})
+    sets.midcast['Paralyze II'] = set_combine(sets.midcast['Enfeebling Magic'], {head=RELIC.Head,ring2="Stikini Ring"})
+	
+	sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'],{ring2="Stikini Ring"})
     
     -- Elemental Magic sets
     
@@ -259,7 +265,7 @@ function init_gear_sets()
 		hands="Amalric Gages",
 		ring1="Shiva Ring +1",
 		ring2="Fenrir Ring +1",
-        back="Toro Cape",
+        back="Izdubar Mantle",
 		waist="Refoccilation Stone",
 		legs="Amalric Slops",
 		feet=MAB_feet}
@@ -268,7 +274,7 @@ function init_gear_sets()
 		sub="Niobid Strap", 
 		neck="Saevus Pendant +1",
 		ear2="Gwati Earring",
-		back="Refraction Cape",
+		back=RDMCape.INT,
 		waist="Refoccilation Stone",
 		legs="Psycloth Lappas"})
 
@@ -277,7 +283,7 @@ function init_gear_sets()
 		main=Staff.Nuke,
 		sub="Alber Strap",
 		ring2="Shiva Ring +1",
-		back="Toro Cape"})
+		back="Izdubar Mantle"})
 
     sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
 		sub="Niobid Strap",
@@ -289,12 +295,12 @@ function init_gear_sets()
     sets.midcast['Dark Magic'] = {main="Twebuliij",sub="Mephitis Grip",ammo="Kalboron Stone",
         head=AF.Head,neck="Incanter's Torque",ear1="Gwati Earring",ear2="Enchanter Earring +1",
         body="Shango Robe",hands="Leyline Gloves",ring1="Prolix Ring",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Goading Belt",legs="Psycloth Lappas",feet="Bokwus Boots"}
+        back=RDMCape.INT,waist="Eschan Stone",legs="Psycloth Lappas",feet="Bokwus Boots"}
 
     sets.midcast.Stun = {main="Marin Staff +1",sub="Mephitis Grip",ammo="Kalboron Stone",
         head=AF.Head,neck="Incanter's Torque",ear1="Gwati Earring",ear2="Enchanter Earring +1",
         body=RELIC.Body,hands="Leyline Gloves",ring1="Prolix Ring",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Witful Belt",legs="Psycloth Lappas",feet="Uk'uxkaj Boots"}
+        back=RDMCape.INT,waist="Witful Belt",legs="Psycloth Lappas",feet="Uk'uxkaj Boots"}
 
     sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {ring1="Excelsis Ring", waist="Fucho-no-Obi"})
 
@@ -303,7 +309,7 @@ function init_gear_sets()
 
     -- Sets for special buff conditions on spells.
 
-    sets.midcast.EnhancingDuration = {hands=AF.Hands,back="Ghostfyre Cape",feet="Lethargy Houseaux +1"}
+    sets.midcast.EnhancingDuration = {neck=RELIC.Neck,hands=AF.Hands,back="Ghostfyre Cape",feet="Lethargy Houseaux +1"}
         
     sets.buff.ComposureOther = {
 		head=EMPY.Head,
@@ -388,7 +394,7 @@ function init_gear_sets()
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
     
-    sets.magic_burst = {neck="Mizu. Kubikazari", ring2="Locus ring", ear2="Static Earring", back="Seshaw Cape", ring1="mujin band", feet=MB_feet}
+    sets.magic_burst = {neck="Mizu. Kubikazari", ring2="Locus ring", ear2="Static Earring", back=RDMCape.INT, ring1="mujin band", feet=MB_feet}
 	sets.Seidr = {body="Seidr Cotehardie"}
 	sets.Obi = {back="Twilight Cape", waist="Hachirin-no-Obi"}
 
@@ -403,7 +409,7 @@ function init_gear_sets()
     sets.engaged = { 
 		ammo="Ginsen",
         head=RELIC.Head,
-		neck="Lissome Necklace",
+		neck="Anu Torque",
 		ear1="Sherida Earring",
 		ear2="Dedition Earring",
         body=Limbus.Body,
@@ -417,6 +423,7 @@ function init_gear_sets()
 	
 	sets.engaged['NormalACC'] = set_combine(sets.engaged, { 
 		head="Carmine Mask",
+		neck="Lissome Necklace",
 		body=Salvage.Body,
 		neck="Combatant's Torque",
 		ear2="Eabani Earring", 
@@ -440,7 +447,7 @@ function init_gear_sets()
     sets.engaged.Defense = {ammo="Demonry Stone",
         head=AF.Head,neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
         body=AF.Body,hands=AF.Hands,ring1="K'ayres Ring",ring2="Rajas Ring",
-        back="Kayapa Cape",waist="Goading Belt",legs="Osmium Cuisses",feet="Atrophy Boots"}
+        back="Kayapa Cape",waist="Flume Belt",legs="Osmium Cuisses",feet=AF.Feet}
 	
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
@@ -450,7 +457,7 @@ function init_gear_sets()
 		ear2="Moonshade Earring",
 		ear1="Ishvara Earring",
         body=AF.Body,
-		hands="Helios Gloves",
+		hands=Salvage.Hands,
 		ring1="Rufescent Ring",
 		ring2="Rajas Ring",
         back=RDMCape.STR,
@@ -474,16 +481,16 @@ function init_gear_sets()
 		ear1="Friomisi Earring",
 		ear2="Hecate's Earring",
         body="Hagondes Coat +1",
-		hands="Helios Gloves",
 		ring1="Strendu Ring",
 		ring2="Adoulin Ring +1",
-        back="Toro Cape",
+        back=RDMCape.MND,
 		legs="Amalric Slops",
 		feet="Umbanii Boots"})
 
     sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, { 
 		ear1="Sherida Earring",
 		body=Salvage.Body,
+		hands=AF.Hands,
 		waist="Prosilio Belt +1",
 		feet="Carmine Greaves +1" })		
 
@@ -517,6 +524,9 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
         equip(sets.buff.Saboteur)
     elseif spell.skill == 'Enhancing Magic' then
         equip(sets.midcast.EnhancingDuration)
+		if spellMap == 'Refresh' and spell.target.type == 'SELF' then
+			equip(sets.midcast.RefreshSelf)
+		end
         if buffactive.composure and spell.target.type == 'PLAYER' then
             equip(sets.buff.ComposureOther)
         end

@@ -24,9 +24,9 @@ end
  
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal')
-    state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal','CP', 'PDT', 'MDT', 'RR')
+    state.OffenseMode:options('None', 'Normal') --F9
+    state.CastingMode:options('Normal', 'Resistant') --Ctrl + F11
+    state.IdleMode:options('Normal','CP', 'PDT', 'MDT', 'RR') --Ctrl + F12
  
     gear.default.weaponskill_waist = "Windbuffet Belt"
 
@@ -80,6 +80,7 @@ function init_gear_sets()
     RELIC.Hands 	=	"Bagua Mitaines +1"
     RELIC.Legs		=	"Bagua Pants +1"
     RELIC.Feet		=	"Bagua Sandals +3"
+	RELIC.Neck		=	"Bagua Charm +1"
 
     --Lethargy
     EMPY.Head		=	"Azimuth Hood +1"
@@ -110,7 +111,8 @@ function init_gear_sets()
 	
 	Weapons = {}
 
-		Weapons.GEO = {name="Solstice"}
+		Weapons.GEO = {name="Idris"}
+		Weapons.Indi = {name="Solstice"}
 		Weapons.MACC = {name="Grioavolr"}
 
 	Subweapons = {}
@@ -180,7 +182,7 @@ function init_gear_sets()
 		hands="Helios Gloves",
 		ring1="Rajas Ring",
 		ring2="K'ayres Ring",
-        back="Refraction Cape",
+        back=GEOCape.Indi,
 		waist=gear.ElementalBelt,
 		legs="Amalric Slops",
 		feet="Umbani Boots"}
@@ -196,7 +198,7 @@ function init_gear_sets()
 		hands="Helios Gloves",
 		ring1="Acumen Ring",
 		ring2="Strendu Ring",
-        back="Toro Cape",
+        back=GEOCape.Indi,
 		waist="Snow Belt",
 		legs="Amalric Slops",
 		feet="Umbani Boots"}
@@ -219,7 +221,7 @@ function init_gear_sets()
 		hands="Bokwus Gloves",
 		ring1="Prolix Ring",
         back=GEOCape.Geo,
-		waist="Goading Belt",
+		waist="Witful Belt",
 		legs="Amalric Slops",
 		feet="Regal Pumps +1"}
  
@@ -229,9 +231,11 @@ function init_gear_sets()
 		neck="Incanter's Torque",
 		ring1="Stikini Ring",
 		ring2="Stikini Ring",
+		waist="Embla Sash",
 		feet="Regal Pumps +1" }
 
-	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {feet="Inspirited Boots"})
+	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {})
+	sets.midcast.RefreshSelf = {waist="Gishdubar Sash", feet="Inspirited Boots"}
 
     sets.midcast['Enfeebling Magic'] = {
 		main=Weapons.MACC,
@@ -263,27 +267,22 @@ function init_gear_sets()
 		hands="Amalric Gages",
 		ring1="Shiva Ring +1",
 		ring2="Fenrir Ring +1",
-        back="Toro Cape",
+        back=GEOCape.Indi,
 		waist="Refoccilation Stone",
 		legs="Amalric Slops",feet=MAB_feet}
 
     sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
 		ear2="Gwati Earring",
-		back="Refraction Cape",
+		ring2="Adoulin Ring +1",
 		waist="Refoccilation Stone",
 		legs="Psycloth Lappas"})
 
     sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {
 		ring2="Shiva Ring +1",
-		back="Toro Cape"})
+		back=GEOCape.Indi})
 	
     sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].HighTierNuke, {
 		ring2="Adoulin Ring +1"})
-
-	
-   -- sets.midcast['Elemental Magic'] = {main="Lehbrailg +2",sub="Mephitis Grip",ammo="Pemphredo Tathlum", head="Hagondes Hat +1",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Barkarole Earring", body=RELIC.Body,hands="Helios Gloves",ring2="Sangoma Ring", cape="Toro Cape",waist="Sekhmet Corset",legs="Amalric Slops",feet="Umbani Boots"}
-     
-   -- sets.midcast['Elemental Magic']['Low'] = {main="Lehbrailg +2",sub="Mephitis Grip",ammo="Pemphredo Tathlum", head="Hagondes Hat +1",neck="Sanctity Necklace",ear1="Friomisi Earring",ear2="Barkarole Earring", body=RELIC.Body,hands="Helios Gloves",ring2="Sangoma Ring", cape="Toro Cape",waist="Sekhmet Corset",legs="Amalric Slops",feet="Umbani Boots"}
          
     sets.midcast['Dark Magic'] = {
 		main=Weapons.MACC,
@@ -297,27 +296,17 @@ function init_gear_sets()
 		hands="Helios Gloves",
 		ring1="Stikini Ring",
 		ring2="Stikini Ring",
-        cape="Toro Cape",
+        cape=GEOCape.Indi,
 		waist="Demonry Sash",
 		legs="Amalric Slops",
 		feet="Umbani Boots"}
      
-    sets.midcast['Dark Magic']['Stun'] = {
-		main=Weapons.MACC,
-		sub="Mephitis Grip",
-		ammo="Pemphredo Tathlum",
+    sets.midcast['Dark Magic']['Stun'] = set_combine(sets.midcast['Dark Magic'],{
         head="Nahtirah Hat",
-		neck="Erra Pendant",
-		ear1="Barkarole Earring",
-		ear2="Gwati Earring",
-        body="Shango Robe",
-		hands="Helios Gloves",
 		ring1="Strendu Ring",
 		ring2="Sangoma Ring",
-        back="Refraction Cape",
 		waist="Witful Belt",
-		legs="Psycloth Lappas",
-		feet="Umbani Boots"}
+		legs="Psycloth Lappas"})
 	--sets.midcast.Drain =  set_combine(sets.midcast.['Dark Magic'], { head="Bagua Galero +1"})
 	--sets.midcast.Aspir =  set_combine(sets.midcast.['Dark Magic'], { head="Bagua Galero +1"})
 	
@@ -341,7 +330,7 @@ function init_gear_sets()
 		range="Dunna", 
 		ammo=none,
 		head=EMPY.Head,
-		neck="Incanter's Torque",
+		neck=RELIC.Neck,
 		legs=RELIC.Legs,
 		hands=AF.Hands,
 		body=RELIC.Body, 
@@ -352,7 +341,9 @@ function init_gear_sets()
     sets.midcast.Geomancy.Geo = set_combine(sets.midcast.Geomancy, {
 		legs="Theurgist's Slacks"})
 		
-	sets.midcast['Indi-*'] = set_combine(sets.midcast.Geomancy, { 
+	sets.midcast['Indi-*'] = set_combine(sets.midcast.Geomancy, {
+		main=Weapons.Indi,
+		neck="Incanter's Torque",
 		back=GEOCape.Indi,
 		legs=RELIC.Legs, 
 		feet=EMPY.Feet})
@@ -375,7 +366,11 @@ function init_gear_sets()
 		feet="Vanya Clogs"}
 
     sets.midcast.Curaga = sets.midcast.Cure
- 
+     sets.midcast.CureSelf = {
+		ring1="Kunaji Ring",
+		ring2="Asklepian Ring",
+		waist="Gishdubar Sash"}
+
     sets.midcast.Protectra = {ring1="Defending Ring"}
  
     sets.midcast.Shellra = {ring1="Defending Ring"}
@@ -383,7 +378,7 @@ function init_gear_sets()
     sets.midcast.Stun = {main=Weapons.MACC,sub="Mephitis Grip",ammo="Pemphredo Tathlum",
         head="Nahtirah Hat",neck="Incanter's Torque",ear1="Barkarole Earring",ear2="Gwati Earring",
         body="Shango Robe",hands="Helios Gloves",ring1="Strendu Ring",ring2="Sangoma Ring",
-        back="Refraction Cape",waist="Witful Belt",legs="Psycloth Lappas",feet="Regal Pupmps +1"}
+        back=GEOCape.Indi,waist="Witful Belt",legs="Psycloth Lappas",feet="Regal Pupmps +1"}
 
  
     --------------------------------------
@@ -399,7 +394,7 @@ function init_gear_sets()
     -- Idle sets
  
     sets.idle = {main="Bolelabunga",sub="Culminus",range="Dunna",
-        head="Befouled Crown",neck="Sanctity Necklace",ear1="Thureous Earring",ear2="Loquacious Earring",
+        head="Befouled Crown",neck=RELIC.Neck,ear1="Thureous Earring",ear2="Loquacious Earring",
         body=Salvage.Body,hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back="Umbra Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet=AF.Feet}
  
@@ -409,30 +404,28 @@ function init_gear_sets()
         back="Umbra Cape",waist="Fucho-no-obi",legs="Amalric Slops",feet=AF.Feet}
  
     -- .Pet sets are for when Luopan is present.
-    sets.idle.Pet = {main="Bolelabunga",range="Dunna",
-        head=EMPY.Head,neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Loquacious Earring",
+    sets.idle.Pet = {main=Weapons.GEO,sub="Culminus",range="Dunna",
+        head=EMPY.Head,neck=RELIC.Neck,ear1="Handler's Earring",ear2="Loquacious Earring",
         body="Amalric Doublet",hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
-        back=GEOCape.Geo,waist="Fucho-no-obi",legs="Assiduity Pants +1",feet=RELIC.Feet}
+        back=GEOCape.Geo,waist="Isa Belt",legs="Assiduity Pants +1",feet=RELIC.Feet}
  
-    sets.idle.PDT.Pet = {main="Bolelabunga",range="Dunna",
-        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Loquacious Earring",
+    sets.idle.PDT.Pet = {main=Weapons.GEO,sub="Genbu's Shield",range="Dunna",
+        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Handler's Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands=AF.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
-        back=GEOCape.Geo,waist="Goading Belt",legs="Assiduity Pants +1",feet=RELIC.Feet}
- 
-    -- .Indi sets are for when an Indi-spell is active.
- 
+        back=GEOCape.Geo,waist="Isa Belt",legs="Assiduity Pants +1",feet=RELIC.Feet}
+  
     sets.idle.Town = {main=Weapons.GEO,sub="Culminus",range="Dunna",
-        head="Befouled Crown",neck="Sanctity Necklace",ear1="Thureous Earring",ear2="Loquacious Earring",
+        head="Befouled Crown",neck=RELIC.Neck,ear1="Thureous Earring",ear2="Loquacious Earring",
         body=EMPY.Body,hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
-        back=GEOCape.Geo,waist="Goading Belt",legs="Assiduity Pants +1",feet=AF.Feet}
+        back=GEOCape.Geo,waist="Eschan Stone",legs="Assiduity Pants +1",feet=AF.Feet}
  
     sets.idle.Weak = {main="Bolelabunga",sub="Genbu's Shield",range="Dunna",
         head="Nefer Khat +1",neck="Sanctity Necklace",ear1="Thureous Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
-        back=GEOCape.Geo,waist="Goading Belt",legs="Assiduity Pants +1",feet=AF.Feet}
+        back=GEOCape.Geo,waist="Gishdubar Sash",legs="Assiduity Pants +1",feet=AF.Feet}
 
 	sets.idle.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
-	sets.idle.Pet.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
+	sets.idle.CP.Pet = set_combine(sets.idle.Pet,{back="Mecistopins Mantle"})
  	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
 
     -- Defense sets
@@ -451,7 +444,7 @@ function init_gear_sets()
   
     sets.latent_refresh = {waist="Fucho-no-obi"}
  
-    sets.magic_burst = {neck="Mizu. Kubikazari", ring2="Locus ring", ear2="Static Earring", back="Seshaw Cape", ring1="mujin band",feet=MB_feet}
+    sets.magic_burst = {neck="Mizu. Kubikazari", ring2="Locus ring", ear2="Static Earring", back=GEOCape.Indi, ring1="mujin band",feet=MB_feet}
 	sets.Seidr = {body="Seidr Cotehardie"}
 	sets.Obi = {back="Twilight Cape", waist="Hachirin-no-Obi"}
 
@@ -515,6 +508,14 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
 
 	if spell.skill == 'Elemental Magic' and state.Seidr.value then equip(sets.Seidr)
 	end
+	
+	if spell.skill == 'Enhancing Magic' then
+		if spellMap == 'Refresh' and spell.target.type == 'SELF' then
+			equip(sets.midcast.RefreshSelf)
+		end
+    elseif spellMap == 'Cure' and spell.target.type == 'SELF' then
+        equip(sets.midcast.CureSelf)
+    end
 end
  
 -------------------------------------------------------------------------------------------------------------------

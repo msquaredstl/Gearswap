@@ -51,9 +51,9 @@ end
 
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
-    state.OffenseMode:options('None', 'Normal')
-    state.CastingMode:options('Normal', 'Resistant')
-    state.IdleMode:options('Normal', 'CP', 'PDT', 'MDT', 'RR')
+    state.OffenseMode:options('None', 'Normal') --F9
+    state.CastingMode:options('Normal', 'Resistant') --Ctrl + F11
+    state.IdleMode:options('Normal', 'CP', 'PDT', 'MDT', 'RR') --Ctrl + F12
 
 
     info.low_nukes = S{"Stone", "Water", "Aero", "Fire", "Blizzard", "Thunder"}
@@ -146,10 +146,20 @@ function init_gear_sets()
     sets.midcast.CureWithLightWeather = set_combine(sets.midcast.Cure,{waist="Hachirin-no-Obi"})
 
     sets.midcast.Curaga = sets.midcast.Cure
+    sets.midcast.CureSelf = {
+		ring1="Kunaji Ring",
+		ring2="Asklepian Ring",
+		waist="Gishdubar Sash"}
 
     sets.midcast.Regen = {main="Bolelabunga",head="Arbatel Bonnet +1"}
 
-    sets.midcast.Cursna = {neck="Malison Medallion", hands="Hieros Mittens",ring1="Ephedra Ring",ring2="Sirona's Ring",feet="Gendewitha Galoshes"}
+    sets.midcast.Cursna = {
+		neck="Malison Medallion", 
+		hands="Hieros Mittens",
+		ring1="Ephedra Ring",
+		ring2="Sirona's Ring",
+		waist="Gishdubar Sash",
+		feet="Gendewitha Galoshes"}
 
     sets.midcast['Enhancing Magic'] = {ammo="Savant's Treatise",head="Arbitel Bonnet +1",neck="Incanter's Torque",body="Manasa Chasuble",legs="Regal Pumps +1"}
 
@@ -304,8 +314,8 @@ function init_gear_sets()
 	sets.buff['Stormsurge'] = {feet="Pedagogy Loafers +1"}
 	sets.buff['Klimaform'] = {feet="Arbatel Loafers +1"}
 
-    sets.buff.FullSublimation = {head="Academic's Mortarboard +1",ear1="Savant's Earring",body="Pedagogy Gown +1"}
-    sets.buff.PDTSublimation = {head="Academic's Mortarboard +1",ear1="Savant's Earring",body="Pedagogy Gown +1"}
+    sets.buff.FullSublimation = {head="Academic's Mortarboard +1",ear1="Savant's Earring",body="Pedagogy Gown +1",waist="Embla Sash"}
+    sets.buff.PDTSublimation = sets.buff.FullSublimation
 
     sets.magic_burst = {neck="Mizu. Kubikazari", ring2="Locus ring", ear2="Static Earring", back="Seshaw Cape", ring1="mujin band", feet=MB_feet}
 	sets.Seidr = {body="Seidr Cotehardie"}
@@ -321,18 +331,26 @@ function job_post_midcast(spell, action, spellMap, eventArgs)
     if spell.action_type == 'Magic' then
         apply_grimoire_bonuses(spell, action, spellMap, eventArgs)
     end
-if spell.skill == 'Elemental Magic' and state.Obi.value then
-equip(sets.Obi)
+	
+	if spell.skill == 'Elemental Magic' and state.Obi.value then
+	equip(sets.Obi)
+	end
 
-end
+	if spell.skill == 'Elemental Magic' and state.MagicBurst.value then
+			equip(sets.magic_burst)
+	end
 
-if spell.skill == 'Elemental Magic' and state.MagicBurst.value then
-        equip(sets.magic_burst)
+	if spell.skill == 'Elemental Magic' and state.Seidr.value then
+		equip(sets.Seidr)
+	end	
+	
+	if spell.skill == 'Enhancing Magic' then
+		if spellMap == 'Refresh' and spell.target.type == 'SELF' then
+			equip(sets.midcast.RefreshSelf)
+		end
+    elseif spellMap == 'Cure' and spell.target.type == 'SELF' then
+        equip(sets.midcast.CureSelf)
     end
-
-if spell.skill == 'Elemental Magic' and state.Seidr.value then
-equip(sets.Seidr)
-end	
 	
 end
 
