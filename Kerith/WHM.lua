@@ -214,7 +214,7 @@ function init_gear_sets()
         head="Ebers Cap +1",neck="Incanter's Torque", body="Ebers Bliaud +1",hands="Orison Mitts +2",
         back="Mending Cape",waist="Olympus Sash",legs="Piety Pantaloons +1",feet="Ebers Duckbills"}
 
-    sets.midcast.Regen = {main="Bolelabunga",sub="Genbu's Shield",
+    sets.midcast.Regen = {main="Bolelabunga",sub="Genmei Shield",
         body="Piety Briault +1",hands="Orison Mitts +2",
         legs="Theophany Pantaloons +1"}
 
@@ -253,22 +253,22 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {main="Queller Rod", sub="Sors Shield",ammo="Homiliary",
         head="Befouled Crown",neck="Wiglen Gorget",ear1="Glorious Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut +1",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
+        body="Annointed Kalasiris",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
-    sets.idle.PDT = {main="Bolelabunga", sub="Genbu's Shield",ammo="Homiliary",
-        head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut +1",hands="Gendewitha Gages +1",ring1="Defending Ring",ring2="Meridian Ring",
+    sets.idle.PDT = {main="Bolelabunga", sub="Genmei Shield",ammo="Homiliary",
+        head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Genmei Earring",
+        body="Annointed Kalasiris",hands="Gendewitha Gages +1",ring1="Defending Ring",ring2="Meridian Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Querkening Brais",feet="Battlecast Gaiters"}
 
-    sets.idle.Town = {main="Queller Rod", sub="Sors Shield",ammo="Homiliary",
+    sets.idle.Town = {main="Queller Rod", sub="Genmei Shield",ammo="Homiliary",
         head="Befouled Crown",neck="Wiglen Gorget",ear1="Glorious Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut +1",hands="Gendewitha Gages +1",ring1="Sheltered Ring",ring2="Paguroidea Ring",
+        body="Annointed Kalasiris",hands="Gendewitha Gages +1",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
     
-    sets.idle.Weak = {main="Bolelabunga",sub="Genbu's Shield",ammo="Homiliary",
-        head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Loquacious Earring",
-        body="Gendewitha Bliaut +1",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Meridian Ring",
+    sets.idle.Weak = {main="Bolelabunga",sub="Genmei Shield",ammo="Homiliary",
+        head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Genmei Earring",
+        body="Annointed Kalasiris",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Meridian Ring",
         back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Gendewitha Galoshes +1"}
     
  	sets.idle.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
@@ -276,13 +276,13 @@ function init_gear_sets()
 
    -- Defense sets
 
-    sets.defense.PDT = {sub="Sors Shield",
-        head="Kaykaus Mitra",neck="Loricate Torque +1",
-        body="Gendewitha Bliaut +1",hands="Gendewitha Gages +1",ring1="Defending Ring",
+    sets.defense.PDT = {sub="Genmei Shield",
+        head="Kaykaus Mitra",neck="Loricate Torque +1",ear2="Genmei Earring",
+        body="Annointed Kalasiris",hands="Gendewitha Gages +1",ring1="Defending Ring",
         back="Umbra Cape",legs="Querkening Brais",feet="Battlecast Gaiters"}
 
-    sets.defense.MDT = {sub="Sors Shield",
-        head="Nahtirah Hat",neck="Loricate Torque +1",
+    sets.defense.MDT = {sub="Genmei Shield",
+        head="Nahtirah Hat",neck="Loricate Torque +1",ear2="Genmei Earring",
         body="Kaykaus Bliaut",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Pahtli Cape",legs="Bokwus Slops",feet="Battlecast Gaiters"}
 

@@ -411,14 +411,14 @@ function init_gear_sets()
 
     -- Idle mode that keeps PDT gear on, but doesn't prevent normal gear swaps for precast/etc.
     sets.idle.PDT = {main="Earth Staff", sub="Zuuxowu Grip",
-        head="Nahtirah Hat",neck="Loricate Torque +1",ear1="Barkarole Earring",ear2="Loquacious Earring",
+        head="Nahtirah Hat",neck="Loricate Torque +1",ear1="Barkarole Earring",ear2="Genmei Earring",
         body="Hagondes Coat",hands="Amalric Gages",ring1="Defending Ring",ring2=DarkRing,
         back="Umbra Cape",waist="Fucho-no-obi",legs="Hagondes Pants",feet="Battlecast Gaiters"}
 
     -- Idle mode scopes:
     -- Idle mode when weak.
-    sets.idle.Weak = {main="Bolelabunga",sub="Genbu's Shield",
-        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Barkarole Earring",ear2="Loquacious Earring",
+    sets.idle.Weak = {main="Bolelabunga",sub="Genmei Shield",
+        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Barkarole Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands="Amalric Gages",ring1="Defending Ring",ring2="Paguroidea Ring",
         back="Umbra Cape",waist="Fucho-no-obi",legs="Nares Trews",feet="Battlecast Gaiters"}
     
@@ -431,12 +431,12 @@ function init_gear_sets()
 	
     -- Defense sets
 
-    sets.defense.PDT = { head="Hagondes Hat +1",neck="Loricate Torque +1",
+    sets.defense.PDT = { head="Hagondes Hat +1",neck="Loricate Torque +1",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2=DarkRing,
         back="Umbra Cape",waist="Hierarch Belt",legs="Amalric Slops", feet="Battlecast Gaiters"}
     
     sets.defense.MDT = {ammo="Demonry Stone",
-        head="Hagondes hat +1",neck="Loricate Torque +1",
+        head="Hagondes hat +1",neck="Loricate Torque +1",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Tuilha Cape",waist="Hierarch Belt",legs="Psycloth Lappas",feet="Hagondes Sabots"}
 

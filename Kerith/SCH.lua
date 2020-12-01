@@ -253,7 +253,7 @@ function init_gear_sets()
         back="Bookworm's Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
     -- Idle mode that keeps PDT gear on, but doesn't prevent normal gear swaps for precast/etc.
-    sets.idle.PDT = {main="Bolelabunga",sub="Genbu's Shield",
+    sets.idle.PDT = {main="Bolelabunga",sub="Genmei Shield",
         head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands="Amalric Gages",ring1="Defending Ring",ring2=gear.DarkRing.physical,
         back="Umbra Cape",waist="Fucho-no-obi",legs="Hagondes Pants",feet="Battlecast Gaiters"}

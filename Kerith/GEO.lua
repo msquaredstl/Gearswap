@@ -69,16 +69,16 @@ function init_gear_sets()
 	-- Fill this with your own JSE. 
     --
     AF.Head		=	""
-    AF.Body		=	"Geomancy Tunic +1"
-    AF.Hands	=	"Geomancy Mitaines +1"
-    AF.Legs		=	"Geomancy Pants +1"
-    AF.Feet		=	"Geomancy Sandals +1"
+    AF.Body		=	"Geomancy Tunic +2"
+    AF.Hands	=	"Geomancy Mitaines +2"
+    AF.Legs		=	"Geomancy Pants +2"
+    AF.Feet		=	"Geomancy Sandals +2"
 
     --Vitiation
     RELIC.Head		=	""
-    RELIC.Body		=	"Bagua Tunic +1"
-    RELIC.Hands 	=	"Bagua Mitaines +1"
-    RELIC.Legs		=	"Bagua Pants +1"
+    RELIC.Body		=	"Bagua Tunic +3"
+    RELIC.Hands 	=	"Bagua Mitaines +3"
+    RELIC.Legs		=	"Bagua Pants +3"
     RELIC.Feet		=	"Bagua Sandals +3"
 	RELIC.Neck		=	"Bagua Charm +1"
 
@@ -163,7 +163,7 @@ function init_gear_sets()
 		legs=AF.Legs,
 		feet="Regal Pumps +1"}
  
-    sets.precast.FC.Cure = set_combine(sets.precast.FC, {main="Tamaxchi",sub="Genbu's Shield",back="Pahtli Cape"})
+    sets.precast.FC.Cure = set_combine(sets.precast.FC, {main="Tamaxchi",sub="Sors Shield",back="Pahtli Cape"})
  
     sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {hands=RELIC.Hands})
  
@@ -398,8 +398,8 @@ function init_gear_sets()
         body=Salvage.Body,hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back="Umbra Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet=AF.Feet}
  
-    sets.idle.PDT = {main="Bolelabunga",sub="Genbu's Shield",range="Dunna",
-        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Loquacious Earring",
+    sets.idle.PDT = {main="Bolelabunga",sub="Genmei Shield",range="Dunna",
+        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back="Umbra Cape",waist="Fucho-no-obi",legs="Amalric Slops",feet=AF.Feet}
  
@@ -409,8 +409,8 @@ function init_gear_sets()
         body="Amalric Doublet",hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back=GEOCape.Geo,waist="Isa Belt",legs="Assiduity Pants +1",feet=RELIC.Feet}
  
-    sets.idle.PDT.Pet = {main=Weapons.GEO,sub="Genbu's Shield",range="Dunna",
-        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Handler's Earring",ear2="Loquacious Earring",
+    sets.idle.PDT.Pet = {main=Weapons.GEO,sub="Genmei Shield",range="Dunna",
+        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Handler's Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands=AF.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back=GEOCape.Geo,waist="Isa Belt",legs="Assiduity Pants +1",feet=RELIC.Feet}
   
@@ -419,10 +419,11 @@ function init_gear_sets()
         body=EMPY.Body,hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back=GEOCape.Geo,waist="Eschan Stone",legs="Assiduity Pants +1",feet=AF.Feet}
  
-    sets.idle.Weak = {main="Bolelabunga",sub="Genbu's Shield",range="Dunna",
-        head="Nefer Khat +1",neck="Sanctity Necklace",ear1="Thureous Earring",ear2="Loquacious Earring",
+    sets.idle.Weak = {main="Bolelabunga",sub="Genmei Shield",range="Dunna",
+        head="Nefer Khat +1",neck="Sanctity Necklace",ear1="Thureous Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back=GEOCape.Geo,waist="Gishdubar Sash",legs="Assiduity Pants +1",feet=AF.Feet}
+sets.idle.Weak.Pet = set_combine(sets.idle.Weak,{main=Weapons.GEO,sub="Genmei Shield"})
 
 	sets.idle.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
 	sets.idle.CP.Pet = set_combine(sets.idle.Pet,{back="Mecistopins Mantle"})
@@ -433,12 +434,12 @@ function init_gear_sets()
     sets.Kiting = {feet=AF.Feet}
 	 
     sets.defense.PDT = {main="Bolelabunga",range="Dunna",
-        head="Hagondes Hat +1",neck="Sanctity Necklace",ear1="Thureous Earring",ear2="Loquacious Earring",
+        head="Hagondes Hat +1",neck="Sanctity Necklace",ear1="Thureous Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands=AF.Hands,ring1="Defending Ring",
         back=GEOCape.Geo,waist="Slipor Sash",legs="Amalric Slops",feet=EMPY.Feet}
  
     sets.defense.MDT = {main="Bolelabunga",range="Dunna",
-        head="Hagondes Hat +1",neck="Nuna Gorget",ear1="Thureous Earring",ear2="Loquacious Earring",
+        head="Hagondes Hat +1",neck="Nuna Gorget",ear1="Thureous Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands=AF.Hands,ring1="Defending Ring",
         back=GEOCape.Geo,waist="Slipor Sash",legs="Amalric Slops",feet=EMPY.Feet}
   

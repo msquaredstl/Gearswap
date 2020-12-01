@@ -82,11 +82,11 @@ function init_gear_sets()
     AF.Feet		=	"Atrophy Boots +1"
 
     --Vitiation
-    RELIC.Head		=	"Viti. Chapeau +2"
+    RELIC.Head		=	"Viti. Chapeau +3"
     RELIC.Body		=	"Viti. Tabard +3"
-    RELIC.Hands 	=	""
-    RELIC.Legs		=	""
-    RELIC.Feet		=	"Vitiation Boots +1"
+    RELIC.Hands 	=	"Vitiation Gloves +1"
+    RELIC.Legs		=	"Vitiation Tights +1"
+    RELIC.Feet		=	"Vitiation Boots +2"
 	RELIC.Neck		=	"Duelist's Torque +1"
 
     --Lethargy
@@ -115,7 +115,7 @@ function init_gear_sets()
     RDMCape = {}
     RDMCape.MND		=	{ name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Damage taken-2%',}
  }
-    RDMCape.STR		=	{ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Attack+3','"Dual Wield"+10',}
+    RDMCape.STR		=	{ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Attack+10','"Dual Wield"+10','Damage taken-5%',}
  }
 	RDMCape.INT		=   RDMCape.MND
  --------------------------------------
@@ -345,22 +345,22 @@ function init_gear_sets()
         back="Ghostfyre Cape",waist="Cetl Belt",legs="Carmine Cuisses",feet=AF.Feet}
     
     sets.idle.Weak = {main="Bolelabunga",sub=SubWeapon.Shield,ammo="Homiliary",
-        head=RELIC.Head,neck="Wiglen Gorget",ear1="Thureous Earring",ear2="Loquacious Earring",
+        head=RELIC.Head,neck="Wiglen Gorget",ear1="Thureous Earring",ear2="Genmei Earring",
         body=AF.Body,hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Shadow Mantle",waist="Flume Belt",legs="Carmine Cuisses",feet="Battlecast Gaiters"}
 
     sets.idle.PDT = {main="Bolelabunga",sub=SubWeapon.Shield,ammo="Demonry Stone",
-        head="Lithelimb Cap",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Loquacious Earring",
+        head="Lithelimb Cap",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands="Umuthi Gloves",ring1="Defending Ring",ring2=gear.DarkRing.physical,
         back="Umbra Cape",waist="Flume Belt",legs="Amalric Slops",feet="Battlecast Gaiters"}
 
     sets.idle.MDT = {main="Bolelabunga",sub="Beatific Shield +1" ,ammo="Demonry Stone",
-        head="Kaykaus Mitra",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Loquacious Earring",
+        head="Kaykaus Mitra",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Engulfer Cape",waist="Flume Belt",legs="Osmium Cuisses",feet="Battlecast Gaiters"}
 
 	sets.idle.Staff = {main="Grioavolr",sub="Mephtis Grip",ammo="Impatiens",
-		head=RELIC.Head,neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Loquacious Earring",
+		head=RELIC.Head,neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Genmei Earring",
 		body=AF.Body,hands=AF.Hands,ring1="Defending Ring",ring2="Shadow Ring",
 		back="Engulfer Cape",waist="Flume Belt",legs="Carmine Cuisses",feet=AF.Feet}
     
@@ -375,6 +375,7 @@ function init_gear_sets()
     sets.defense.PDT = {
         head=AF.Head,
 		neck="Loricate Torque +1",
+		ear2="Genmei Earring",
         body="Hagondes Coat +1",
 		hands="Umuthi Gloves",
 		ring1="Defending Ring",
@@ -384,9 +385,16 @@ function init_gear_sets()
 		feet="Battlecast Gaiters"}
 
     sets.defense.MDT = {ammo="Demonry Stone",
-        head=AF.Head,neck="Loricate Torque +1",
-        body="Hagondes Coat +1",hands="Umuthi Gloves",ring1="Defending Ring",ring2="Shadow Ring",
-        back="Engulfer Cape",waist="Flume Belt",feet="Battlecast Gaiters"}
+        head=AF.Head,
+		neck="Loricate Torque +1",
+		ear2="Genmei Earring",
+        body="Hagondes Coat +1",
+		hands="Umuthi Gloves",
+		ring1="Defending Ring",
+		ring2="Shadow Ring",
+        back="Engulfer Cape",
+		waist="Flume Belt",
+		feet="Battlecast Gaiters"}
 
     sets.Kiting = {legs="Carmine Cuisses"}
 
@@ -394,7 +402,13 @@ function init_gear_sets()
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
     
-    sets.magic_burst = {neck="Mizu. Kubikazari", ring2="Locus ring", ear2="Static Earring", back=RDMCape.INT, ring1="mujin band", feet=MB_feet}
+    sets.magic_burst = {
+		neck="Mizu. Kubikazari", 
+		ring2="Locus ring", 
+		ear2="Static Earring", 
+		back=RDMCape.INT, 
+		ring1="mujin band", 
+		feet=MB_feet}
 	sets.Seidr = {body="Seidr Cotehardie"}
 	sets.Obi = {back="Twilight Cape", waist="Hachirin-no-Obi"}
 
