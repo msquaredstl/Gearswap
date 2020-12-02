@@ -336,27 +336,27 @@ function init_gear_sets()
     -- Idle sets
     sets.idle = {main="Bolelabunga",sub=SubWeapon.Shield,ammo="Homiliary",
         head=RELIC.Head,neck="Wiglen Gorget",ear1="Thureous Earring",ear2="Loquacious Earring",
-        body=Salvage.Body,hands="Helios Gloves",ring1="Stikini Ring",ring2="Stikini Ring",
+        body=Salvage.Body,hands=RELIC.Hands,ring1="Stikini Ring",ring2="Stikini Ring",
         back="Shadow Mantle",waist="Flume Belt",legs="Carmine Cuisses",feet=AF.Feet}
 
     sets.idle.Town = {main="Excalibur",sub=SubWeapon.Shield,ammo="Homiliary",
         head=RELIC.Head,neck="Asperity necklace",ear1="Steelflash Earring",ear2="Bladeborn Earring",
-        body=AF.Body,hands=AF.Hands,ring1="Adoulin Ring +1",ring2="Rajas Ring",
+        body=AF.Body,hands=RELIC.Hands,ring1="Adoulin Ring +1",ring2="Rajas Ring",
         back="Ghostfyre Cape",waist="Cetl Belt",legs="Carmine Cuisses",feet=AF.Feet}
     
     sets.idle.Weak = {main="Bolelabunga",sub=SubWeapon.Shield,ammo="Homiliary",
         head=RELIC.Head,neck="Wiglen Gorget",ear1="Thureous Earring",ear2="Genmei Earring",
-        body=AF.Body,hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
+        body=AF.Body,hands="Malignance Gloves",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Shadow Mantle",waist="Flume Belt",legs="Carmine Cuisses",feet="Battlecast Gaiters"}
 
     sets.idle.PDT = {main="Bolelabunga",sub=SubWeapon.Shield,ammo="Demonry Stone",
         head="Lithelimb Cap",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Genmei Earring",
-        body="Hagondes Coat +1",hands="Umuthi Gloves",ring1="Defending Ring",ring2=gear.DarkRing.physical,
+        body="Hagondes Coat +1",hands="Malignance Gloves",ring1="Defending Ring",ring2=gear.DarkRing.physical,
         back="Umbra Cape",waist="Flume Belt",legs="Amalric Slops",feet="Battlecast Gaiters"}
 
     sets.idle.MDT = {main="Bolelabunga",sub="Beatific Shield +1" ,ammo="Demonry Stone",
         head="Kaykaus Mitra",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Genmei Earring",
-        body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2="Shadow Ring",
+        body="Hagondes Coat +1",hands="Malignance Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Engulfer Cape",waist="Flume Belt",legs="Osmium Cuisses",feet="Battlecast Gaiters"}
 
 	sets.idle.Staff = {main="Grioavolr",sub="Mephtis Grip",ammo="Impatiens",
@@ -377,7 +377,7 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear2="Genmei Earring",
         body="Hagondes Coat +1",
-		hands="Umuthi Gloves",
+		hands="Malignance Gloves",
 		ring1="Defending Ring",
 		ring2=gear.DarkRing.physical,
         back="Umbra Cape",
@@ -389,7 +389,7 @@ function init_gear_sets()
 		neck="Loricate Torque +1",
 		ear2="Genmei Earring",
         body="Hagondes Coat +1",
-		hands="Umuthi Gloves",
+		hands="Malignance Gloves",
 		ring1="Defending Ring",
 		ring2="Shadow Ring",
         back="Engulfer Cape",

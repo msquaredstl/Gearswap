@@ -357,7 +357,7 @@ function init_gear_sets()
 
     sets.idle.Weak = {ammo="Staunch Tathlum +1",
         head=Limbus.Head,neck="Wiglen Gorget",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body=AF.Body,hands=Salvage.Hands,ring1="Sheltered Ring",ring2="Paguroidea Ring",
+        body=AF.Body,hands="Malignance Gloves",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Shadow Mantle",waist="Flume Belt",legs=AF.Legs,feet="Skadi's Jambeaux +1"}
 
 
@@ -370,12 +370,12 @@ function init_gear_sets()
 
     sets.defense.PDT = {ammo="Staunch Tathlum +1",
         head="Lithelimb Cap",neck="Loricate Torque +1",
-        body=Limbus.Body,hands=Salvage.Hands,ring1="Defending Ring",
+        body=Limbus.Body,hands="Malignance Gloves",ring1="Defending Ring",
         back="Iximulew Cape",waist="Flume Belt",legs=Limbus.Legs,feet="Qaaxo Leggings"}
 
     sets.defense.MDT = {ammo="Staunch Tathlum +1",
         head="Lithelimb Cap",neck="Loricate Torque +1",
-        body=AF.Body,hands="Pillager's Armlets +1",ring1="Defending Ring",ring2="Shadow Ring",
+        body=AF.Body,hands="Malignance Gloves",ring1="Defending Ring",ring2="Shadow Ring",
         back="Engulfer Cape",waist="Flume Belt",legs=Limbus.Legs,feet="Qaaxo Leggings"}
 
 
