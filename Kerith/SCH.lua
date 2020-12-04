@@ -68,8 +68,6 @@ function user_setup()
 	send_command('bind ^end gs c toggle MagicBurst')
     select_default_macro_book()
 
-	gear.MB_feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+30','Magic burst mdg.+10%','Mag. Acc.+3',}}
-	gear.MAB_feet={ name="Merlinic Crackows", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Phys. dmg. taken -1%','AGI+6','Mag. Acc.+10','"Mag.Atk.Bns."+12',}}
 
 end
 
@@ -83,6 +81,58 @@ end
 
 -- Define sets and vars used by this job file.
 function init_gear_sets()
+
+    -- JSE
+    AF = {}         -- leave this empty
+    RELIC = {}      -- leave this empty
+    EMPY = {}       -- leave this empty
+
+
+	-- Fill this with your own JSE. 
+    --
+    AF.Head		=	""
+    AF.Body		=	""
+    AF.Hands	=	""
+    AF.Legs		=	""
+    AF.Feet		=	""
+
+    --Vitiation
+    RELIC.Head		=	""
+    RELIC.Body		=	""
+    RELIC.Hands 	=	""
+    RELIC.Legs		=	""
+    RELIC.Feet		=	""
+
+    --Lethargy
+    EMPY.Head		=	""
+    EMPY.Body		=	""
+    EMPY.Hands		=	""
+    EMPY.Legs		=	""
+    EMPY.Feet		=	""
+
+	Salvage = {}
+	Salvage.Head	=	"Jhakri Coronal +1"
+	Salvage.Body	=	"Jhakri Robe +2"
+	Salvage.Hands	=	"Jhakri Cuffs +1"
+	Salvage.Legs 	=	"Jhakri Slops +1"
+	Salvage.Feet	=	"Jhakri Pigaches +1"
+
+	Limbus = {}
+	Limbus.Head		=	"Mallquis Chapeau +1"
+	Limbus.Body		=	"Mallquis Saio +1"
+	Limbus.Hands	=	"Mallquis Cuffs +1"
+	Limbus.Legs 	=	"Mallquis Trews +1"
+	Limbus.Feet		=	"Mallquis Clogs +1"
+	
+    -- Capes:
+    -- Sucellos's And such, add your own.
+    SCHCape = {}
+    SCHCape.FreeNuke	=	{ name="" }
+
+	MB_feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+30','Magic burst dmg.+10%','Mag. Acc.+3',}}
+	MAB_feet={ name="Merlinic Crackows", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Phys. dmg. taken -1%','AGI+6','Mag. Acc.+10','"Mag.Atk.Bns."+12',}}
+
+
     --------------------------------------
     -- Start defining the sets
     --------------------------------------
@@ -126,7 +176,7 @@ function init_gear_sets()
         body="Amalric Doublet",hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Adoulin Ring +1",
         back="Toro Cape",waist="Thunder Belt",legs="Assiduity Pants +1",feet="Battlecast Gaiters"}
 		-- Increase Max MP
-     sets.precast.WS['Myrkr'] = {ammo="Kalboron Stone",
+     sets.precast.WS['Myrkr'] = {
         head="Nahtirah Hat",neck="Orunmila's Torque",ear1="Barkarole Earring",ear2="Loquacioous Earring",
         body="Helios Jacker",hands="Helios Gloves",ring1="Sangoma Ring",ring2="Mephitas's ring +1",
         back="Bane Cape",waist="Fucho-no-obi",legs="Psycloth Lappas",feet="Medium's Sabots"}
@@ -147,8 +197,6 @@ function init_gear_sets()
 
     sets.midcast.Curaga = sets.midcast.Cure
     sets.midcast.CureSelf = {
-		ring1="Kunaji Ring",
-		ring2="Asklepian Ring",
 		waist="Gishdubar Sash"}
 
     sets.midcast.Regen = {main="Bolelabunga",head="Arbatel Bonnet +1"}
@@ -256,7 +304,7 @@ function init_gear_sets()
     sets.idle.PDT = {main="Bolelabunga",sub="Genmei Shield",
         head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Moonshade Earring",ear2="Loquacious Earring",
         body="Hagondes Coat +1",hands="Amalric Gages",ring1="Defending Ring",ring2=gear.DarkRing.physical,
-        back="Umbra Cape",waist="Fucho-no-obi",legs="Hagondes Pants",feet="Battlecast Gaiters"}
+        back="Moonbeam Cape",waist="Fucho-no-obi",legs=Limbus.Legs,feet="Battlecast Gaiters"}
 
     -- Idle mode scopes:
     -- Idle mode when weak.
@@ -273,16 +321,16 @@ function init_gear_sets()
         
     -- Defense sets
 
-    sets.defense.PDT = { head="Nahtirah Hat",neck="Loricate Torque +1",
+    sets.defense.PDT = {ammo="Staunch Tathlum +1", head="Nahtirah Hat",neck="Loricate Torque +1",
         body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2=gear.DarkRing.physical,
-        back="Umbra Cape",waist="Hierarch Belt",legs="Amalric Slops", feet="Battlecast Gaiters"}
+        back="Moonbeam Cape",waist="Hierarch Belt",legs="Amalric Slops", feet="Battlecast Gaiters"}
     
 	sets.defense.CP = {  back="Mecistopins Mantle" }
 
-    sets.defense.MDT = {ammo="Demonry Stone",
+    sets.defense.MDT = {ammo="Staunch Tathlum +1",
         head="Nahtirah Hat",neck="Loricate Torque +1",
-        body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2="Shadow Ring",
-        back="Tuilha Cape",waist="Hierarch Belt",legs="Psycloth Lappas",feet="Hagondes Sabots"}
+        body="Hagondes Coat +1",hands="Helios Gloves",ring1="Defending Ring",ring2="Archon Ring",
+        back="Tuilha Cape",waist="Hierarch Belt",legs="Psycloth Lappas",feet=Limbus.Feet}
 
     sets.Kiting = {feet="Herald's Gaiters"}
 
@@ -300,7 +348,7 @@ function init_gear_sets()
     sets.engaged = {ammo="Hasty Pinion +1",
         head="Befouled Crown",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
         body="Amalric Doublet",hands="Hagondes Cuffs +1",ring1="Adoulin Ring +1",ring2="Rajas Ring",
-        back="Umbra Cape",waist="Windbuffet Belt +1",legs="Chironic Hose",feet="Battlecast Gaiters"}
+        back="Moonbeam Cape",waist="Windbuffet Belt +1",legs="Chironic Hose",feet="Battlecast Gaiters"}
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
 	sets.buff['Ebullience'] = {head="Arbatel Bonnet +1"}
@@ -319,7 +367,7 @@ function init_gear_sets()
 
     sets.magic_burst = {neck="Mizu. Kubikazari", ring2="Locus ring", ear2="Static Earring", back="Seshaw Cape", ring1="mujin band", feet=MB_feet}
 	sets.Seidr = {body="Seidr Cotehardie"}
-	sets.Obi = {back="Twilight Cape", waist="Hachirin-no-Obi"}
+	sets.Obi = {waist="Hachirin-no-Obi"}
 end
 
 -------------------------------------------------------------------------------------------------------------------

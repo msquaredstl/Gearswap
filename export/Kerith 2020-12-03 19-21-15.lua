@@ -1,0 +1,17 @@
+sets.exported={
+    main="Kaja Sword",
+    sub="Tauret",
+    ammo="Homiliary",
+    head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+    body="Jhakri Robe +2",
+    hands={ name="Viti. Gloves +1", augments={'Enhancing Magic duration',}},
+    legs={ name="Carmine Cuisses", augments={'Accuracy+15','Attack+10','"Dual Wield"+5',}},
+    feet={ name="Vitiation Boots +2", augments={'Immunobreak Chance',}},
+    neck="Wiglen Gorget",
+    waist="Flume Belt",
+    left_ear="Thureous Earring",
+    right_ear="Loquac. Earring",
+    left_ring="Stikini Ring",
+    right_ring="Stikini Ring",
+    back={ name="Mecisto. Mantle", augments={'Cap. Point+49%','MP+21','Rng.Atk.+1','DEF+4',}},
+}

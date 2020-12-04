@@ -44,7 +44,7 @@ function user_setup()
 
     select_default_macro_book()
 	
-	gear.MB_feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+30','Magic burst mdg.+10%','Mag. Acc.+3',}}
+	gear.MB_feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+30','Magic burst dmg.+10%','Mag. Acc.+3',}}
 	gear.MAB_feet={ name="Merlinic Crackows", augments={'Mag. Acc.+23 "Mag.Atk.Bns."+23','Phys. dmg. taken -1%','AGI+6','Mag. Acc.+10','"Mag.Atk.Bns."+12',}}
 
 end
@@ -97,11 +97,11 @@ function init_gear_sets()
 	Salvage.Feet	=	"Jhakri Pigaches +1"
 
 	Limbus = {}
-	Limbus.Head		=	"Mallquis Chapeau"
-	Limbus.Body		=	"Mallquis Saio"
-	Limbus.Hands	=	"Mallquis Cuffs"
-	Limbus.Legs 	=	"Mallquis Trews"
-	Limbus.Feet		=	"Mallquis Clogs"
+	Limbus.Head		=	"Mallquis Chapeau +1"
+	Limbus.Body		=	"Mallquis Saio +1"
+	Limbus.Hands	=	"Mallquis Cuffs +1"
+	Limbus.Legs 	=	"Mallquis Trews +1"
+	Limbus.Feet		=	"Mallquis Clogs +1"
 	
     -- Capes:
     -- Sucellos's And such, add your own.
@@ -150,14 +150,13 @@ function init_gear_sets()
 		main=Weapons.MACC,
 		sub="Niobid Strap",
 		range=none, 
-		ammo="Impatients",
+		ammo="Impatiens",
         head="Nahtirah Hat",
 		neck="Orunmila's Torque",
 		ear1="Enchanter Earring +1",
 		ear2="Loquacious Earring",
         body="Shango Robe",
 		ring1="Prolix Ring",
-		hands="Repartie Gloves",
         back=GEOCape.Geo,
 		waist="Witful Belt",
 		legs=AF.Legs,
@@ -175,17 +174,17 @@ function init_gear_sets()
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
         head="Nahtirah Hat",
-		neck=gear.ElementalGorget,
+		neck="Fotia Gorget",
 		ear1="Bladeborn Earring",
 		ear2="Steelflash Earring",
         body="Jhakri Robe +2",
 		hands="Helios Gloves",
 		ring1="Rajas Ring",
-		ring2="K'ayres Ring",
+		ring2="Adoulin Ring +1",
         back=GEOCape.Indi,
-		waist=gear.ElementalBelt,
+		waist="Fotia Belt",
 		legs="Amalric Slops",
-		feet="Umbani Boots"}
+		feet=MAB_feet}
  
     -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
     sets.precast.WS['Flash Nova'] = {
@@ -193,15 +192,13 @@ function init_gear_sets()
         head="Hagondes Hat +1",
 		neck="Sanctity Necklace",
 		ear1="Friomisi Earring",
-		ear2="Crematio Earring",
+		ear2="Barkarole Earring",
         body="Amalric Doublet",
 		hands="Helios Gloves",
-		ring1="Acumen Ring",
-		ring2="Strendu Ring",
+		ring1="Rufescent Ring",
         back=GEOCape.Indi,
-		waist="Snow Belt",
 		legs="Amalric Slops",
-		feet="Umbani Boots"}
+		feet=MAB_feet}
  
     sets.precast.WS['Starlight'] = {ear2="Moonshade Earring"}
  
@@ -214,11 +211,10 @@ function init_gear_sets()
  
     -- Base fast recast for spells
     sets.midcast.FastRecast = {
-        head="Zelus Tiara",
+        head="Merlinic Hood",
 		ear2="Loquacious Earring",
 		neck="Orunmila's Torque",
         body="Shango Robe",
-		hands="Bokwus Gloves",
 		ring1="Prolix Ring",
         back=GEOCape.Geo,
 		waist="Witful Belt",
@@ -249,7 +245,7 @@ function init_gear_sets()
 		hands="Helios Gloves",
 		ring2="Sangoma Ring",
         cape=GEOCape.Geo,
-		waist="Demonry Sash",
+		waist="Eschan Stone",
 		legs="Psycloth Lappas",
 		feet=RELIC.Feet}
     
@@ -297,13 +293,12 @@ function init_gear_sets()
 		ring1="Stikini Ring",
 		ring2="Stikini Ring",
         cape=GEOCape.Indi,
-		waist="Demonry Sash",
+		waist="Eschan Stone",
 		legs="Amalric Slops",
-		feet="Umbani Boots"}
+		feet=MAB_feet}
      
     sets.midcast['Dark Magic']['Stun'] = set_combine(sets.midcast['Dark Magic'],{
         head="Nahtirah Hat",
-		ring1="Strendu Ring",
 		ring2="Sangoma Ring",
 		waist="Witful Belt",
 		legs="Psycloth Lappas"})
@@ -337,9 +332,6 @@ function init_gear_sets()
 		back=GEOCape.Geo, 
 		waist="Sekhmet Corset", 
 		feet="Medium's Sabots"}
-	
-    sets.midcast.Geomancy.Geo = set_combine(sets.midcast.Geomancy, {
-		legs="Theurgist's Slacks"})
 		
 	sets.midcast['Indi-*'] = set_combine(sets.midcast.Geomancy, {
 		main=Weapons.Indi,
@@ -351,7 +343,6 @@ function init_gear_sets()
     sets.midcast.Cure = {
 		main="Tamaxchi",
 		sub="Sors Shield",
-		ammo="Kalboron Stone",
         head="Vanya Hood",
 		neck="Incanter's Torque",
 		ear1="Mendicant's earring",
@@ -367,18 +358,28 @@ function init_gear_sets()
 
     sets.midcast.Curaga = sets.midcast.Cure
      sets.midcast.CureSelf = {
-		ring1="Kunaji Ring",
-		ring2="Asklepian Ring",
 		waist="Gishdubar Sash"}
 
     sets.midcast.Protectra = {ring1="Defending Ring"}
  
     sets.midcast.Shellra = {ring1="Defending Ring"}
 
-    sets.midcast.Stun = {main=Weapons.MACC,sub="Mephitis Grip",ammo="Pemphredo Tathlum",
-        head="Nahtirah Hat",neck="Incanter's Torque",ear1="Barkarole Earring",ear2="Gwati Earring",
-        body="Shango Robe",hands="Helios Gloves",ring1="Strendu Ring",ring2="Sangoma Ring",
-        back=GEOCape.Indi,waist="Witful Belt",legs="Psycloth Lappas",feet="Regal Pupmps +1"}
+    sets.midcast.Stun = {
+		main=Weapons.MACC,
+		sub="Mephitis Grip",
+		ammo="Pemphredo Tathlum",
+        head="Nahtirah Hat",
+		neck="Incanter's Torque",
+		ear1="Barkarole Earring",
+		ear2="Gwati Earring",
+        body="Shango Robe",
+		hands="Helios Gloves",
+		ring1="Stikini Ring",
+		ring2="Stikini Ring",
+        back=GEOCape.Indi,
+		waist="Witful Belt",
+		legs="Psycloth Lappas",
+		feet="Regal Pumps +1"}
 
  
     --------------------------------------
@@ -386,9 +387,13 @@ function init_gear_sets()
     --------------------------------------
  
     -- Resting sets
-    sets.resting = {main="Chatoyant Staff",neck="Sanctity Necklace",
-        body="Amalric Doublet",hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
-        waist="Austerity Belt",legs="Assiduity Pants",feet="Chelona Boots"}
+    sets.resting = {
+		main="Boonwell Staff",
+		sub="Niobid Strap",
+		neck="Jeweled Collar", 
+		ear2="Relaxing Earring",
+        waist="Hierarch Belt",
+		legs="Assiduity Pants +1"}
  
  
     -- Idle sets
@@ -396,12 +401,12 @@ function init_gear_sets()
     sets.idle = {main="Bolelabunga",sub="Culminus",range="Dunna",
         head="Befouled Crown",neck=RELIC.Neck,ear1="Thureous Earring",ear2="Loquacious Earring",
         body=Salvage.Body,hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
-        back="Umbra Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet=AF.Feet}
+        back="Moonbeam Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet=AF.Feet}
  
     sets.idle.PDT = {main="Bolelabunga",sub="Genmei Shield",range="Dunna",
         head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
-        back="Umbra Cape",waist="Fucho-no-obi",legs="Amalric Slops",feet=AF.Feet}
+        back="Moonbeam Cape",waist="Fucho-no-obi",legs="Amalric Slops",feet=AF.Feet}
  
     -- .Pet sets are for when Luopan is present.
     sets.idle.Pet = {main=Weapons.GEO,sub="Culminus",range="Dunna",
@@ -420,7 +425,7 @@ function init_gear_sets()
         back=GEOCape.Geo,waist="Eschan Stone",legs="Assiduity Pants +1",feet=AF.Feet}
  
     sets.idle.Weak = {main="Bolelabunga",sub="Genmei Shield",range="Dunna",
-        head="Nefer Khat +1",neck="Sanctity Necklace",ear1="Thureous Earring",ear2="Genmei Earring",
+        neck="Sanctity Necklace",ear1="Thureous Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back=GEOCape.Geo,waist="Gishdubar Sash",legs="Assiduity Pants +1",feet=AF.Feet}
 sets.idle.Weak.Pet = set_combine(sets.idle.Weak,{main=Weapons.GEO,sub="Genmei Shield"})
@@ -434,20 +439,20 @@ sets.idle.Weak.Pet = set_combine(sets.idle.Weak,{main=Weapons.GEO,sub="Genmei Sh
     sets.Kiting = {feet=AF.Feet}
 	 
     sets.defense.PDT = {main="Bolelabunga",range="Dunna",
-        head="Hagondes Hat +1",neck="Sanctity Necklace",ear1="Thureous Earring",ear2="Genmei Earring",
+        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands=AF.Hands,ring1="Defending Ring",
-        back=GEOCape.Geo,waist="Slipor Sash",legs="Amalric Slops",feet=EMPY.Feet}
+        back=GEOCape.Geo,legs="Amalric Slops",feet=EMPY.Feet}
  
     sets.defense.MDT = {main="Bolelabunga",range="Dunna",
-        head="Hagondes Hat +1",neck="Nuna Gorget",ear1="Thureous Earring",ear2="Genmei Earring",
+        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands=AF.Hands,ring1="Defending Ring",
-        back=GEOCape.Geo,waist="Slipor Sash",legs="Amalric Slops",feet=EMPY.Feet}
+        back=GEOCape.Geo,legs="Amalric Slops",feet=EMPY.Feet}
   
     sets.latent_refresh = {waist="Fucho-no-obi"}
  
     sets.magic_burst = {neck="Mizu. Kubikazari", ring2="Locus ring", ear2="Static Earring", back=GEOCape.Indi, ring1="mujin band",feet=MB_feet}
 	sets.Seidr = {body="Seidr Cotehardie"}
-	sets.Obi = {back="Twilight Cape", waist="Hachirin-no-Obi"}
+	sets.Obi = {waist="Hachirin-no-Obi"}
 
     --------------------------------------
     -- Engaged sets

@@ -9,7 +9,7 @@ function define_global_sets()
 	-- Global States
 	state.CapacityMode = M(false, 'Capacity Point Mantle')
 	
-	gear.CPCape = {name="Mecisto. Mantle", augments={'Cap. Point+47%','DEF+2',}}
+	gear.CPCape = {name="Mecisto. Mantle", augments={'Cap. Point+49%','MP+21','Rng.Atk.+1','DEF+4',}}
 end
 
 function global_on_load()

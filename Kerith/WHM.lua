@@ -123,7 +123,7 @@ function init_gear_sets()
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {
-        head="Nahtirah Hat",ear1="Roundel Earring",
+        head="Nahtirah Hat",
         body="Shango Robe",hands="Yaoyotl Gloves",
         legs="Querkening Brais",feet="Gendewitha Galoshes +1"}
     
@@ -136,12 +136,12 @@ function init_gear_sets()
     gear.default.weaponskill_waist = ""
     sets.precast.WS = {
         head="Nahtirah Hat",neck=gear.ElementalGorget,ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="K'ayres Ring",
+        body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Adoulin Ring +1",
         back=WHMCape.MND,waist=gear.ElementalBelt,legs="Querkening Brais",feet="Regal Pumps +1"}
     
     sets.precast.WS['Flash Nova'] = {
         head="Nahtirah Hat",ear1="Friomisi Earring",ear2="Novio Earring",
-        body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Strendu Ring",
+        body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rufescent Ring",
         back=WHMCape.MND,waist="Thunder Belt",legs="Querkening Brais",feet="Regal Pumps +1"}
     
 
@@ -191,8 +191,6 @@ function init_gear_sets()
 		feet="Gendewitha Galoshes"}
 
     sets.midcast.CureSelf = {
-		ring1="Kunaji Ring",
-		ring2="Asklepian Ring",
 		waist="Gishdubar Sash"}
 
     sets.midcast.StatusRemoval = { head="Ebers Cap +1",legs="Ebers Pantaloons +1"}
@@ -212,7 +210,7 @@ function init_gear_sets()
 
     sets.midcast.BarElement = {main="Ababinili +1",sub="Achaq Grip",
         head="Ebers Cap +1",neck="Incanter's Torque", body="Ebers Bliaud +1",hands="Orison Mitts +2",
-        back="Mending Cape",waist="Olympus Sash",legs="Piety Pantaloons +1",feet="Ebers Duckbills"}
+        back="Mending Cape",waist="Embla Sash",legs="Piety Pantaloons +1",feet="Ebers Duckbills"}
 
     sets.midcast.Regen = {main="Bolelabunga",sub="Genmei Shield",
         body="Piety Briault +1",hands="Orison Mitts +2",
@@ -239,7 +237,7 @@ function init_gear_sets()
         body="Ischemia Chasuble",hands="Yaoyotl Gloves",ring1="Leviathan Ring +1",ring2="Sangoma Ring",
         back=WHMCape.MND,waist="Aswang Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
 
-    sets.midcast.IntEnfeebles = {main="Twebuliij", sub="Mephitis Grip",
+    sets.midcast.IntEnfeebles = {main="Grioavolr", sub="Mephitis Grip",
         head="Nahtirah Hat",neck="Imbodla Necklace",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Ischemia Chasuble",hands="Yaoyotl Gloves",ring1="Shiva Ring +1",ring2="Sangoma Ring",
         back=WHMCape.MND,waist="Yamabuki-no-obi",legs="Bokwus Slops",feet="Piety Duckbills +1"}
@@ -248,28 +246,35 @@ function init_gear_sets()
     -- Sets to return to when not performing an action.
     
     -- Resting sets
-    sets.resting = {main="Boonwell Staff",sub="Achaq Grip",neck="Jeweled Collar", ear1="Glorious Earring", ear2="Relaxing Earring", ring1="Star Ring",waist="Hierarch Belt",legs="Assiduity Pants +1"}
+    sets.resting = {
+		main="Boonwell Staff",
+		sub="Niobid Strap",
+		neck="Jeweled Collar", 
+		ear1="Glorious Earring", 
+		ear2="Relaxing Earring", 
+		waist="Hierarch Belt",
+		legs="Assiduity Pants +1"}
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {main="Queller Rod", sub="Sors Shield",ammo="Homiliary",
         head="Befouled Crown",neck="Wiglen Gorget",ear1="Glorious Earring",ear2="Loquacious Earring",
         body="Annointed Kalasiris",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
-        back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
+        back=WHMCape.MND,waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
     sets.idle.PDT = {main="Bolelabunga", sub="Genmei Shield",ammo="Homiliary",
         head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Genmei Earring",
         body="Annointed Kalasiris",hands="Gendewitha Gages +1",ring1="Defending Ring",ring2="Meridian Ring",
-        back="Umbra Cape",waist="Witful Belt",legs="Querkening Brais",feet="Battlecast Gaiters"}
+        back=WHMCape.MND,waist="Witful Belt",legs="Querkening Brais",feet="Battlecast Gaiters"}
 
     sets.idle.Town = {main="Queller Rod", sub="Genmei Shield",ammo="Homiliary",
         head="Befouled Crown",neck="Wiglen Gorget",ear1="Glorious Earring",ear2="Loquacious Earring",
         body="Annointed Kalasiris",hands="Gendewitha Gages +1",ring1="Sheltered Ring",ring2="Paguroidea Ring",
-        back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
+        back=WHMCape.MND,waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
     
     sets.idle.Weak = {main="Bolelabunga",sub="Genmei Shield",ammo="Homiliary",
         head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Genmei Earring",
         body="Annointed Kalasiris",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Meridian Ring",
-        back="Umbra Cape",waist="Witful Belt",legs="Assiduity Pants +1",feet="Gendewitha Galoshes +1"}
+        back=WHMCape.MND,waist="Witful Belt",legs="Assiduity Pants +1",feet="Gendewitha Galoshes +1"}
     
  	sets.idle.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
 	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
@@ -279,11 +284,11 @@ function init_gear_sets()
     sets.defense.PDT = {sub="Genmei Shield",
         head="Kaykaus Mitra",neck="Loricate Torque +1",ear2="Genmei Earring",
         body="Annointed Kalasiris",hands="Gendewitha Gages +1",ring1="Defending Ring",
-        back="Umbra Cape",legs="Querkening Brais",feet="Battlecast Gaiters"}
+        back=WHMCape.MND,legs="Querkening Brais",feet="Battlecast Gaiters"}
 
     sets.defense.MDT = {sub="Genmei Shield",
         head="Nahtirah Hat",neck="Loricate Torque +1",ear2="Genmei Earring",
-        body="Kaykaus Bliaut",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Shadow Ring",
+        body="Kaykaus Bliaut",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Archon Ring",
         back="Pahtli Cape",legs="Bokwus Slops",feet="Battlecast Gaiters"}
 
     sets.Kiting = {feet="Herald's Gaiters"}
@@ -308,7 +313,7 @@ function init_gear_sets()
 		hands=Limbus.Hands,
 		ring1="Hetaroi Ring",
 		ring2="Chirich Ring +1",
-        back="Umbra Cape",
+        back=WHMCape.MND,
 		waist="Windbuffet Belt +1",
 		legs=Limbus.Legs,
 		feet=Limbus.Feet}

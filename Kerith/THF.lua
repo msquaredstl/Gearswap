@@ -295,14 +295,15 @@ function init_gear_sets()
     sets.precast.WS['Mandalic Stab'].SATA = sets.precast.WS['Mandalic Stab'].SA
 
     sets.precast.WS['Aeolian Edge'] = {
-		ammo="Jukukik Feather",
-        head="Wayfarer Circlet",
+		ammo="Pemphredo Tathlum",
+        head=RELIC.Head,
 		neck="Sanctity Necklace",
 		ear1="Friomisi Earring",
-		ring1="Acumen Ring",
-		ring2="Demon's Ring",
+		ring1="Shiva Ring +1",
+		ring2="Shiva Ring +1",
         back=THFCape.Wsd,
-		waist=gear.ElementalBelt}
+		waist="Eschan Stone",
+		legs=RELIC.Legs}
 
     sets.precast.WS['Aeolian Edge'].TH = set_combine(sets.precast.WS['Aeolian Edge'], sets.TreasureHunter)
 
