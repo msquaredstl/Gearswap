@@ -68,14 +68,14 @@ function init_gear_sets()
 
 	-- Fill this with your own JSE. 
     --
-    AF.Head		=	""
+    AF.Head		=	"Geomancy Galero +1"
     AF.Body		=	"Geomancy Tunic +2"
     AF.Hands	=	"Geomancy Mitaines +2"
     AF.Legs		=	"Geomancy Pants +2"
     AF.Feet		=	"Geomancy Sandals +2"
 
     --Vitiation
-    RELIC.Head		=	""
+    RELIC.Head		=	"Bagua Galero +1"
     RELIC.Body		=	"Bagua Tunic +3"
     RELIC.Hands 	=	"Bagua Mitaines +3"
     RELIC.Legs		=	"Bagua Pants +3"
@@ -92,9 +92,9 @@ function init_gear_sets()
 	Salvage = {}
 	Salvage.Head	=	"Jhakri Coronal +1"
 	Salvage.Body	=	"Jhakri Robe +2"
-	Salvage.Hands	=	"Jhakri Cuffs +1"
-	Salvage.Legs 	=	"Jhakri Slops +1"
-	Salvage.Feet	=	"Jhakri Pigaches +1"
+	Salvage.Hands	=	"Jhakri Cuffs +2"
+	Salvage.Legs 	=	"Jhakri Slops +2"
+	Salvage.Feet	=	"Jhakri Pigaches +2"
 
 	Limbus = {}
 	Limbus.Head		=	"Mallquis Chapeau +1"

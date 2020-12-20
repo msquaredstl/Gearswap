@@ -113,9 +113,9 @@ function init_gear_sets()
 	Salvage = {}
 	Salvage.Head	=	"Jhakri Coronal +1"
 	Salvage.Body	=	"Jhakri Robe +2"
-	Salvage.Hands	=	"Jhakri Cuffs +1"
-	Salvage.Legs 	=	"Jhakri Slops +1"
-	Salvage.Feet	=	"Jhakri Pigaches +1"
+	Salvage.Hands	=	"Jhakri Cuffs +2"
+	Salvage.Legs 	=	"Jhakri Slops +2"
+	Salvage.Feet	=	"Jhakri Pigaches +2"
 
 	Limbus = {}
 	Limbus.Head		=	"Mallquis Chapeau +1"

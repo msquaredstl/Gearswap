@@ -80,7 +80,7 @@ function init_gear_sets()
     RELIC.Head		=	"Viti. Chapeau +3"
     RELIC.Body		=	"Viti. Tabard +3"
     RELIC.Hands 	=	"Vitiation Gloves +1"
-    RELIC.Legs		=	"Vitiation Tights +1"
+    RELIC.Legs		=	"Vitiation Tights +3"
     RELIC.Feet		=	"Vitiation Boots +2"
 	RELIC.Neck		=	"Duelist's Torque +1"
 
@@ -96,7 +96,7 @@ function init_gear_sets()
 	Salvage.Body	=	"Jhakri Robe +2"
 	Salvage.Hands	=	"Jhakri Cuffs +2"
 	Salvage.Legs 	=	"Jhakri Slops +2"
-	Salvage.Feet	=	"Jhakri Pigaches +1"
+	Salvage.Feet	=	"Jhakri Pigaches +2"
 
 	Limbus = {}
 	Limbus.Head		=	"Ayanmo Zucchetto +1"
@@ -349,12 +349,12 @@ function init_gear_sets()
 
     sets.idle.PDT = {main="Bolelabunga",sub=SubWeapon.Shield,ammo="Staunch Tathlum +1",
         head="Lithelimb Cap",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Genmei Earring",
-        body="Hagondes Coat +1",hands="Malignance Gloves",ring1="Defending Ring",
+        body=Limbus.Body,hands="Malignance Gloves",ring1="Defending Ring",
         back=RDMCape.STR,waist="Flume Belt",legs="Amalric Slops",feet="Battlecast Gaiters"}
 
     sets.idle.MDT = {main="Bolelabunga",sub="Beatific Shield +1" ,ammo="Staunch Tathlum +1",
         head="Kaykaus Mitra",neck="Loricate Torque +1",ear1="Thureous Earring",ear2="Genmei Earring",
-        body="Hagondes Coat +1",hands="Malignance Gloves",ring1="Defending Ring",ring2="Archon Ring",
+        body=Limbus.Body,hands="Malignance Gloves",ring1="Defending Ring",ring2="Archon Ring",
         back=RDMCape.STR,waist="Flume Belt",legs=RELIC.Legs,feet="Battlecast Gaiters"}
 
 	sets.idle.Staff = {main="Grioavolr",sub="Mephitis Grip",ammo="Impatiens",
@@ -374,23 +374,25 @@ function init_gear_sets()
         head=AF.Head,
 		neck="Loricate Torque +1",
 		ear2="Genmei Earring",
-        body="Hagondes Coat +1",
+        body=Limbus.Body,
 		hands="Malignance Gloves",
 		ring1="Defending Ring",
         back=RDMCape.STR,
 		waist="Flume Belt",
+		legs=RELIC.Legs,
 		feet="Battlecast Gaiters"}
 
     sets.defense.MDT = {ammo="Staunch Tathlum +1",
         head=AF.Head,
 		neck="Loricate Torque +1",
 		ear2="Genmei Earring",
-        body="Hagondes Coat +1",
+        body=Limbus.Body,
 		hands="Malignance Gloves",
 		ring1="Defending Ring",
 		ring2="Archon Ring",
         back=RDMCape.STR,
 		waist="Flume Belt",
+		legs=RELIC.Legs,
 		feet="Battlecast Gaiters"}
 
     sets.Kiting = {legs="Carmine Cuisses"}
@@ -463,7 +465,7 @@ function init_gear_sets()
     -- Weaponskill sets
     -- Default set for any weaponskill that isn't any more specifically defined
     sets.precast.WS = {
-        head=AF.Head,
+        head=RELIC.Head,
 		neck="Asperity Necklace",
 		ear2="Moonshade Earring",
 		ear1="Ishvara Earring",
