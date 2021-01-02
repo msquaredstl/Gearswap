@@ -24,11 +24,11 @@ end
 -- Setup vars that are user-dependent.  Can override this function in a sidecar file.
 function user_setup()
     state.OffenseMode:options('None', 'Normal') --F9
-    state.CastingMode:options('Normal', 'Resistant','DeathMB') --Ctrl + F11
+    state.CastingMode:options('Normal', 'Resistant','DeathMB') -- F11
     state.IdleMode:options('Normal','CP', 'PDT','HighMP','RR') --Ctrl + F12
 	state.VorsealMode = M('Normal', 'Vorseal')
 	state.ManawallMode = M('Swaps', 'No_Swaps')
-	state.Enfeebling = M('None', 'Effect')
+	state.Enfeebling = M('None', 'Effect')		--Ctrl + F11
 	--Vorseal mode is handled simply when zoning into an escha zone--
     state.Moving  = M(false, "moving")
     
@@ -264,7 +264,7 @@ function init_gear_sets()
 		hands="Telchine Gloves",
 		ring1="Menelaus's Ring",
 		ring2="Sirona's Ring",
-        back="Oretania's Cape",
+        back="Oretania's Cape +1",
 		waist=gear.ElementalObi,
 		legs="Psycloth Lappas",
 		feet="Vanya Clogs"}
@@ -405,7 +405,7 @@ function init_gear_sets()
     
     -- Normal refresh idle set
     sets.idle = {main="Lathi", sub="Zuuxowu Grip",
-        head="Befouled Crown",neck="Sanctity Necklace",ear1="Barkarole Earring",ear2="Friomisi Earring",
+        head="Befouled Crown",neck="Sorcerer's Stole +1",ear1="Barkarole Earring",ear2="Friomisi Earring",
         body=Salvage.Body,hands="Amalric Gages",ring1="Shiva Ring +1",ring2="Fenrir Ring +1",
         back=BLMCape.FreeNuke,
 		waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
@@ -424,9 +424,21 @@ function init_gear_sets()
         back="Moonbeam Cape",waist="Fucho-no-obi",legs="Assiduity Pants +1",feet="Battlecast Gaiters"}
     
     -- Town gear.
-    sets.idle.Town = set_combine(sets.idle,{})
+    sets.idle.Town = set_combine(sets.idle,{
+		head=RELIC.Head,
+		body=RELIC.Body,
+		hands=AF.Hands,
+		legs=RELIC.Legs,
+		feet=RELIC.Feet
+		})
         
-	sets.idle.HighMP = set_combine(sets.precast.FC.DeathMB,{sub="Niobid Strap",ammo="Psilomene", head="Merlinic Hood"})
+	sets.idle.HighMP = set_combine(sets.precast.FC.DeathMB,{
+		sub="Niobid Strap",
+		ammo="Psilomene", 
+		head="Merlinic Hood", 
+		body=AF.Body,
+		hands=AF.Hands,
+		back="Bane Cape"})
 	sets.idle.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
 	sets.idle.RR = set_combine(sets.idle,{body="Annointed Kalasiris"})
 	

@@ -167,6 +167,8 @@ function init_gear_sets()
     sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {hands=RELIC.Hands})
  
 	sets.precast.FC.Geomancy = set_combine(sets.precast.FC, {range="Dunna", ammo=none})
+	
+	sets.precast['Indi-*'] = set_combine(sets.precast.FC.Geomancy, {main=Weapons.Indi})
    
 	sets.precast.Trust = sets.precast.FC
      
@@ -351,7 +353,7 @@ function init_gear_sets()
 		hands="Telchine Gloves",
 		ring1="Menelaus's Ring",
 		ring2="Sirona's Ring",
-        back="Oretania's Cape",
+        back="Oretania's Cape +1",
 		waist=gear.ElementalObi,
 		legs="Psycloth Lappas",
 		feet="Vanya Clogs"}

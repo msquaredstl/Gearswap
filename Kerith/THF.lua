@@ -326,12 +326,12 @@ function init_gear_sets()
     -- Ranged gear
     sets.midcast.RA = {
         neck="Ej Necklace",ear1="Clearview Earring",ear2="Volley Earring",
-        body="Iuitl Vest",hands="Iuitl Wristbands",ring1="Beeline Ring",ring2="Hajduk Ring",
+        body="Iuitl Vest",hands="Iuitl Wristbands",ring1="Dingir Ring",ring2="Hajduk Ring",
         back="Libeccio Mantle",waist="Aquiline Belt",legs="Nahtirah Trousers",feet="Iuitl Gaiters +1"}
 
     sets.midcast.RA.Acc = {
         head=AF.Head,neck="Ej Necklace",ear1="Clearview Earring",ear2="Volley Earring",
-        body="Iuitl Vest",hands="Buremte Gloves",ring1="Beeline Ring",ring2="Hajduk Ring",
+        body="Iuitl Vest",hands="Buremte Gloves",ring1="Beeline Ring",ring2="Adoulin Ring +1",
         back="Libeccio Mantle",waist="Aquiline Belt",legs="Thurandaut Tights +1",feet=RELIC.Feet}
 
 
