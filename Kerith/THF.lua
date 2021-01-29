@@ -211,7 +211,7 @@ function init_gear_sets()
         body="Herculean Vest",
 		hands=Salvage.Hands,
 		ring1="Rajas Ring",
-		ring2="Adoulin Ring +1",
+		ring2="Epaminondas's Ring",
         back=THFCape.Wsd,
 		waist="Prosilio Belt +1",
 		legs=Salvage.Legs,
@@ -348,12 +348,12 @@ function init_gear_sets()
 
     sets.idle = {ammo="Hasty Pinion +1",
         head="Adhemar Bonnet",neck="Wiglen Gorget",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body=AF.Body,hands="Pillager's Armlets +1",ring1="Sheltered Ring",ring2="Paguroidea Ring",
+        body=AF.Body,hands="Malignance Gloves",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back="Shadow Mantle",waist="Flume Belt",legs=AF.Legs,feet=AF.Feet}
 
     sets.idle.Town = {main="Tauret", sub="Shijo",ammo="Hasty Pinion +1",
         head="Adhemar Bonnet",neck="Wiglen Gorget",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body=AF.Body,hands="Pill. Armlets +1",ring1="Rajas Ring",ring2="Adoulin Ring +1",
+        body=AF.Body,hands="Malignance Gloves",ring1="Rajas Ring",ring2="Adoulin Ring +1",
         back="Shadow Mantle",waist="Patentia Sash",legs=AF.Legs,feet=AF.Feet}
 
     sets.idle.Weak = {ammo="Staunch Tathlum +1",
@@ -366,7 +366,7 @@ function init_gear_sets()
 
     sets.defense.Evasion = {ammo="Yamarang",
         head=AF.Head,neck="Ej Necklace",
-        body=Limbus.Body,hands="Pillager's Armlets +1",ring1="Defending Ring",ring2="Beeline Ring",
+        body=Limbus.Body,hands=AF.Hands,ring1="Defending Ring",ring2="Beeline Ring",
         back="Canny Cape",waist="Flume Belt",legs=Limbus.Legs,feet="Iuitl Gaiters +1"}
 
     sets.defense.PDT = {ammo="Staunch Tathlum +1",
@@ -408,7 +408,7 @@ function init_gear_sets()
 		neck="Erudition necklace",
 		ear2="Telos Earring",
         body=Salvage.Body,
-		hands=Salvage.Hands,
+		hands="Malignance Gloves",
 		--ring2="Adoulin Ring +1",
 		ring2="Chirich Ring",
 		legs=Limbus.Legs,
@@ -430,22 +430,22 @@ function init_gear_sets()
 
     sets.engaged.Evasion = {ammo="Hasty Pinion +1",
         head="Felistris Mask",neck="Ej Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Qaaxo Harness",hands="Pillager's Armlets +1",ring1="Beeline Ring",ring2="Adoulin Ring +1",
+        body="Qaaxo Harness",hands=AF.Hands,ring1="Beeline Ring",ring2="Adoulin Ring +1",
         back="Canny Cape",waist="Patentia Sash",legs=Limbus.Legs,feet="Qaaxo Leggings"}
 		
     sets.engaged.Acc.Evasion = {ammo="Honed Tathlum",
         head="Whirlpool Mask",neck="Ej Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body=AF.Body,hands="Pillager's Armlets +1",ring1="Beeline Ring",ring2="Adoulin Ring +1",
+        body=AF.Body,hands=AF.Hands,ring1="Beeline Ring",ring2="Adoulin Ring +1",
         back="Canny Cape",waist="Hurch'lan Sash",legs=Limbus.Legs,feet="Qaaxo Leggings"}
 
     sets.engaged.PDT = {ammo="Staunch Tathlum +1",
         head="Felistris Mask",neck="Loricate Torque +1",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Emet Harness +1",hands="Pillager's Armlets +1",ring1="Defending Ring",ring2="Adoulin Ring +1",
+        body="Emet Harness +1",hands=AF.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back="Iximulew Cape",waist="Patentia Sash",legs=Limbus.Legs,feet="Qaaxo Leggings"}
     
 	sets.engaged.Acc.PDT = {ammo="Staunch Tathlum +1",
         head="Whirlpool Mask",neck="Loricate Torque +1",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Emet Harness +1",hands="Pillager's Armlets +1",ring1="Defending Ring",ring2="Adoulin Ring +1",
+        body="Emet Harness +1",hands=AF.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back="Canny Cape",waist="Hurch'lan Sash",legs=Limbus.Legs,feet="Qaaxo Leggings"}
 
 end

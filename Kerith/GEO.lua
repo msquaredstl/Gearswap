@@ -70,9 +70,9 @@ function init_gear_sets()
     --
     AF.Head		=	"Geomancy Galero +1"
     AF.Body		=	"Geomancy Tunic +2"
-    AF.Hands	=	"Geomancy Mitaines +2"
+    AF.Hands	=	"Geomancy Mitaines +3"
     AF.Legs		=	"Geomancy Pants +2"
-    AF.Feet		=	"Geomancy Sandals +2"
+    AF.Feet		=	"Geomancy Sandals +3"
 
     --Vitiation
     RELIC.Head		=	"Bagua Galero +1"
@@ -101,7 +101,7 @@ function init_gear_sets()
 	Limbus.Body		=	"Mallquis Saio +1"
 	Limbus.Hands	=	"Mallquis Cuffs +1"
 	Limbus.Legs 	=	"Mallquis Trews +1"
-	Limbus.Feet		=	"Mallquis Clogs +1"
+	Limbus.Feet		=	"Mallquis Clogs +2"
 	
     -- Capes:
     -- Sucellos's And such, add your own.

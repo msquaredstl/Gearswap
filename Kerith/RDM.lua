@@ -79,7 +79,7 @@ function init_gear_sets()
     --Vitiation
     RELIC.Head		=	"Viti. Chapeau +3"
     RELIC.Body		=	"Viti. Tabard +3"
-    RELIC.Hands 	=	"Vitiation Gloves +1"
+    RELIC.Hands 	=	"Vitiation Gloves +3"
     RELIC.Legs		=	"Vitiation Tights +3"
     RELIC.Feet		=	"Vitiation Boots +2"
 	RELIC.Neck		=	"Duelist's Torque +1"
@@ -472,7 +472,7 @@ function init_gear_sets()
         body=AF.Body,
 		hands=Salvage.Hands,
 		ring1="Rufescent Ring",
-		ring2="Rajas Ring",
+		ring2="Epaminondas's Ring",
         back=RDMCape.STR,
 		waist="Prosilio Belt +1",
 		legs=Salvage.Legs,

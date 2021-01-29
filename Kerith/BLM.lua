@@ -108,9 +108,9 @@ function init_gear_sets()
     --Vitiation
     RELIC.Head		=	"Archmage's Petasos +3"
     RELIC.Body		=	"Archmage's Coat +3"
-    RELIC.Hands 	=	"Archmage's Gloves +1"
+    RELIC.Hands 	=	"Archmage's Gloves +3"
     RELIC.Legs		=	"Archmage's Tonban +3"
-    RELIC.Feet		=	"Archmage's Sabots +2"
+    RELIC.Feet		=	"Archmage's Sabots +3"
 
     --Lethargy
     EMPY.Head		=	"Wicce Petasos +1"
@@ -131,7 +131,7 @@ function init_gear_sets()
 	Limbus.Body		=	"Mallquis Saio +1"
 	Limbus.Hands	=	"Mallquis Cuffs +1"
 	Limbus.Legs 	=	"Mallquis Trews +1"
-	Limbus.Feet		=	"Mallquis Clogs +1"
+	Limbus.Feet		=	"Mallquis Clogs +2"
 	
     -- Capes:
     -- Sucellos's And such, add your own.
@@ -428,17 +428,25 @@ function init_gear_sets()
 		head=RELIC.Head,
 		body=RELIC.Body,
 		hands=AF.Hands,
-		legs=RELIC.Legs,
-		feet=RELIC.Feet
+		legs=RELIC.Legs
 		})
         
-	sets.idle.HighMP = set_combine(sets.precast.FC.DeathMB,{
+	sets.idle.HighMP = set_combine(sets.idle,{
+		main="Lathi",
 		sub="Niobid Strap",
 		ammo="Psilomene", 
-		head="Merlinic Hood", 
+		head="Pixie Hairpin +1", 
+		neck="Sanctity Necklace",
+		ear1="Barkarole Earring",
+		ear2="Loquacious Earring",
 		body=AF.Body,
 		hands=AF.Hands,
-		back="Bane Cape"})
+		ring1="Mephitas's Ring +1",
+		ring2="Adoulin Ring +1",
+		back="Bane Cape",
+		waist="Fucho-no-obi",
+		legs=EMPY.Legs,
+		feet="Regal Pumps +1"})
 	sets.idle.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
 	sets.idle.RR = set_combine(sets.idle,{body="Annointed Kalasiris"})
 	

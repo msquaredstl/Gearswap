@@ -46,13 +46,59 @@ end
 -- Define sets and vars used by this job file.
 function init_gear_sets()
     --------------------------------------
+    -- Special sets (required by rules)
+    --------------------------------------
+
+    -- JSE
+    AF = {}         -- leave this empty
+    RELIC = {}      -- leave this empty
+    EMPY = {}       -- leave this empty
+
+
+	-- Fill this with your own JSE. 
+    -- Pillager
+    AF.Head		=	"Hachiya Hatsuburi +1"
+    AF.Body		=	"Hachiya Chainmail +1"
+    AF.Hands	=	"Hachiya Tekko +1"
+    AF.Legs		=	"Hachiya Hakama +1"
+    AF.Feet		=	"Hachiya Kyahan +1"
+
+    --Plunderer
+    RELIC.Head		=	"Mochizuki Hatsuburi +1"
+    RELIC.Body		=	"Mochizuki Chainmail +1"
+    RELIC.Hands 	=	"Mochizuki Tekko +1"
+    RELIC.Legs		=	"Mochizuki Hakama +1"
+    RELIC.Feet		=	"Mochizuki Kyahan +1"
+
+    --Skulker
+    EMPY.Head		=	""
+    EMPY.Body		=	""
+    EMPY.Hands		=	""
+    EMPY.Legs		=	""
+    EMPY.Feet		=	""
+
+	Salvage = {}
+	Salvage.Head	=	"Hizamaru Somen +1"
+	Salvage.Body	=	"Hizamaru Haramaki +1"
+	Salvage.Hands	=	"Hizamaru Kote +1"
+	Salvage.Legs 	=	"Hizamaru Hizayoroi +1"
+	Salvage.Feet	=	"Hizamaru Sune-Ate +1"
+
+	Limbus = {}
+	Limbus.Head		=	"Mummu Bonnet +2"
+	Limbus.Body		=	"Mummu Jacket +2"
+	Limbus.Hands	=	"Mummu Wrists +1"
+	Limbus.Legs 	=	"Mummu Kecks +2"
+	Limbus.Feet		=	"Mummu Gamashes +1"
+
+    --------------------------------------
     -- Precast sets
     --------------------------------------
 
     -- Precast sets to enhance JAs
-    sets.precast.JA['Mijin Gakure'] = {legs="Mochizuki Hakama"}
+    sets.precast.JA['Mijin Gakure'] = {legs=RELIC.Legs}
     sets.precast.JA['Futae'] = {legs="Iga Tekko +2"}
-    sets.precast.JA['Sange'] = {legs="Mochizuki Chainmail"}
+    sets.precast.JA['Sange'] = {legs=RELIC.Body}
 
     -- Waltz set (chr and vit)
     sets.precast.Waltz = {ammo="Sonia's Plectrum",
@@ -75,7 +121,7 @@ function init_gear_sets()
     -- Fast cast sets for spells
     
     sets.precast.FC = {ammo="Impatiens",ear2="Loquacious Earring",hands="Thaumas Gloves",ring1="Prolix Ring"}
-    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Mochizuki Chainmail"})
+    sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body=RELIC.Body})
 
     -- Snapshot for ranged
     sets.precast.RA = {hands="Manibozho Gloves",legs="Nahtirah Trousers",feet="Wurrukatte Boots"}
@@ -197,7 +243,7 @@ function init_gear_sets()
         back="Atheling Mantle",waist="Patentia Sash",legs="Mochizuki Hakama",feet="Otronif Boots +1"}
     sets.engaged.Acc = {ammo="Qirmiz Tathlum",
         head="Whirlpool Mask",neck="Asperity Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Mochizuki Chainmail",hands="Otronif Gloves",ring1="Rajas Ring",ring2="Epona's Ring",
+        body=RELIC.Body,hands="Otronif Gloves",ring1="Rajas Ring",ring2="Epona's Ring",
         back="Yokaze Mantle",waist="Hurch'lan Sash",legs="Hachiya Hakama",feet="Manibozho Boots"}
     sets.engaged.Evasion = {ammo="Qirmiz Tathlum",
         head="Felistris Mask",neck="Ej Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
@@ -223,7 +269,7 @@ function init_gear_sets()
         back="Atheling Mantle",waist="Patentia Sash",legs="Hachiya Hakama",feet="Manibozho Boots"}
     sets.engaged.Acc.HighHaste = {ammo="Qirmiz Tathlum",
         head="Whirlpool Mask",neck="Asperity Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
-        body="Mochizuki Chainmail",hands="Otronif Gloves",ring1="Rajas Ring",ring2="Epona's Ring",
+        body=RELIC.Body,hands="Otronif Gloves",ring1="Rajas Ring",ring2="Epona's Ring",
         back="Yokaze Mantle",waist="Hurch'lan Sash",legs="Hachiya Hakama",feet="Manibozho Boots"}
     sets.engaged.Evasion.HighHaste = {ammo="Qirmiz Tathlum",
         head="Whirlpool Mask",neck="Ej Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",
@@ -249,7 +295,7 @@ function init_gear_sets()
         back="Atheling Mantle",waist="Windbuffet Belt",legs="Manibozho Brais",feet="Manibozho Boots"}
     sets.engaged.Acc.EmbravaHaste = {ammo="Qirmiz Tathlum",
         head="Whirlpool Mask",neck="Asperity Necklace",ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Mochizuki Chainmail",hands="Otronif Gloves",ring1="Rajas Ring",ring2="Epona's Ring",
+        body=RELIC.Body,hands="Otronif Gloves",ring1="Rajas Ring",ring2="Epona's Ring",
         back="Yokaze Mantle",waist="Hurch'lan Sash",legs="Manibozho Brais",feet="Manibozho Boots"}
     sets.engaged.Evasion.EmbravaHaste = {ammo="Qirmiz Tathlum",
         head="Whirlpool Mask",neck="Ej Necklace",ear1="Dudgeon Earring",ear2="Heartseeker Earring",

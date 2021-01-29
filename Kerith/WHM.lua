@@ -59,9 +59,10 @@ function init_gear_sets()
     --Vitiation
     RELIC.Head		=	"Piety Cap +1"
     RELIC.Body		=	"Piety Briault +1"
-    RELIC.Hands 	=	"Piety Mitts"
+    RELIC.Hands 	=	"Piety Mitts +3"
     RELIC.Legs		=	"Piety Pantaloons +1"
     RELIC.Feet		=	"Piety Duckbills +1"
+	RELIC.Neck 		=	"Cleric's Torque"
 
     --Lethargy
     EMPY.Head		=	"Ebers Cap +1"
@@ -136,7 +137,7 @@ function init_gear_sets()
     gear.default.weaponskill_waist = ""
     sets.precast.WS = {
         head="Nahtirah Hat",neck=gear.ElementalGorget,ear1="Bladeborn Earring",ear2="Steelflash Earring",
-        body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Adoulin Ring +1",
+        body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Epaminondas's Ring",
         back=WHMCape.MND,waist=gear.ElementalBelt,legs="Querkening Brais",feet="Regal Pumps +1"}
     
     sets.precast.WS['Flash Nova'] = {
@@ -241,7 +242,7 @@ function init_gear_sets()
         head="Nahtirah Hat",neck="Imbodla Necklace",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Ischemia Chasuble",hands="Yaoyotl Gloves",ring1="Shiva Ring +1",ring2="Sangoma Ring",
         back=WHMCape.MND,waist="Yamabuki-no-obi",legs="Bokwus Slops",feet="Piety Duckbills +1"}
-
+	sets.midcast['Erase'] = {neck=RELIC.Neck}
     
     -- Sets to return to when not performing an action.
     
@@ -256,8 +257,8 @@ function init_gear_sets()
 		legs="Assiduity Pants +1"}
 
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
-    sets.idle = {main="Queller Rod", sub="Sors Shield",ammo="Homiliary",
-        head="Befouled Crown",neck="Wiglen Gorget",ear1="Glorious Earring",ear2="Loquacious Earring",
+    sets.idle = {main="Queller Rod", sub="Genmei Shield",ammo="Homiliary",
+        head="Befouled Crown",neck=RELIC.Neck,ear1="Glorious Earring",ear2="Loquacious Earring",
         body="Annointed Kalasiris",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back=WHMCape.MND,waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
 
@@ -267,7 +268,7 @@ function init_gear_sets()
         back=WHMCape.MND,waist="Witful Belt",legs="Querkening Brais",feet="Battlecast Gaiters"}
 
     sets.idle.Town = {main="Queller Rod", sub="Genmei Shield",ammo="Homiliary",
-        head="Befouled Crown",neck="Wiglen Gorget",ear1="Glorious Earring",ear2="Loquacious Earring",
+        head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Loquacious Earring",
         body="Annointed Kalasiris",hands="Gendewitha Gages +1",ring1="Sheltered Ring",ring2="Paguroidea Ring",
         back=WHMCape.MND,waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
     
@@ -469,6 +470,20 @@ end
 function select_default_macro_book()
     -- Default macro set/book
     set_macro_page(4, 3)
+end
+
+-- Reset the state vars tracking strategems.
+function update_active_strategems()
+    state.Buff['Ebullience'] = buffactive['Ebullience'] or false
+    state.Buff['Rapture'] = buffactive['Rapture'] or false
+    state.Buff['Perpetuance'] = buffactive['Perpetuance'] or false
+    state.Buff['Immanence'] = buffactive['Immanence'] or false
+    state.Buff['Penury'] = buffactive['Penury'] or false
+    state.Buff['Parsimony'] = buffactive['Parsimony'] or false
+    state.Buff['Celerity'] = buffactive['Celerity'] or false
+    state.Buff['Alacrity'] = buffactive['Alacrity'] or false
+
+    state.Buff['Klimaform'] = buffactive['Klimaform'] or false
 end
 
 function update_sublimation()
