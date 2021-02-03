@@ -123,6 +123,9 @@ function init_gear_sets()
 	Limbus.Hands	=	"Mallquis Cuffs +1"
 	Limbus.Legs 	=	"Mallquis Trews +1"
 	Limbus.Feet		=	"Mallquis Clogs +1"
+
+	AMBU ={}
+	AMBU.Grip		=	"Kaja Grip"
 	
     -- Capes:
     -- Sucellos's And such, add your own.

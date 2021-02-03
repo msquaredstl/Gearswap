@@ -105,6 +105,9 @@ function init_gear_sets()
 	Limbus.Legs 	=	"Ayanmo Cosciales +1"
 	Limbus.Feet		=	"Ayanmo Gambieras +1"
 	
+	AMBU ={}
+	AMBU.Grip		=	"Kaja Grip"
+	
     -- Capes:
     -- Sucellos's And such, add your own.
     RDMCape = {}
@@ -112,7 +115,7 @@ function init_gear_sets()
  }
     RDMCape.STR		=	{ name="Sucellos's Cape", augments={'STR+20','Accuracy+20 Attack+20','Attack+10','"Dual Wield"+10','Damage taken-5%',}
  }
-	RDMCape.INT		=   RDMCape.MND
+	RDMCape.INT		=   { name="Sucellos's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Spell interruption rate down-10%',}}
 	
 	-- Other augmented gear
 	MB_feet={ name="Merlinic Crackows", augments={'"Mag.Atk.Bns."+30','Magic burst dmg.+10%','Mag. Acc.+3',}}
@@ -124,7 +127,7 @@ function init_gear_sets()
     --------------------------------------
     
 	MainWeapon = {}
-		MainWeapon.Sword = {name="Kaja Sword"}
+		MainWeapon.Sword = {name="Naegling"}
 		MainWeapon.Excal = {name="Excalibur"}
 		
 	SubWeapon = {}
@@ -226,20 +229,21 @@ function init_gear_sets()
     
     sets.midcast['Enfeebling Magic'] = {
 		main="Grioavolr",
-		sub="Mephitis Grip",
-		ammo="Pemphredo Tathlum",
+		sub="Enki Strap",
+		ranged="Kaja Bow",
+		ammo=none,
         head=RELIC.Head,
 		neck=RELIC.Neck,
 		ear1="Gwati Earring",
 		ear2="Snotra Earring",
-        body="Vanya Robe",
-		hands="Helios Gloves",
+        body=AF.Body,
+		hands=EMPY.Hands,
 		ring1="Stikini Ring",
 		ring2="Kishar Ring",
-        back=RDMCape.MND,
+        back=RDMCape.INT,
 		waist="Eschan Stone",
 		legs="Psycloth Lappas",
-		feet="Medium's Sabots"}
+		feet=RELIC.Feet}
 
     sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'], {head=RELIC.Head,ring2="Stikini Ring"})
 
@@ -264,7 +268,7 @@ function init_gear_sets()
 		hands="Amalric Gages",
 		ring1="Shiva Ring +1",
 		ring2="Fenrir Ring +1",
-        back="Izdubar Mantle",
+        back=RDMCape.INT,
 		waist="Refoccilation Stone",
 		legs="Amalric Slops",
 		feet=MAB_feet}
@@ -273,7 +277,6 @@ function init_gear_sets()
 		sub="Niobid Strap", 
 		neck="Saevus Pendant +1",
 		ear2="Gwati Earring",
-		back=RDMCape.INT,
 		waist="Refoccilation Stone",
 		legs="Psycloth Lappas"})
 

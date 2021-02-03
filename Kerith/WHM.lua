@@ -57,19 +57,19 @@ function init_gear_sets()
     AF.Feet		=	"Theophany Duckbills +1"
 
     --Vitiation
-    RELIC.Head		=	"Piety Cap +1"
-    RELIC.Body		=	"Piety Briault +1"
+    RELIC.Head		=	"Piety Cap +2"
+    RELIC.Body		=	"Piety Briault +3"
     RELIC.Hands 	=	"Piety Mitts +3"
-    RELIC.Legs		=	"Piety Pantaloons +1"
-    RELIC.Feet		=	"Piety Duckbills +1"
+    RELIC.Legs		=	"Piety Pantaloons +3"
+    RELIC.Feet		=	"Piety Duckbills +2"
 	RELIC.Neck 		=	"Cleric's Torque"
 
     --Lethargy
     EMPY.Head		=	"Ebers Cap +1"
     EMPY.Body		=	"Ebers Bliaud +1"
-    EMPY.Hands		=	"Ebers Mitts"
+    EMPY.Hands		=	"Ebers Mitts +1"
     EMPY.Legs		=	"Ebers Pantaloons +1"
-    EMPY.Feet		=	"Ebers Duckbills"
+    EMPY.Feet		=	"Ebers Duckbills +1"
 
     Salvage = {}
 	Salvage.Head	=	""
@@ -104,7 +104,7 @@ function init_gear_sets()
 
     sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {head="Umuthi Hat"})
 
-    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {legs="Ebers Pantaloons +1"})
+    sets.precast.FC['Healing Magic'] = set_combine(sets.precast.FC, {legs=EMPY.Legs})
 
     sets.precast.FC.StatusRemoval = sets.precast.FC['Healing Magic']
 
@@ -118,7 +118,7 @@ function init_gear_sets()
     -- CureMelee spell map should default back to Healing Magic.
     
     -- Precast sets to enhance JAs
-    sets.precast.JA.Benediction = {body="Piety Briault +1"}
+    sets.precast.JA.Benediction = {body=RELIC.Body}
 	
 	sets.precast.JA['Sublimation'] = {}
 
@@ -159,89 +159,89 @@ function init_gear_sets()
 
     sets.midcast.CureSolace = {main="Queller Rod",sub="Sors Shield",ammo="Incantor Stone",
         head="Kaykaus Mitra",neck="Incanter's Torque",ear1="Glorious Earring",ear2="Nourishing Earring +1",
-        body="Ebers Bliaud +1",hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
-        back="Pahtli Cape",waist=gear.ElementalObi,legs="Ebers Pantaloons +1",feet="Piety Duckbills +1"}
+        body=EMPY.Body,hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
+        back="Oretania's Cape +1",waist=gear.ElementalObi,legs=EMPY.Legs,feet=RELIC.Feet}
 
     sets.midcast.Cure = {main="Queller Rod",sub="Sors Shield",ammo="Incantor Stone",
         head="Kaykaus Mitra",neck="Incanter's Torque",ear1="Glorious Earring",ear2="Nourishing Earring +1",
         body="Kaykaus Bliaut",hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
-        back="Pahtli Cape",waist=gear.ElementalObi,legs="Ebers Pantaloons +1",feet="Piety Duckbills +1"}
+        back="Oretania's Cape +1",waist=gear.ElementalObi,legs=EMPY.Legs,feet=RELIC.Feet}
 
     sets.midcast.Curaga = {main="Queller Rod",sub="Sors Shield",ammo="Incantor Stone",
-        head="Ebers Cap +1",neck="Incanter's Torque",ear1="Glorious Earring",ear2="Nourishing Earring +1",
+        head=EMPY.Head,neck="Incanter's Torque",ear1="Glorious Earring",ear2="Nourishing Earring +1",
         body="Kaykaus Bliaut",hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
-        back="Pahtli Cape",waist=gear.ElementalObi,legs="Ebers Pantaloons +1",feet="Piety Duckbills +1"}
+        back="Oretania's Cape +1",waist=gear.ElementalObi,legs=EMPY.Legs,feet=RELIC.Feet}
 
     sets.midcast.CureMelee = {ammo="Incantor Stone",
         head="Kaykaus Mitra",neck="Incanter's Torque",ear1="Glorious Earring",ear2="Nourishing Earring +1",
         body="Kaykaus Bliaut",hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
-        back="Pahtli Cape",waist=gear.ElementalObi,legs="Ebers Pantaloons +1",feet="Piety Duckbills +1"}
+        back="Oretania's Cape +1",waist=gear.ElementalObi,legs=EMPY.Legs,feet=RELIC.Feet}
 
     sets.midcast.Cursna = {
 		main="Ababinili +1",
 		sub="Achaq Grip",
-        head="Ebers Cap +1",
+        head=EMPY.Head,
 		neck="Malison Medallion",
-        body="Ebers Bliaud +1",
+        body=EMPY.Body,
 		hands="Fanatic Gloves",
 		ring1="Haoma's Ring",
 		ring2="Menelaus's Ring",
         back=WHMCape.MND,
 		waist="Gishdubar Sash",
-		legs="Theophany Pantaloons +1",
+		legs=AF.Legs,
 		feet="Gendewitha Galoshes"}
 
     sets.midcast.CureSelf = {
 		waist="Gishdubar Sash"}
 
-    sets.midcast.StatusRemoval = { head="Ebers Cap +1",legs="Ebers Pantaloons +1"}
+    sets.midcast.StatusRemoval = { head=EMPY.Head,legs=EMPY.Legs}
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts/
     sets.midcast['Enhancing Magic'] = {main="Gada",sub="Culminus",
         head="Befouled Crown",neck="Incanter's Torque",
         body="Telchine Chasuble",hands="Dynasty Mitts",
-        back="Mending Cape",waist="Embla Sash",legs="Piety Pantaloons +1",feet="Theophany Duckbills +1"}
+        back="Mending Cape",waist="Embla Sash",legs=RELIC.Legs,feet=AF.Feet}
 
     sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
 
 	sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {feet="Inspirited Boots"})
 	sets.midcast.RefreshSelf = {waist="Gishdubar Sash"}
 
-    sets.midcast.Auspice = {hands="Dynasty Mitts",feet="Ebers Duckbills"}
+    sets.midcast.Auspice = {hands="Dynasty Mitts",feet=EMPY.Feet}
 
     sets.midcast.BarElement = {main="Ababinili +1",sub="Achaq Grip",
-        head="Ebers Cap +1",neck="Incanter's Torque", body="Ebers Bliaud +1",hands="Orison Mitts +2",
-        back="Mending Cape",waist="Embla Sash",legs="Piety Pantaloons +1",feet="Ebers Duckbills"}
+        head=EMPY.Head,neck="Incanter's Torque", body=EMPY.Body,hands=EMPY.Hands,
+        back="Mending Cape",waist="Embla Sash",legs=RELIC.Legs,feet=EMPY.Feet}
 
     sets.midcast.Regen = {main="Bolelabunga",sub="Genmei Shield",
-        body="Piety Briault +1",hands="Orison Mitts +2",
-        legs="Theophany Pantaloons +1"}
+        body=RELIC.Body,hands=EMPY.Hands,
+        legs=AF.Legs}
 
-    sets.midcast.Protectra = {ring1="Sheltered Ring",feet="Piety Duckbills +1"}
+    sets.midcast.Protectra = {ring1="Sheltered Ring",feet=RELIC.Feet}
 
-    sets.midcast.Shellra = {ring1="Sheltered Ring",legs="Piety Pantaloons +1"}
+    sets.midcast.Shellra = {ring1="Sheltered Ring",legs=RELIC.Legs}
 
 
     sets.midcast['Divine Magic'] = {main="Bolelabunga",sub="Sors Shield",
         head="Nahtirah Hat",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Vanya Robe",hands="Yaoyotl Gloves",ring2="Sangoma Ring",
-        back=WHMCape.MND,waist=gear.ElementalObi,legs="Theophany Pantaloons +1",feet="Gendewitha Galoshes"}
+        back=WHMCape.MND,waist=gear.ElementalObi,legs=AF.Legs,feet="Gendewitha Galoshes"}
 
     sets.midcast['Dark Magic'] = {main="Bolelabunga", sub="Sors Shield",
         head="Nahtirah Hat",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Shango Robe",hands="Yaoyotl Gloves",ring1="Fenrir Ring +1",ring2="Sangoma Ring",
-        back=WHMCape.MND,waist="Aswang Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+        back=WHMCape.MND,waist="Aswang Sash",legs="Bokwus Slops",feet=RELIC.Feet}
 
     -- Custom spell classes
     sets.midcast.MndEnfeebles = {main="Grioavolr", sub="Mephitis Grip",
         head="Nahtirah Hat",neck="Imbodla Necklace",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Ischemia Chasuble",hands="Yaoyotl Gloves",ring1="Leviathan Ring +1",ring2="Sangoma Ring",
-        back=WHMCape.MND,waist="Aswang Sash",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+        back=WHMCape.MND,waist="Aswang Sash",legs="Bokwus Slops",feet=RELIC.Feet}
 
     sets.midcast.IntEnfeebles = {main="Grioavolr", sub="Mephitis Grip",
         head="Nahtirah Hat",neck="Imbodla Necklace",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Ischemia Chasuble",hands="Yaoyotl Gloves",ring1="Shiva Ring +1",ring2="Sangoma Ring",
-        back=WHMCape.MND,waist="Yamabuki-no-obi",legs="Bokwus Slops",feet="Piety Duckbills +1"}
+        back=WHMCape.MND,waist="Yamabuki-no-obi",legs="Bokwus Slops",feet=RELIC.Feet}
 	sets.midcast['Erase'] = {neck=RELIC.Neck}
     
     -- Sets to return to when not performing an action.
@@ -290,7 +290,7 @@ function init_gear_sets()
     sets.defense.MDT = {sub="Genmei Shield",
         head="Nahtirah Hat",neck="Loricate Torque +1",ear2="Genmei Earring",
         body="Kaykaus Bliaut",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Archon Ring",
-        back="Pahtli Cape",legs="Bokwus Slops",feet="Battlecast Gaiters"}
+        back=WHMCape.MND,legs="Bokwus Slops",feet="Battlecast Gaiters"}
 
     sets.Kiting = {feet="Herald's Gaiters"}
 
@@ -321,7 +321,7 @@ function init_gear_sets()
 
 
     -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
-    sets.buff['Divine Caress'] = {hands="Orison Mitts +2",back="Mending Cape"}
+    sets.buff['Divine Caress'] = {hands=EMPY.Hands,back="Mending Cape"}
 	
     sets.buff.Sublimation = {waist="Embla Sash"}
 
