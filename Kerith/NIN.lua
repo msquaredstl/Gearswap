@@ -71,11 +71,11 @@ function init_gear_sets()
     RELIC.Feet		=	"Mochizuki Kyahan +1"
 
     --Skulker
-    EMPY.Head		=	""
-    EMPY.Body		=	""
-    EMPY.Hands		=	""
-    EMPY.Legs		=	""
-    EMPY.Feet		=	""
+    EMPY.Head		=	"Hattori Zukin +1"
+    EMPY.Body		=	"Hattori Ningi +1"
+    EMPY.Hands		=	"Hattori Tekko +1"
+    EMPY.Legs		=	"Hattori Hakama +1"
+    EMPY.Feet		=	"Hattori Kyahan +1"
 
 	Salvage = {}
 	Salvage.Head	=	"Hizamaru Somen +1"

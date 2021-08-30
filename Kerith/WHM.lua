@@ -31,7 +31,7 @@ end
 function user_setup()
     state.OffenseMode:options('None', 'Normal') --F9
     state.CastingMode:options('Normal', 'Resistant', 'Combat') --Ctrl + F11
-    state.IdleMode:options('Normal', 'CP', 'PDT', 'MDT', 'RR') --Ctrl + F12
+    state.IdleMode:options('Normal', 'CP', 'PDT', 'RR', 'Move') --Ctrl + F12
 
     select_default_macro_book()
 end
@@ -50,40 +50,41 @@ function init_gear_sets()
 
 	-- Fill this with your own JSE. 
     --
-    AF.Head		=	""
-    AF.Body		=	"Theophany Briault +1"
-    AF.Hands	=	""
-    AF.Legs		=	"Theophany Pantaloons +1"
+    AF.Head		=	"Theophany Cap +1"
+    AF.Body		=	"Theophany Bliaut +2"
+    AF.Hands	=	"Theophany Mitts +3"
+    AF.Legs		=	"Theophany Pantaloons +2"
     AF.Feet		=	"Theophany Duckbills +1"
 
     --Vitiation
-    RELIC.Head		=	"Piety Cap +2"
-    RELIC.Body		=	"Piety Briault +3"
+    RELIC.Head		=	"Piety Cap +3"
+    RELIC.Body		=	"Piety Bliaut +3"
     RELIC.Hands 	=	"Piety Mitts +3"
     RELIC.Legs		=	"Piety Pantaloons +3"
-    RELIC.Feet		=	"Piety Duckbills +2"
+    RELIC.Feet		=	"Piety Duckbills +3"
 	RELIC.Neck 		=	"Cleric's Torque"
 
     --Lethargy
     EMPY.Head		=	"Ebers Cap +1"
-    EMPY.Body		=	"Ebers Bliaud +1"
+    EMPY.Body		=	"Ebers Bliaut +1"
     EMPY.Hands		=	"Ebers Mitts +1"
     EMPY.Legs		=	"Ebers Pantaloons +1"
     EMPY.Feet		=	"Ebers Duckbills +1"
 
     Salvage = {}
-	Salvage.Head	=	""
-	Salvage.Body	=	""
-	Salvage.Hands	=	""
-	Salvage.Legs 	=	""
-	Salvage.Feet	=	""
+	Salvage.Head	=	"Inyanga Tiara +2"
+	Salvage.Body	=	"Inyanga Jubbah +2"
+	Salvage.Hands	=	"Inyanga Dastanas +2"
+	Salvage.Legs 	=	"Inyanga Shalwar +2"
+	Salvage.Feet	=	"Inyanga Crackows +2"
+	Salvage.Ring	=	"Inyanga Ring"
 
 	Limbus = {}
-	Limbus.Head		=	"Ayanmo Zucchetto +1"
+	Limbus.Head		=	"Ayanmo Zucchetto +2"
 	Limbus.Body		=	"Ayanmo Corazza +2"
 	Limbus.Hands	=	"Ayanmo Manopolas +2"
-	Limbus.Legs 	=	"Ayanmo Cosciales +1"
-	Limbus.Feet		=	"Ayanmo Gambieras +1"
+	Limbus.Legs 	=	"Ayanmo Cosciales +2"
+	Limbus.Feet		=	"Ayanmo Gambieras +2"
 	
 	-- Capes:
     -- Sucellos's And such, add your own.
@@ -95,10 +96,10 @@ function init_gear_sets()
     -- Precast Sets
 
     -- Fast cast sets for spells
-    sets.precast.FC = {main="Marin Staff +1",sub="Niobid Strap",ammo="Incantor Stone",
-        head="Nahtirah Hat",neck="Orunmila's Torque",ear1="Enchanter Earring +1",ear2="Loquacious Earring",
-        body="Shango Robe",hands="Gendewitha Gages +1",ring1="Prolix Ring",ring2="Lebeche Ring",
-        back="Swith Cape",waist="Witful Belt",legs="Kaykaus Tights",feet="Regal Pumps +1"}
+    sets.precast.FC = {main="Marin Staff +1",sub="Niobid Strap",ammo="Impatiens",
+        head="Vanya Hood",neck=RELIC.Neck,ear1="Enchanter Earring +1",ear2="Loquacious Earring",
+        body=Limbus.Body,hands="Gendewitha Gages +1",ring1="Kishar Ring",ring2="Lebeche Ring",
+        back="Perimede Cape",waist="Witful Belt",legs=Limbus.Legs,feet="Regal Pumps +1"}
         
     sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 
@@ -112,13 +113,17 @@ function init_gear_sets()
 		main="Queller Rod",
 		sub="Sors Shield",
 		ammo="Impatiens", 
-		ear2="Nourishing Earring +1"})
+		ear1="Mendicant's Earring",
+		ear2="Nourishing Earring +1",
+		legs=EMPY.Legs})
     sets.precast.FC.Curaga = sets.precast.FC.Cure
     sets.precast.FC.CureSolace = sets.precast.FC.Cure
     -- CureMelee spell map should default back to Healing Magic.
     
     -- Precast sets to enhance JAs
     sets.precast.JA.Benediction = {body=RELIC.Body}
+	--sets.precast.JA['Martyr'] = {hands=RELIC.Hands}
+	sets.precast.JA['Devotion'] = {head=RELIC.Head}
 	
 	sets.precast.JA['Sublimation'] = {}
 
@@ -134,7 +139,7 @@ function init_gear_sets()
 
     -- Default set for any weaponskill that isn't any more specifically defined
     gear.default.weaponskill_neck = "Asperity Necklace"
-    gear.default.weaponskill_waist = ""
+    gear.default.weaponskill_waist = "Fotia Belt"
     sets.precast.WS = {
         head="Nahtirah Hat",neck=gear.ElementalGorget,ear1="Bladeborn Earring",ear2="Steelflash Earring",
         body="Shango Robe",hands="Yaoyotl Gloves",ring1="Rajas Ring",ring2="Epaminondas's Ring",
@@ -157,30 +162,38 @@ function init_gear_sets()
     gear.default.obi_waist = "Ninurta's Sash"
     gear.default.obi_back = "Mending Cape"
 
-    sets.midcast.CureSolace = {main="Queller Rod",sub="Sors Shield",ammo="Incantor Stone",
-        head="Kaykaus Mitra",neck="Incanter's Torque",ear1="Glorious Earring",ear2="Nourishing Earring +1",
-        body=EMPY.Body,hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
-        back="Oretania's Cape +1",waist=gear.ElementalObi,legs=EMPY.Legs,feet=RELIC.Feet}
+    sets.midcast.Cure = {
+		main="Queller Rod",
+		sub="Sors Shield",
+		ammo="Pemphredo Tathlum",
+        head=EMPY.Head,
+		neck=RELIC.Neck,
+		ear1="Glorious Earring",
+		ear2="Nourishing Earring +1",
+        body=EMPY.Body,
+		hands=AF.Hands,
+		ring1="Menelaus's Ring",
+		ring2="Lebeche Ring",
+        back=WHMCape.MND,
+		waist="Hachirin-no-Obi",
+		legs=EMPY.Legs,
+		feet=RELIC.Feet}
+		
+    sets.midcast.CureSolace = set_combine(sets.midcast.Cure, {
+		})
 
-    sets.midcast.Cure = {main="Queller Rod",sub="Sors Shield",ammo="Incantor Stone",
-        head="Kaykaus Mitra",neck="Incanter's Torque",ear1="Glorious Earring",ear2="Nourishing Earring +1",
-        body="Kaykaus Bliaut",hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
-        back="Oretania's Cape +1",waist=gear.ElementalObi,legs=EMPY.Legs,feet=RELIC.Feet}
-
-    sets.midcast.Curaga = {main="Queller Rod",sub="Sors Shield",ammo="Incantor Stone",
-        head=EMPY.Head,neck="Incanter's Torque",ear1="Glorious Earring",ear2="Nourishing Earring +1",
-        body="Kaykaus Bliaut",hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
-        back="Oretania's Cape +1",waist=gear.ElementalObi,legs=EMPY.Legs,feet=RELIC.Feet}
+    sets.midcast.Curaga = set_combine(sets.midcast.Cure, {
+        body=AF.Body})
 
     sets.midcast.CureMelee = {ammo="Incantor Stone",
         head="Kaykaus Mitra",neck="Incanter's Torque",ear1="Glorious Earring",ear2="Nourishing Earring +1",
-        body="Kaykaus Bliaut",hands="Telchine Gloves",ring1="Prolix Ring",ring2="Sirona's Ring",
-        back="Oretania's Cape +1",waist=gear.ElementalObi,legs=EMPY.Legs,feet=RELIC.Feet}
+        body="Kaykaus Bliaut",hands=AF.Hands,ring1="Prolix Ring",ring2="Sirona's Ring",
+        back=WHMCape.MND,waist="Hachirin-no-Obi",legs=EMPY.Legs,feet=RELIC.Feet}
 
     sets.midcast.Cursna = {
-		main="Ababinili +1",
-		sub="Achaq Grip",
-        head=EMPY.Head,
+		main="Gada",
+		sub="Ammurapi Shield",
+        head="Vanya Hood",
 		neck="Malison Medallion",
         body=EMPY.Body,
 		hands="Fanatic Gloves",
@@ -189,7 +202,7 @@ function init_gear_sets()
         back=WHMCape.MND,
 		waist="Gishdubar Sash",
 		legs=AF.Legs,
-		feet="Gendewitha Galoshes"}
+		feet="Vanya Clogs"}
 
     sets.midcast.CureSelf = {
 		waist="Gishdubar Sash"}
@@ -197,7 +210,7 @@ function init_gear_sets()
     sets.midcast.StatusRemoval = { head=EMPY.Head,legs=EMPY.Legs}
 
     -- 110 total Enhancing Magic Skill; caps even without Light Arts/
-    sets.midcast['Enhancing Magic'] = {main="Gada",sub="Culminus",
+    sets.midcast['Enhancing Magic'] = {main="Gada",sub="Ammurapi Shield",
         head="Befouled Crown",neck="Incanter's Torque",
         body="Telchine Chasuble",hands="Dynasty Mitts",
         back="Mending Cape",waist="Embla Sash",legs=RELIC.Legs,feet=AF.Feet}
@@ -209,12 +222,16 @@ function init_gear_sets()
 
     sets.midcast.Auspice = {hands="Dynasty Mitts",feet=EMPY.Feet}
 
-    sets.midcast.BarElement = {main="Ababinili +1",sub="Achaq Grip",
+    sets.midcast.BarElement = {
         head=EMPY.Head,neck="Incanter's Torque", body=EMPY.Body,hands=EMPY.Hands,
         back="Mending Cape",waist="Embla Sash",legs=RELIC.Legs,feet=EMPY.Feet}
 
-    sets.midcast.Regen = {main="Bolelabunga",sub="Genmei Shield",
-        body=RELIC.Body,hands=EMPY.Hands,
+    sets.midcast.Regen = {
+		main="Bolelabunga",
+		sub="Ammurapi Shield",
+		head=Salvage.Head,
+        body=RELIC.Body,
+		hands=EMPY.Hands,
         legs=AF.Legs}
 
     sets.midcast.Protectra = {ring1="Sheltered Ring",feet=RELIC.Feet}
@@ -222,26 +239,26 @@ function init_gear_sets()
     sets.midcast.Shellra = {ring1="Sheltered Ring",legs=RELIC.Legs}
 
 
-    sets.midcast['Divine Magic'] = {main="Bolelabunga",sub="Sors Shield",
+    sets.midcast['Divine Magic'] = {main="Gada",sub="Ammurapi Shield",
         head="Nahtirah Hat",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Vanya Robe",hands="Yaoyotl Gloves",ring2="Sangoma Ring",
-        back=WHMCape.MND,waist=gear.ElementalObi,legs=AF.Legs,feet="Gendewitha Galoshes"}
+        back=WHMCape.MND,waist="Hachirin-no-Obi",legs=AF.Legs,feet="Gendewitha Galoshes"}
 
-    sets.midcast['Dark Magic'] = {main="Bolelabunga", sub="Sors Shield",
+    sets.midcast['Dark Magic'] = {main="Gada", sub="Ammurapi Shield",
         head="Nahtirah Hat",neck="Incanter's Torque",ear1="Gwati Earring",ear2="Nourishing Earring +1",
         body="Shango Robe",hands="Yaoyotl Gloves",ring1="Fenrir Ring +1",ring2="Sangoma Ring",
-        back=WHMCape.MND,waist="Aswang Sash",legs="Bokwus Slops",feet=RELIC.Feet}
+        back=WHMCape.MND,waist="Aswang Sash",legs="Chironic Hose",feet=RELIC.Feet}
 
     -- Custom spell classes
-    sets.midcast.MndEnfeebles = {main="Grioavolr", sub="Mephitis Grip",
-        head="Nahtirah Hat",neck="Imbodla Necklace",ear1="Gwati Earring",ear2="Nourishing Earring +1",
-        body="Ischemia Chasuble",hands="Yaoyotl Gloves",ring1="Leviathan Ring +1",ring2="Sangoma Ring",
-        back=WHMCape.MND,waist="Aswang Sash",legs="Bokwus Slops",feet=RELIC.Feet}
+    sets.midcast.MndEnfeebles = {main="Gada", sub="Ammurapi Shield",
+        head="Nahtirah Hat",neck="Imbodla Necklace",ear1="Gwati Earring",ear2="Vor Earring",
+        body="Ischemia Chasuble",hands="Kaykaus Cuffs +1",ring1="Leviathan Ring +1",ring2="Sangoma Ring",
+        back=WHMCape.MND,waist="Rumination Sash",legs="Chironic Hose",feet=RELIC.Feet}
 
-    sets.midcast.IntEnfeebles = {main="Grioavolr", sub="Mephitis Grip",
-        head="Nahtirah Hat",neck="Imbodla Necklace",ear1="Gwati Earring",ear2="Nourishing Earring +1",
-        body="Ischemia Chasuble",hands="Yaoyotl Gloves",ring1="Shiva Ring +1",ring2="Sangoma Ring",
-        back=WHMCape.MND,waist="Yamabuki-no-obi",legs="Bokwus Slops",feet=RELIC.Feet}
+    sets.midcast.IntEnfeebles = {main="Gada", sub="Ammurapi Shield",
+        head="Nahtirah Hat",neck="Imbodla Necklace",ear1="Gwati Earring",ear2="Vor Earring",
+        body="Ischemia Chasuble",hands="Kaykaus Cuffs +1",ring1="Shiva Ring +1",ring2="Sangoma Ring",
+        back=WHMCape.MND,waist="Rumination Sash",legs="Chironic Hose",feet=RELIC.Feet}
 	sets.midcast['Erase'] = {neck=RELIC.Neck}
     
     -- Sets to return to when not performing an action.
@@ -259,26 +276,27 @@ function init_gear_sets()
     -- Idle sets (default idle set not needed since the other three are defined, but leaving for testing purposes)
     sets.idle = {main="Queller Rod", sub="Genmei Shield",ammo="Homiliary",
         head="Befouled Crown",neck=RELIC.Neck,ear1="Glorious Earring",ear2="Loquacious Earring",
-        body="Annointed Kalasiris",hands="Serpentes Cuffs",ring1="Sheltered Ring",ring2="Paguroidea Ring",
-        back=WHMCape.MND,waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
+        body=RELIC.Body,hands=Salvage.Hands,ring1=Salvage.Ring,ring2="Adoulin Ring +1",
+        back=WHMCape.MND,waist="Fucho-no-obi",legs="Assiduity Pants +1",feet=Salvage.Feet}
 
     sets.idle.PDT = {main="Bolelabunga", sub="Genmei Shield",ammo="Homiliary",
         head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Genmei Earring",
-        body="Annointed Kalasiris",hands="Gendewitha Gages +1",ring1="Defending Ring",ring2="Meridian Ring",
+        body="Annointed Kalasiris",hands="Gendewitha Gages +1",ring1="Defending Ring",ring2="Adoulin Ring +1",
         back=WHMCape.MND,waist="Witful Belt",legs="Querkening Brais",feet="Battlecast Gaiters"}
 
     sets.idle.Town = {main="Queller Rod", sub="Genmei Shield",ammo="Homiliary",
         head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Loquacious Earring",
-        body="Annointed Kalasiris",hands="Gendewitha Gages +1",ring1="Sheltered Ring",ring2="Paguroidea Ring",
+        body=RELIC.Body,hands="Gendewitha Gages +1",ring1=Salvage.Ring,ring2="Adoulin Ring +1",
         back=WHMCape.MND,waist="Witful Belt",legs="Assiduity Pants +1",feet="Herald's Gaiters"}
     
     sets.idle.Weak = {main="Bolelabunga",sub="Genmei Shield",ammo="Homiliary",
         head="Befouled Crown",neck="Loricate Torque +1",ear1="Glorious Earring",ear2="Genmei Earring",
-        body="Annointed Kalasiris",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Meridian Ring",
+        body="Annointed Kalasiris",hands=Limbus.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back=WHMCape.MND,waist="Witful Belt",legs="Assiduity Pants +1",feet="Gendewitha Galoshes +1"}
     
  	sets.idle.CP = set_combine(sets.idle,{back="Mecistopins Mantle"})
-	sets.idle.RR = set_combine(sets.idle.PDT,{body="Annointed Kalasiris"})
+	sets.idle.RR = {body="Annointed Kalasiris"}
+	sets.idle.Move = {feet="Herald's Gaiters"}
 
    -- Defense sets
 
@@ -290,7 +308,7 @@ function init_gear_sets()
     sets.defense.MDT = {sub="Genmei Shield",
         head="Nahtirah Hat",neck="Loricate Torque +1",ear2="Genmei Earring",
         body="Kaykaus Bliaut",hands="Yaoyotl Gloves",ring1="Defending Ring",ring2="Archon Ring",
-        back=WHMCape.MND,legs="Bokwus Slops",feet="Battlecast Gaiters"}
+        back=WHMCape.MND,legs="Chironic Hose",feet="Battlecast Gaiters"}
 
     sets.Kiting = {feet="Herald's Gaiters"}
 

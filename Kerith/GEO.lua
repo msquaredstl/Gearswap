@@ -75,7 +75,7 @@ function init_gear_sets()
     AF.Feet		=	"Geomancy Sandals +3"
 
     --Vitiation
-    RELIC.Head		=	"Bagua Galero +1"
+    RELIC.Head		=	"Bagua Galero +3"
     RELIC.Body		=	"Bagua Tunic +3"
     RELIC.Hands 	=	"Bagua Mitaines +3"
     RELIC.Legs		=	"Bagua Pants +3"
@@ -238,7 +238,7 @@ function init_gear_sets()
     sets.midcast['Enfeebling Magic'] = {
 		main=Weapons.MACC,
 		sub="Mephitis Grip",
-		ammo="Pemphredo Tathlum",
+		ammo="Quartz Tathlum +1",
         head="Befouled Crown",
 		neck="Incanter's Torque",
 		ring1="Stikini Ring",
@@ -247,7 +247,7 @@ function init_gear_sets()
 		hands="Helios Gloves",
 		ring2="Sangoma Ring",
         cape=GEOCape.Geo,
-		waist="Eschan Stone",
+		waist="Rumination Sash",
 		legs="Psycloth Lappas",
 		feet=RELIC.Feet}
     
@@ -354,7 +354,7 @@ function init_gear_sets()
 		ring1="Menelaus's Ring",
 		ring2="Sirona's Ring",
         back="Oretania's Cape +1",
-		waist=gear.ElementalObi,
+		waist="Hachirin-no-Obi",
 		legs="Psycloth Lappas",
 		feet="Vanya Clogs"}
 
@@ -412,12 +412,12 @@ function init_gear_sets()
  
     -- .Pet sets are for when Luopan is present.
     sets.idle.Pet = {main=Weapons.GEO,sub="Culminus",range="Dunna",
-        head=EMPY.Head,neck=RELIC.Neck,ear1="Handler's Earring",ear2="Loquacious Earring",
+        head=RELIC.Head,neck=RELIC.Neck,ear1="Handler's Earring",ear2="Loquacious Earring",
         body="Amalric Doublet",hands=RELIC.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back=GEOCape.Geo,waist="Isa Belt",legs="Assiduity Pants +1",feet=RELIC.Feet}
  
     sets.idle.PDT.Pet = {main=Weapons.GEO,sub="Genmei Shield",range="Dunna",
-        head="Hagondes Hat +1",neck="Loricate Torque +1",ear1="Handler's Earring",ear2="Genmei Earring",
+        head=RELIC.Head,neck="Loricate Torque +1",ear1="Handler's Earring",ear2="Genmei Earring",
         body="Hagondes Coat +1",hands=AF.Hands,ring1="Defending Ring",ring2="Adoulin Ring +1",
         back=GEOCape.Geo,waist="Isa Belt",legs="Assiduity Pants +1",feet=RELIC.Feet}
   
